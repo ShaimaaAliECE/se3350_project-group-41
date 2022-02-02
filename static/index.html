@@ -1,17 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>working</title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        text-align: center;
+      }
+      header{
+        margin-top: 1pc;
+      }
+      .table1, .table1 th, .table1 td{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 8pc;
+      }
+
+      .table2, .table2 th, .table2 td{
+        margin-left: 30%;
+        margin-right: auto;
+        margin-top: 2pc;
+      }
+
+      .table3, .table3 th, .table3 td{
+        margin-left: auto;
+        margin-right: 30%;
+        margin-top:-1.75pc;
+      }
+
+      .table4, .table4 th, .table4 td{
+        margin-left: 25%;
+        margin-right: auto;
+        margin-top: 2pc;
+      }
+
+      .table5, .table5 th, .table5 td{
+        margin-left: 37%;
+        margin-right: auto;
+        margin-top:-1.75pc;
+      }
+
+      .table6, .table6 th, .table6 td{
+        margin-left: 22%;
+        margin-right: auto;
+        margin-top: 2pc;
+      }
+
+      .table7, .table7 th, .table7 td{
+        margin-left: 30%;
+        margin-right: auto;
+        margin-top: -1.75pc;
+      }
+      
+      .table8, .table8 th, .table8 td{
+        margin-left: 20%;
+        margin-right: auto;
+        margin-top: 2pc;
+      }
+
+      .table9, .table9 th, .table9 td{
+        margin-left: 25%;
+        margin-right: auto;
+        margin-top: -1.75pc;
+      }
+
+      .table10, .table10 th, .table10 td{
+        margin-left: 35%;
+        margin-right: auto;
+        margin-top: -5.5pc;
+      }
+
+      .table11, .table11 th, .table11 td{
+        margin-left: 41%;
+        margin-right: auto;
+        margin-top: -1.75pc;
+        
+      }
+
+      .table12, .table12 th, .table12 td{
+        margin-left: auto;
+        margin-right: 41%;
+        margin-top: -5.5pc;
+        
+      }
+
+      .table13, .table13 th, .table13 td{
+        margin-left: auto;
+        margin-right: 45%;
+        margin-top: 2pc;
+      }
+      
+      .table14, .table14 th, .table14 td{
+        margin-left: auto;
+        margin-right: 40%;
+        margin-top: -1.75pc;
+      }
+
+      .table15, .table15 th, .table15 td{
+        margin-left: auto;
+        margin-right: 49%;
+        margin-top: 2pc;
+      }
+
+      .table16, .table16 th, .table16 td{
+        margin-left: auto;
+        margin-right: 44%;
+        margin-top: -1.75pc;
+      }
+
+      .table17, .table17 th, .table17 td{
+        margin-left: auto;
+        margin-right: 25%;
+        margin-top: -9.25pc;
+      }
+
+      .table18, .table18 th, .table18 td{
+        margin-left: auto;
+        margin-right: 28%;
+        margin-top: 2pc;
+      }
+
+      .table19, .table19 th, .table19 td{
+        margin-left: auto;
+        margin-right: 23%;
+        margin-top: -1.75pc;
+      }
+
+      
+
+     
+      
+    </style>
 </head>
 <body>
-    <form action="/" method="post">
-        <div class="container">
-          <label for="arr"><b>numbers</b></label>
-          <input type="number" name="arr" required>
-          
-        </div>
+  <header align="center">
+    Mergesort Visual
+  </header>
+        <table style="width:20%" class="table1">
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+          </tr>
+        </table>
+
+        <table style="width:10%;" class="table2">
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+          </tr>
+        </table>
+
+        <table style="width:10%;" class="table3">
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+          </tr>
+        </table>
+
+        <table style="width:6%;" class="table4">
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+          </tr>
+        </table>
+
+        <table style="width:4%;" class="table5">
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+        </table>
+
+        <table style="width:4%;" class="table6">
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+        </table>
+
+        <table style="width:2%;" class="table7">
+          <tr>
+            <td>1</td>
+          </tr>
+        </table>
+
+        <table style="width:2%;" class="table8">
+          <tr>
+            <td>1</td>
+          </tr>
+        </table>
+
+        <table style="width:2%;" class="table9">
+          <tr>
+            <td>1</td>
+          </tr>
+        </table>
+
+        <table style="width:2%;" class="table10">
+          <tr>
+            <td>1</td>
+          </tr>
+        </table>
+
+        <table style="width:2%;" class="table11">
+          <tr>
+            <td>1</td>
+          </tr>
+        </table>
+
+        <table style="width:6%;" class="table12">
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+          </tr>
+        </table>
+
+        <table style="width:4%;" class="table13">
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+        </table>
+
+        <table style="width:2%;" class="table14">
+          <tr>
+            <td>1</td>
+          </tr>
+        </table>
+
+        <table style="width:2%;" class="table15">
+          <tr>
+            <td>1</td>
+          </tr>
+        </table>
+
+        <table style="width:2%;" class="table16">
+          <tr>
+            <td>1</td>
+          </tr>
+        </table>
+
+        <table style="width:4%;" class="table17">
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+        </table>
+
+        <table style="width:2%;" class="table18">
+          <tr>
+            <td>1</td>
+          </tr>
+        </table>
+        
+        <table style="width:2%;" class="table19">
+          <tr>
+            <td>1</td>
+          </tr>
+        </table>
+
+        
+
+        
+
+
 </body>
 </html>
