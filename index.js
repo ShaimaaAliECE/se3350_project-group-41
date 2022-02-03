@@ -1,6 +1,10 @@
+const {request} = require('express');
 const express = require('express');
 const app = express();
 const port = 1000;
+app.use(express.urlencoded({ extended: true}))
+app.use(express.static('static'));
+
 
 app.get('/', function(req, res) {
   content = '';
@@ -22,7 +26,7 @@ app.get('/', function(req, res) {
   content += "</tr></table><br><br>";
 
   //2
-  content += "<table><tr>";
+  /*content += "<table><tr>";
   for (let i = 0; i < 5; i++) {
     content += "<th>"
     content += nums[i];
@@ -38,7 +42,7 @@ app.get('/', function(req, res) {
     content += "</th>"
   }
   content += "</tr><table>";
-
+  */
 
   res.send(content)
   //Math.floor((Math.random() * 100) + 1);

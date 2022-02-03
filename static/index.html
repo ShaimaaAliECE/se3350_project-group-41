@@ -7,10 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>working</title>
 
-    <a></a>
-
-
-    <style>
+    <!--style>
       table, th, td {
         border: 1px solid black;
         text-align: center;
@@ -133,159 +130,30 @@
         margin-right: 23%;
         margin-top: -1.75pc;
       } 
-    </style>
+    </style-->
 </head>
-<!--body>
-  <header align="center">
-    Mergesort Visual
-  </header>
+<body>
+  <h1>Start the tutorial</h1>
+  <input type = "button" onclick = "ShowLine()" value = "Display">
+  <div id = "line"></div>
 
-    <button id="next" >Next</button>
-
-        <table style="width:20%" class="table1">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-          </tr>
-        </table>
-
-        <table style="width:10%;" class="table2">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-          </tr>
-        </table>
-
-        <table style="width:10%; " class="table3">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-          </tr>
-        </table>
-
-        <table style="width:6%;" class="table4">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-          </tr>
-        </table>
-
-        <table style="width:4%;" class="table5">
-          <tr>
-            <td aria-valuenow="">1</td>
-            <td>2</td>
-          </tr>
-        </table>
-
-        <table style="width:4%;" class="table6">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table7">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table8">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table9">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table10">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table11">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:6%;" class="table12">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-          </tr>
-        </table>
-
-        <table style="width:4%;" class="table13">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table14">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table15">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table16">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:4%;" class="table17">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table18">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-        
-        <table style="width:2%;" class="table19">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        
-        
-
-        
-
-
-</body-->
+</body>
 </html>
+<script>
+  function ShowLine(){
+    let content = "";
+    content += "<style> h1 {color:red;} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:left;} table,th,td {border:1px solid #000;} </style>";
+    content += "<table><tr>";
+    nums = [];
+    for (let i = 0; i < 10; i++) {
+      a = Math.floor((Math.random() * 100) + 1);
+      nums.push(a);
+      content += "<th>"
+      content += a;
+      content += "</th>"
+    }
+    content += "</tr></table><br><br>";
+    console.log("hello");
+    document.write(content);
+  }
+</script>
