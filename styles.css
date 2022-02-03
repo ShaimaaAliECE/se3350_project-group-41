@@ -1,3 +1,13 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+
+:root{
+    --hue-neutral: 200;
+
+}
+
 body {
 
     --hue: var(--hue-netural);
@@ -11,4 +21,13 @@ body {
     
     background-color: hsl(var(--hue),100%,20%);
 
+}
+
+.container{
+    width: 800px;
+    max-width: 80%;
+    background-color:white;
+    border-radius: 5px;
+    padding: 10px;
+    
 }
