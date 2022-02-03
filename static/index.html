@@ -135,25 +135,33 @@
 <body>
   <h1>Start the tutorial</h1>
   <input type = "button" onclick = "ShowLine()" value = "Display">
-  <div id = "line"></div>
-
 </body>
 </html>
+
 <script>
+  let nextcount = 0;
+  let nums = [];
+  for (let i = 0; i< 10; i++){
+    a = Math.floor((Math.random() * 100) + 1);
+    nums.push(a);
+  }
   function ShowLine(){
     let content = "";
     content += "<style> h1 {color:red;} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:left;} table,th,td {border:1px solid #000;} </style>";
     content += "<table><tr>";
-    nums = [];
+    
     for (let i = 0; i < 10; i++) {
-      a = Math.floor((Math.random() * 100) + 1);
-      nums.push(a);
       content += "<th>"
-      content += a;
+      content += nums[i];
       content += "</th>"
     }
     content += "</tr></table><br><br>";
-    console.log("hello");
+    content += "<input type = 'button' onclick = 'NextLine()'' value = 'Next'>";
     document.write(content);
+  }
+
+  function NextLine(){
+    let content = "";
+    
   }
 </script>
