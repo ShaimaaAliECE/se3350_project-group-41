@@ -1,27 +1,50 @@
 const express = require('express');
-
 const app = express();
+const port = 1000;
+
+app.get('/', function(req, res) {
+  content = '';
+  //res.send('Hello World!')
+
+  content += "<style> h1 {color:red;} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:left;} table,th,td {border:1px solid #000;} </style>";
+ // content += "<h1>This is a heading</h1> <p>This is a paragraph.</p>";
+  content += "<table><tr>";
+
+  nums = [];
+  //1
+  for (let i = 0; i < 10; i++) {
+    a = Math.floor((Math.random() * 100) + 1);
+    nums.push(a);
+    content += "<th>"
+    content += a;
+    content += "</th>"
+  }
+  content += "</tr></table><br><br>";
+
+  //2
+  content += "<table><tr>";
+  for (let i = 0; i < 5; i++) {
+    content += "<th>"
+    content += nums[i];
+    content += "</th>"
+  }
+  content += "</tr><table>";
+
+  //3
+  content += "<table><tr>";
+  for (let i = 5; i < 10; i++) {
+    content += "<th>"
+    content += nums[i];
+    content += "</th>"
+  }
+  content += "</tr><table>";
 
 
-// serve static contents
-app.use(express.static('static'));
+  res.send(content)
+  //Math.floor((Math.random() * 100) + 1);
 
+});
 
-app.post('/', (req, res) => {
-    val[10] = randomNumberGenerator(10);
-    let p = req.body.eleven
-    
-    for(x of val){
-        let 
-    }
-})
-
-
-
-
-
-
-
-
-app.listen(2000);
-
+app.listen(port, function() {
+  console.log(`Example app listening on port ${port}!`)
+});
