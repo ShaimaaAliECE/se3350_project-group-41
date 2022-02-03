@@ -7,7 +7,14 @@ const app = express();
 app.use(express.static('static'));
 
 
-
+app.post('/', (req, res) => {
+    val[10] = randomNumberGenerator(10);
+    let p = req.body.eleven
+    
+    for(x of val){
+        let 
+    }
+})
 
 
 
