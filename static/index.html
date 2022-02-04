@@ -18,41 +18,17 @@
 
       .table3, .table3 th, .table3 td{margin-left: auto;margin-right: 30%;margin-top:-1.75pc;}
 
-      .table4, .table4 th, .table4 td{
-        margin-left: 25%;
-        margin-right: auto;
-        margin-top: 2pc;
-      }
+      .table4, .table4 th, .table4 td{margin-left: 25%;margin-right: auto;margin-top: 2pc;}
 
-      .table5, .table5 th, .table5 td{
-        margin-left: 37%;
-        margin-right: auto;
-        margin-top:-1.75pc;
-      }
+      .table5, .table5 th, .table5 td{margin-left: 37%;margin-right: auto;margin-top:-1.75pc;}
 
-      .table6, .table6 th, .table6 td{
-        margin-left: 22%;
-        margin-right: auto;
-        margin-top: 2pc;
-      }
+      .table6, .table6 th, .table6 td{margin-left: 22%;margin-right: auto;margin-top: 2pc;}
 
-      .table7, .table7 th, .table7 td{
-        margin-left: 30%;
-        margin-right: auto;
-        margin-top: -1.75pc;
-      }
+      .table7, .table7 th, .table7 td{margin-left: 30%;margin-right: auto;margin-top: -1.75pc;}
       
-      .table8, .table8 th, .table8 td{
-        margin-left: 20%;
-        margin-right: auto;
-        margin-top: 2pc;
-      }
+      .table8, .table8 th, .table8 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;}
 
-      .table9, .table9 th, .table9 td{
-        margin-left: 25%;
-        margin-right: auto;
-        margin-top: -1.75pc;
-      }
+      .table9, .table9 th, .table9 td{margin-left: 25%;margin-right: auto;margin-top: -1.75pc;}
 
       .table10, .table10 th, .table10 td{
         margin-left: 35%;
@@ -132,7 +108,9 @@
   }
   function ShowLine(){//Creates the first line of the table
     let content = "";
-    content += "<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:center;} table,th,td {border:1px solid #000;} .table2, .table2 th, .table2 td{margin-left: 5%;margin-right: auto;margin-top: 2pc;} .table3, .table3 th, .table3 td{margin-left: auto;margin-right: 5%;margin-top:-1.75pc;} </style>";
+    
+    content += "<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:center;} table,th,td {border:1px solid #000;} .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;} .table3, .table3 th, .table3 td{margin-left: auto;margin-right: 20%;margin-top:-1.75pc;} .table4, .table4 th, .table4 td{margin-left: 10%;margin-right: auto;margin-top: 2pc;} .table5, .table5 th, .table5 td{margin-left: 35%;margin-right: auto;margin-top:-1.75pc;} .table6, .table6 th, .table6 td{margin-left: 7%;margin-right: auto;margin-top: 2pc;} .table7, .table7 th, .table7 td{margin-left: 15%;margin-right: auto;margin-top: -1.75pc;}.table8, .table8 th, .table8 td{margin-left: 12%;margin-right: auto;margin-top: 2pc;} .table9, .table9 th, .table9 td{margin-left: 20%;margin-right: auto;margin-top: -3pc;}</style>";
+    content += "<style></style>"
     content +="<h1> Merge Sort Game </h1>" 
     content += "<table style=text-align: center;><tr>";
     
@@ -161,7 +139,7 @@
         content += "</tr></table>";
 
         //3
-        content += "<table class = 'table3'><tr>";
+        content += "<table class = 'table3' style='width: 10%'><tr>";
         for (let i = 5; i < 10; i++) {
           content += "<th>"
           content += nums[i];
@@ -171,7 +149,7 @@
         break;
 
       case 1:
-        content += "</br><table class = 'table4'><tr>";
+        content += "</br><table class = 'table4' style='width: 6%'><tr>";
         for (let i = 0; i < 3; i++) {
           content += "<th>"
           content += nums[i];
@@ -179,7 +157,7 @@
         }
         content += "</tr></table>";
 
-        content += "<table><tr>";
+        content += "<table class = 'table5' style ='width: 4%'><tr>";
         for (let i = 3; i < 5; i++) {
           content += "<th>"
           content += nums[i];
@@ -189,7 +167,7 @@
         break;
 
       case 2:
-        content += "</br><table><tr>";
+        content += "</br><table class = 'table6' style = 'width: 2%'><tr>";
         for (let i = 0; i < 1; i++) {
           content += "<th>"
           content += nums[i];
@@ -197,7 +175,7 @@
         }
         content += "</tr></table>";
 
-        content += "<table><tr>";
+        content += "<table class = 'table7' style = 'width: 4%'><tr>";
         for (let i = 1; i < 3; i++) {
           content += "<th>"
           content += nums[i];
@@ -207,7 +185,7 @@
         break;
 
       case 3:
-        content += "</br><table><tr>";
+        content += "</br><table class = 'table8' style = 'width: 2%'><tr>";
         for (let i = 1; i < 2; i++) {
           content += "<th>"
           content += nums[i];
@@ -215,7 +193,7 @@
         }
         content += "</tr></table>";
         
-        content += "</br><table><tr>";
+        content += "</br><table class = 'table9' style = 'width: 2%'><tr>";
         for (let i = 2; i < 3; i++) {
           content += "<th>"
           content += nums[i];
