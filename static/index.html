@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>working</title>
 
-    <!--style>
+    <style>
       table, th, td {
         border: 1px solid black;
         text-align: center;
@@ -130,7 +130,7 @@
         margin-right: 23%;
         margin-top: -1.75pc;
       } 
-    </style-->
+    </style>
 </head>
 <body>
   <h1>Start the tutorial</h1>
@@ -163,8 +163,65 @@
 
   function NextLine(){//contains all the steps of the tutorial 
     let content = "";
-    
 
+    switch(nextcount){
+      case 0:
+        //2
+        content += "<table class = 'table2'><tr>";
+        for (let i = 0; i < 5; i++) {
+          content += "<th>"
+          content += nums[i];
+          content += "</th>"
+        }
+        content += "</tr><table>";
+
+        //3
+        content += "<table class = 'table3'><tr>";
+        for (let i = 5; i < 10; i++) {
+          content += "<th>"
+          content += nums[i];
+          content += "</th>"
+        }
+        content += "</tr><table>";
+        break;
+      case 1:
+        break;
+      case 2:
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+      case 5:
+        break;
+      case 6:
+        break;
+      case 7:
+        break;
+      case 8:
+        break;
+      case 9:
+        break;
+      case 10:
+        break;
+      case 11:
+        break;
+      case 12:
+        break;
+      case 13:
+        break;
+      case 14:
+        break;
+      case 15:
+        break;
+      case 16:
+        break;
+      case 17:
+        break;
+      case 18:
+        break;
+    }
+    nextcount += 1;
     document.write(content);
   }
 </script>
