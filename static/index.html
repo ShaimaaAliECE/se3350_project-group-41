@@ -30,43 +30,17 @@
 
       .table9, .table9 th, .table9 td{margin-left: 25%;margin-right: auto;margin-top: -1.75pc;}
 
-      .table10, .table10 th, .table10 td{
-        margin-left: 35%;
-        margin-right: auto;
-        margin-top: -5.5pc;
-      }
+      .table10, .table10 th, .table10 td{margin-left: 35%;margin-right: auto;margin-top: -5.5pc;}
 
-      .table11, .table11 th, .table11 td{
-        margin-left: 41%;
-        margin-right: auto;
-        margin-top: -1.75pc;
-        
-      }
+      .table11, .table11 th, .table11 td{margin-left: 41%;margin-right: auto;margin-top: -1.75pc;}
 
-      .table12, .table12 th, .table12 td{
-        margin-left: auto;
-        margin-right: 41%;
-        margin-top: -5.5pc;
-        
-      }
+      .table12, .table12 th, .table12 td{margin-left: auto;margin-right: 41%;margin-top: -5.5pc;}
 
-      .table13, .table13 th, .table13 td{
-        margin-left: auto;
-        margin-right: 45%;
-        margin-top: 2pc;
-      }
+      .table13, .table13 th, .table13 td{margin-left: auto;margin-right: 45%;margin-top: 2pc;}
       
-      .table14, .table14 th, .table14 td{
-        margin-left: auto;
-        margin-right: 40%;
-        margin-top: -1.75pc;
-      }
+      .table14, .table14 th, .table14 td{margin-left: auto;margin-right: 40%;margin-top: -1.75pc;}
 
-      .table15, .table15 th, .table15 td{
-        margin-left: auto;
-        margin-right: 49%;
-        margin-top: 2pc;
-      }
+      .table15, .table15 th, .table15 td{margin-left: auto;margin-right: 49%;margin-top: 2pc;}
 
       .table16, .table16 th, .table16 td{
         margin-left: auto;
@@ -110,7 +84,7 @@
     
     let content = "";
     
-    content += "<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:center;} table,th,td {border:1px solid #000;} .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;} .table3, .table3 th, .table3 td{margin-left: auto;margin-right: 20%;margin-top:-1.75pc;} .table4, .table4 th, .table4 td{margin-left: 10%;margin-right: auto;margin-top: 2pc;} .table5, .table5 th, .table5 td{margin-left: 35%;margin-right: auto;margin-top:-1.75pc;} .table6, .table6 th, .table6 td{margin-left: 7%;margin-right: auto;margin-top: 2pc;} .table7, .table7 th, .table7 td{margin-left: 15%;margin-right: auto;margin-top: -1.75pc;}.table8, .table8 th, .table8 td{margin-left: 12%;margin-right: auto;margin-top: 2pc;} .table9, .table9 th, .table9 td{margin-left: 20%;margin-right: auto;margin-top: -3pc;}</style>";
+    content += "<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:center;} table,th,td {border:1px solid #000;} .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;} .table3, .table3 th, .table3 td{margin-left: auto;margin-right: 20%;margin-top:-1.75pc;} .table4, .table4 th, .table4 td{margin-left: 10%;margin-right: auto;margin-top: 2pc;} .table5, .table5 th, .table5 td{margin-left: 35%;margin-right: auto;margin-top:-1.75pc;} .table6, .table6 th, .table6 td{margin-left: 7%;margin-right: auto;margin-top: 2pc;} .table7, .table7 th, .table7 td{margin-left: 15%;margin-right: auto;margin-top: -1.75pc;}.table8, .table8 th, .table8 td{margin-left: 12%;margin-right: auto;margin-top: 2pc;} .table9, .table9 th, .table9 td{margin-left: 20%;margin-right: auto;margin-top: -3pc;} .table10, .table10 th, .table10 td{margin-left: 15%;margin-right: auto;margin-top: -5.25pc;} .table11, .table11 th, .table11 td{margin-left: 10%;margin-right: auto;margin-top: -7.25pc;}.table12, .table12 th, .table12 td{margin-left: 40%;margin-right: auto;} .table13, .table13 th, .table13 td{margin-left: 32%;margin-right: auto;margin-top: -1.75pc;}  .table14, .table14 th, .table14 td{margin-left: 35%;margin-right: auto;margin-top: -4pc;}  .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;}  .table15, .table15 th, .table15 td{margin-left: 20%;margin-right: auto;margin-top: -12pc;} .table16, .table16 th, .table16 td{margin-left: auto;margin-right: 30%;margin-top: 2pc;} .table17, .table17 th, .table17 td{margin-left: auto;margin-right: 13%;margin-top: -1.75pc;} .table18, .table18 th, .table18 td{margin-left: auto;margin-right: 38%;margin-top: 1pc;}  .table19, .table19 th, .table19 td{margin-left: auto;margin-right: 25%;margin-top: -1.75pc;}</style>";
     content += "<style></style>"
     content +="<h1> Merge Sort Game </h1>" 
     content += "<table style=text-align: center;><tr>";
@@ -131,9 +105,9 @@
     let shortA = [];
     let sortednums = [];
     switch(nextcount){
-      case 0:
+      case 0://split
         //2
-        content += "<table class = 'table2' style='width: 10%'><tr>";
+        content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
         for (let i = 0; i < 5; i++) {
           content += "<th>"
           content += nums[i];
@@ -142,7 +116,7 @@
         content += "</tr></table>";
 
         //3
-        content += "<table class = 'table3' style='width: 10%'><tr>";
+        content += "<table class = 'table3' style='width: 10%' id='T3'><tr>";
         for (let i = 5; i < 10; i++) {
           content += "<th>"
           content += nums[i];
@@ -151,8 +125,8 @@
         content += "</tr></table>";
         break;
 
-      case 1:
-        content += "</br><table class = 'table4' style='width: 6%'><tr>";
+      case 1://split
+        content += "</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
         for (let i = 0; i < 3; i++) {
           content += "<th>"
           content += nums[i];
@@ -160,7 +134,7 @@
         }
         content += "</tr></table>";
 
-        content += "<table class = 'table5' style ='width: 4%'><tr>";
+        content += "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
         for (let i = 3; i < 5; i++) {
           content += "<th>"
           content += nums[i];
@@ -169,8 +143,8 @@
         content += "</tr></table>";
         break;
 
-      case 2:
-        content += "</br><table class = 'table6' style = 'width: 2%'><tr>";
+      case 2://split
+        content += "</br><table class = 'table6' style = 'width: 2%' id='T6'><tr>";
         for (let i = 0; i < 1; i++) {
           content += "<th>"
           content += nums[i];
@@ -178,7 +152,7 @@
         }
         content += "</tr></table>";
 
-        content += "<table class = 'table7' style = 'width: 4%'><tr>";
+        content += "<table class = 'table7' style = 'width: 4%' id='T7'><tr>";
         for (let i = 1; i < 3; i++) {
           content += "<th>"
           content += nums[i];
@@ -187,8 +161,8 @@
       content += "</tr></table>";
         break;
 
-      case 3:
-        content += "</br><table class = 'table8' style = 'width: 2%'><tr>";
+      case 3://split
+        content += "</br><table class = 'table8' style = 'width: 2%' id ='T8'><tr>";
         for (let i = 1; i < 2; i++) {
           content += "<th>"
           content += nums[i];
@@ -196,7 +170,7 @@
         }
         content += "</tr></table>";
         
-        content += "</br><table class = 'table9' style = 'width: 2%'><tr>";
+        content += "</br><table class = 'table9' style = 'width: 2%' id = 'T9'><tr>";
         for (let i = 2; i < 3; i++) {
           content += "<th>"
           content += nums[i];
@@ -205,22 +179,70 @@
         content += "</tr></table>";
         break;
 
-      case 4:
+      case 4://merge
+      var elem7 = document.getElementById('T7');
+
+        if (typeof elem7 != 'undefined')
+        {
+          elem7.parentNode.removeChild(elem7);
+        }
+
+        var elem8 = document.getElementById('T8');
+
+        if (typeof elem8 != 'undefined')
+        {
+          elem8.parentNode.removeChild(elem8);
+        }
+
+        var elem9 = document.getElementById('T9');
+
+        if (typeof elem9 != 'undefined')
+        {
+          elem9.parentNode.removeChild(elem9);
+        }
+
         shortA = [nums[1],nums[2]];
         sortednums = mergeSort(shortA);
-        content += "</br><table><tr>";
+        content += "</br><table class='table10' style ='width: 4%' id='T10'><tr>";
           for (let i = 0; i < 2; i++) {
           content += "<th>"
           content += sortednums[i];
           content += "</th>"
         }
         content += "</tr></table>";
+        
         break;
 
-      case 5:
+      case 5://merge
+      //delete table
+      var elem4 = document.getElementById('T4');
+
+        if (typeof elem4 != 'undefined')
+        {
+          elem4.parentNode.removeChild(elem4);
+        }
+        
+        //adjusting style for deletion of reference table
+        document.getElementById('T5').style.marginTop = "2pc";
+
+
+        //delete table
+        var elem6 = document.getElementById('T6');
+
+        if (typeof elem6 != 'undefined')
+        {
+          elem6.parentNode.removeChild(elem6);
+        }
+        //delete table
+        var elem10  = document.getElementById('T10');
+
+        if (typeof elem10 != 'undefined')
+        {
+          elem10.parentNode.removeChild(elem10);
+        }
         shortA = [nums[0],nums[1],nums[2]];
         sortednums = mergeSort(shortA);
-        content += "</br><table><tr>";
+        content += "</br><table style='width: 6%' id='T11' class='table11'><tr>";
           for (let i = 0; i < 3; i++) {
           content += "<th>"
           content += sortednums[i];
@@ -229,8 +251,8 @@
         content += "</tr></table>";
         break;
 
-      case 6:
-        content += "</br><table><tr>";
+      case 6://split
+        content += "</br><table class= 'table12' id='T12' style = 'width: 2%'><tr>";
         for (let i = 3; i < 4; i++) {
           content += "<th>"
           content += nums[i];
@@ -238,7 +260,7 @@
         }
         content += "</tr></table>";
 
-        content += "<table><tr>";
+        content += "<table class = 'table13' id='T13' style = 'width:2%'><tr>";//split
         for (let i = 4; i < 5; i++) {
           content += "<th>"
           content += nums[i];
@@ -247,10 +269,36 @@
         content += "</tr></table>";
         break;
 
-      case 7:
+      case 7://merge
+
+
+      //adjusting style for deletion of reference table
+      document.getElementById('T11').style.marginTop = "-3.5pc";
+
+      var elem5 = document.getElementById('T5');
+
+      if (typeof elem5 != 'undefined')
+      {
+      elem5.parentNode.removeChild(elem5);
+      }
+
+      var elem13 = document.getElementById('T13');
+
+      if (typeof elem13 != 'undefined')
+      {
+        elem13.parentNode.removeChild(elem13);
+      }
+
+      var elem12 = document.getElementById('T12');
+
+      if (typeof elem12 != 'undefined')
+      {
+        elem12.parentNode.removeChild(elem12);
+      }
+
         shortA = [nums[3],nums[4]];
         sortednums = mergeSort(shortA);
-        content += "</br><table><tr>";
+        content += "</br><table class='table14' id ='T14' style = 'width:4%'><tr>";
           for (let i = 0; i < 2; i++) {
           content += "<th>"
           content += sortednums[i];
@@ -259,10 +307,34 @@
         content += "</tr></table>";
         break;
 
-      case 8:
+      case 8://merge
+
+        document.getElementById('T3').style.marginTop = "2pc";
+
+        var elem2 = document.getElementById('T2');
+
+        if (typeof elem2 != 'undefined')
+        {
+        elem2.parentNode.removeChild(elem2);
+        }
+
+        var elem11 = document.getElementById('T11');
+
+        if (typeof elem11 != 'undefined')
+        {
+          elem11.parentNode.removeChild(elem11);
+        }
+
+        var elem14 = document.getElementById('T14');
+
+        if (typeof elem14 != 'undefined')
+        {
+          elem14.parentNode.removeChild(elem14);
+        }
+
         shortA = [nums[0],nums[1],nums[2],nums[3],nums[4],];
         sortednums = mergeSort(shortA);
-        content += "</br><table><tr>";
+        content += "</br><table class ='table15' id='T15' style='width:10%'><tr>";
           for (let i = 0; i < 5; i++) {
           content += "<th>"
           content += sortednums[i];
@@ -271,8 +343,8 @@
         content += "</tr></table>";
         break;
 
-      case 9:
-        content += "</br><table><tr>";
+      case 9://split
+        content += "</br><table class ='table16' id='T16' style='width:6%'><tr>";
         for (let i = 5; i < 8; i++) {
           content += "<th>"
           content += nums[i];
@@ -280,7 +352,7 @@
         }
         content += "</tr></table>";
 
-        content += "<table><tr>";
+        content += "<table class ='table17' id='T17' style='width:6%'><tr>";
         for (let i = 8; i < 10; i++) {
           content += "<th>"
           content += nums[i];
@@ -289,16 +361,16 @@
         content += "</tr></table>";
         break;
 
-      case 10:
-        content += "</br><table><tr>";
+      case 10://split
+        content += "</br><table class ='table18' id='T18' style = 'width:2%'><tr>";
         for (let i = 5; i < 6; i++) {
           content += "<th>"
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
 
-        content += "<table><tr>";
+        content += "<table class = 'table19' id='T19' style='width:4%'><tr>";
         for (let i = 6; i < 8; i++) {
           content += "<th>"
           content += nums[i];
@@ -307,7 +379,7 @@
         content += "</tr></table>";
         break;
 
-      case 11:
+      case 11://split
         content += "</br><table><tr>";
         for (let i = 6; i < 7; i++) {
           content += "<th>"
@@ -325,7 +397,7 @@
         content += "</tr></table>";
         break;
 
-      case 12:
+      case 12://merge
         shortA = [nums[6],nums[7]];
         sortednums = mergeSort(shortA);
         content += "</br><table><tr>";
@@ -337,7 +409,7 @@
         content += "</tr></table>";
         break;
 
-      case 13:
+      case 13://merge
         shortA = [nums[5],nums[6],nums[7]];
         sortednums = mergeSort(shortA);
         content += "</br><table><tr>";
@@ -349,7 +421,7 @@
         content += "</tr></table>";
         break;
 
-      case 14:
+      case 14://merge
         content += "</br><table><tr>";
         for (let i = 8; i < 9; i++) {
           content += "<th>"
@@ -367,7 +439,7 @@
         content += "</tr></table>";
         break;
 
-      case 15:
+      case 15://merge
         shortA = [nums[8],nums[9]];
         sortednums = mergeSort(shortA);
         content += "</br><table><tr>";
@@ -379,7 +451,7 @@
         content += "</tr></table>";
         break;
 
-      case 16:
+      case 16://merge
         shortA = [nums[5],nums[6],nums[7],nums[8],nums[9],];
         sortednums = mergeSort(shortA);
         content += "</br><table><tr>";
@@ -391,7 +463,7 @@
         content += "</tr></table>";
         break;
 
-      case 17:
+      case 17://merge
       sortednums = mergeSort(nums);
         content += "</br><table><tr>";
           for (let i = 0; i < 10; i++) {
