@@ -141,8 +141,9 @@
 <script>
   let nextcount = 0;
   let nums = [];
+  let sortednums = [];
   for (let i = 0; i< 10; i++){ //randomly generates the table with 10 numbers
-    a = Math.floor((Math.random() * 100) + 1);
+    a = Math.floor((Math.random() * 20) + 1);
     nums.push(a);
   }
   function ShowLine(){//Creates the first line of the table
@@ -173,7 +174,7 @@
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
 
         //3
         content += "<table class = 'table3'><tr>";
@@ -182,7 +183,7 @@
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
         break;
 
       case 1:
@@ -192,7 +193,7 @@
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
 
         content += "<table><tr>";
         for (let i = 3; i < 5; i++) {
@@ -200,7 +201,7 @@
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
         break;
 
       case 2:
@@ -218,7 +219,7 @@
           content += nums[i];
           content += "</th>"
         }
-      content += "</tr><table>";
+      content += "</tr></table>";
         break;
 
       case 3:
@@ -228,7 +229,7 @@
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
         
         content += "</br><table><tr>";
         for (let i = 2; i < 3; i++) {
@@ -236,41 +237,126 @@
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
         break;
-        
+
       case 4:
+        content += "</br><table><tr>";
+        if(nums[1] < nums[2]){
+          content += "<th>"
+          content += nums[1];
+          content += "</th>"
+          content += "<th>"
+          content += nums[2];
+          content += "</th>"
+        }else{
+          content += "<th>"
+          content += nums[2];
+          content += "</th>"
+          content += "<th>"
+          content += nums[1];
+          content += "</th>"
+        }
+        content += "</tr></table>";
         break;
+
       case 5:
+     
         break;
+
       case 6:
         break;
+
       case 7:
         break;
+
       case 8:
         break;
+
       case 9:
         break;
+
       case 10:
         break;
+
       case 11:
         break;
+
       case 12:
         break;
+
       case 13:
         break;
+
       case 14:
         break;
+
       case 15:
         break;
+
       case 16:
         break;
+
       case 17:
         break;
+
       case 18:
         break;
+
     }
     nextcount += 1;
     document.write(content);
   }
+
+  function merge(left, right) {
+	let resultArray = [],
+		leftIndex = 0,
+		rightIndex = 0;
+
+	// We will concatenate values into the resultArray in order
+	while (leftIndex < left.length && rightIndex < right.length) {
+		if (left[leftIndex] < right[rightIndex]) {
+			resultArray.push(left[leftIndex]);
+			leftIndex++; // move left array cursor
+		} else {
+			resultArray.push(right[rightIndex]);
+			rightIndex++; // move right array cursor
+		}
+	}
+
+	// We need to concat here because there will be one element remaining
+	// from either left OR the right
+	return resultArray
+		.concat(left.slice(leftIndex))
+		.concat(right.slice(rightIndex));
+}
+
+// Merge Sort Implentation (Recursion)
+function mergeSort(unsortedArray) {
+	// No need to sort the array if the array only has one element or empty
+	if (unsortedArray.length <= 1) {
+		return unsortedArray;
+	}
+
+	// In order to divide the array in half, we need to figure out the middle
+	const middle = Math.floor(unsortedArray.length / 2);
+
+	// This is where we will be dividing the array into left and right
+	const left = unsortedArray.slice(0, middle);
+	const right = unsortedArray.slice(middle);
+
+	// Using recursion to combine the left and right
+	return merge(mergeSort(left), mergeSort(right));
+}
+
+function randomNumberGenerator(num) {
+	let arrInt = [];
+
+	for (let i = 0; i < num; i++) {
+		arrInt.push(Math.floor(Math.random() * 100));
+	}
+	return arrInt;
+}
+
+console.log(mergeSort(randomNumberGenerator(6)));
 </script>
