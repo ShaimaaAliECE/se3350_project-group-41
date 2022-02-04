@@ -7,9 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>working</title>
 
-    <a></a>
-
-
     <style>
       table, th, td {
         border: 1px solid black;
@@ -135,157 +132,96 @@
       } 
     </style>
 </head>
-<!--body>
-  <header align="center">
-    Mergesort Visual
-  </header>
-
-    <button id="next" >Next</button>
-
-        <table style="width:20%" class="table1">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-          </tr>
-        </table>
-
-        <table style="width:10%;" class="table2">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-          </tr>
-        </table>
-
-        <table style="width:10%; " class="table3">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-          </tr>
-        </table>
-
-        <table style="width:6%;" class="table4">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-          </tr>
-        </table>
-
-        <table style="width:4%;" class="table5">
-          <tr>
-            <td aria-valuenow="">1</td>
-            <td>2</td>
-          </tr>
-        </table>
-
-        <table style="width:4%;" class="table6">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table7">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table8">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table9">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table10">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table11">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:6%;" class="table12">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-          </tr>
-        </table>
-
-        <table style="width:4%;" class="table13">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table14">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table15">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table16">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        <table style="width:4%;" class="table17">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-        </table>
-
-        <table style="width:2%;" class="table18">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-        
-        <table style="width:2%;" class="table19">
-          <tr>
-            <td>1</td>
-          </tr>
-        </table>
-
-        
-        
-
-        
-
-
-</body-->
+<body>
+  <h1>Start the tutorial</h1>
+  <input type = "button" onclick = "ShowLine()" value = "Display">
+</body>
 </html>
+
+<script>
+  let nextcount = 0;
+  let nums = [];
+  for (let i = 0; i< 10; i++){ //randomly generates the table with 10 numbers
+    a = Math.floor((Math.random() * 100) + 1);
+    nums.push(a);
+  }
+  function ShowLine(){//Creates the first line of the table
+    let content = "";
+    content += "<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:left;} table,th,td {border:1px solid #000;} </style>";
+    content +="<h1> Merge Sort Game </h1>" 
+    content += "<table><tr>";
+    
+    for (let i = 0; i < 10; i++) { //fills the table
+      content += "<th>"
+      content += nums[i];
+      content += "</th>"
+    }
+    content += "</tr></table><br><br>";
+    content += "<input type = 'button' onclick = 'NextLine()'' value = 'Next'>"; //creates the next button that calls the next step
+    document.write(content);
+  }
+
+  function NextLine(){//contains all the steps of the tutorial 
+    let content = "";
+
+    switch(nextcount){
+      case 0:
+        //2
+        content += "<table class = 'table2'><tr>";
+        for (let i = 0; i < 5; i++) {
+          content += "<th>"
+          content += nums[i];
+          content += "</th>"
+        }
+        content += "</tr><table>";
+
+        //3
+        content += "<table class = 'table3'><tr>";
+        for (let i = 5; i < 10; i++) {
+          content += "<th>"
+          content += nums[i];
+          content += "</th>"
+        }
+        content += "</tr><table>";
+        break;
+      case 1:
+        break;
+      case 2:
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+      case 5:
+        break;
+      case 6:
+        break;
+      case 7:
+        break;
+      case 8:
+        break;
+      case 9:
+        break;
+      case 10:
+        break;
+      case 11:
+        break;
+      case 12:
+        break;
+      case 13:
+        break;
+      case 14:
+        break;
+      case 15:
+        break;
+      case 16:
+        break;
+      case 17:
+        break;
+      case 18:
+        break;
+    }
+    nextcount += 1;
+    document.write(content);
+  }
+</script>
