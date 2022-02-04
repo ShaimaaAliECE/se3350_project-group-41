@@ -127,14 +127,14 @@
   let nextcount = 0;
   let nums = [];
   for (let i = 0; i< 10; i++){ //randomly generates the table with 10 numbers
-    a = Math.floor((Math.random() * 100) + 1);
+    a = Math.floor((Math.random() * 20) + 1);
     nums.push(a);
   }
   function ShowLine(){//Creates the first line of the table
     let content = "";
-    content += "<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:left;} table,th,td {border:1px solid #000;} .table2, .table2 th, .table2 td{margin-left: 5%;margin-right: auto;margin-top: 2pc;} .table3, .table3 th, .table3 td{margin-left: auto;margin-right: 5%;margin-top:-1.75pc;} </style>";
+    content += "<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:center;} table,th,td {border:1px solid #000;} .table2, .table2 th, .table2 td{margin-left: 5%;margin-right: auto;margin-top: 2pc;} .table3, .table3 th, .table3 td{margin-left: auto;margin-right: 5%;margin-top:-1.75pc;} </style>";
     content +="<h1> Merge Sort Game </h1>" 
-    content += "<table><tr>";
+    content += "<table style=text-align: center;><tr>";
     
     for (let i = 0; i < 10; i++) { //fills the table
       content += "<th>"
@@ -152,13 +152,13 @@
     switch(nextcount){
       case 0:
         //2
-        content += "<table class = 'table2'><tr>";
+        content += "<table class = 'table2' style='width: 10%'><tr>";
         for (let i = 0; i < 5; i++) {
           content += "<th>"
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
 
         //3
         content += "<table class = 'table3'><tr>";
@@ -167,17 +167,17 @@
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
         break;
 
       case 1:
-        content += "</br><table><tr>";
+        content += "</br><table class = 'table4'><tr>";
         for (let i = 0; i < 3; i++) {
           content += "<th>"
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
 
         content += "<table><tr>";
         for (let i = 3; i < 5; i++) {
@@ -185,7 +185,7 @@
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
         break;
 
       case 2:
@@ -195,7 +195,7 @@
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
 
         content += "<table><tr>";
         for (let i = 1; i < 3; i++) {
@@ -203,7 +203,7 @@
           content += nums[i];
           content += "</th>"
         }
-      content += "</tr><table>";
+      content += "</tr></table>";
         break;
 
       case 3:
@@ -213,7 +213,7 @@
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
         
         content += "</br><table><tr>";
         for (let i = 2; i < 3; i++) {
@@ -221,7 +221,7 @@
           content += nums[i];
           content += "</th>"
         }
-        content += "</tr><table>";
+        content += "</tr></table>";
         break;
         
       case 4:
