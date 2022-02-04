@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>working</title>
 
-    <!--style>
+    <style>
       table, th, td {
         border: 1px solid black;
         text-align: center;
@@ -130,7 +130,7 @@
         margin-right: 23%;
         margin-top: -1.75pc;
       } 
-    </style-->
+    </style>
 </head>
 <body>
   <h1>Start the tutorial</h1>
@@ -141,29 +141,29 @@
 <script>
   let nextcount = 0;
   let nums = [];
-  for (let i = 0; i< 10; i++){
+  for (let i = 0; i< 10; i++){ //randomly generates the table with 10 numbers
     a = Math.floor((Math.random() * 100) + 1);
     nums.push(a);
   }
-  function ShowLine(){
+  function ShowLine(){//Creates the first line of the table
     let content = "";
     content += "<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:left;} table,th,td {border:1px solid #000;} </style>";
     content +="<h1> Merge Sort Game </h1>" 
     content += "<table><tr>";
     
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) { //fills the table
       content += "<th>"
       content += nums[i];
       content += "</th>"
     }
     content += "</tr></table><br><br>";
-    content += "<input type = 'button' onclick = 'NextLine()'' value = 'Next'>";
+    content += "<input type = 'button' onclick = 'NextLine()'' value = 'Next'>"; //creates the next button that calls the next step
     document.write(content);
   }
 
-  function NextLine(){
+  function NextLine(){//contains all the steps of the tutorial 
     let content = "";
-    
+
     switch(nextcount){
       case 0:
         //2
@@ -185,8 +185,6 @@
         content += "</tr><table>";
         break;
       case 1:
-
-      
         break;
       case 2:
         break;
@@ -224,5 +222,6 @@
         break;
     }
     nextcount += 1;
+    document.write(content);
   }
 </script>
