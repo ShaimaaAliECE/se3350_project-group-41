@@ -108,6 +108,7 @@
 
           //2
           if(correctanswer == true){
+            document.getElementById("p").innerHTML = 'split the length 3 array down the middle';
             content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
             for (let i = 0; i < 5; i++) {
               content += "<th>";
@@ -123,35 +124,33 @@
               content += "&nbsp;";
               content += "</th>";
             }
+            correctnums = [nums[0],nums[1],nums[2]];
             content += "</tr></table>";
-            nocopy = 1;          
-            console.log("it works")
-            nocopy = 0;
             correctanswer = false;
             nextcount ++;
           }
         break;
 
       case 1://split
+        if(correctanswer == true){
+          content += "</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
+          for (let i = 0; i < 3; i++) {
+            content += "<th>"
+            content += nums[i];
+            content += "</th>"
+          }
+          content += "</tr></table>";
 
-      document.getElementById("p").innerHTML = 'split the length 3 array down the middle';
-
-
-        content += "</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
-        for (let i = 0; i < 3; i++) {
-          content += "<th>"
-          content += nums[i];
-          content += "</th>"
+          content += "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
+          for (let i = 3; i < 5; i++) {
+            content += "<th>"
+            content += nums[i];
+            content += "</th>"
+          }
+          content += "</tr></table>";
+          correctanswer = false;
+          nextcount ++;
         }
-        content += "</tr></table>";
-
-        content += "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
-        for (let i = 3; i < 5; i++) {
-          content += "<th>"
-          content += nums[i];
-          content += "</th>"
-        }
-        content += "</tr></table>";
         break;
 
       case 2://split
