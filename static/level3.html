@@ -166,7 +166,26 @@
         }
         break;
 
-      case 3://split
+      case 3:
+      if(correctanswer == true){
+        
+          content += "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
+          for (let i = 3; i < 5; i++) {
+            content += "<th>"
+            content += nums[i];
+            content += "</th>"
+          }
+          correctnums = [nums[0]];
+          content += "</tr></table>";
+          correctanswer = false;
+          nextcount ++;
+        }
+
+
+
+      break;
+
+      case 4://split
 
       document.getElementById("p").innerHTML = 'split the final furthest down length 2 array down the middle';
 
@@ -209,7 +228,7 @@
         content += "</tr></table>";
         break;
 
-      case 5://merge
+      case 6://merge
 
       document.getElementById("p").innerHTML = 'compare the values again, placing them from left to right, ascending in value';
 
@@ -246,7 +265,7 @@
         
         break;
 
-      case 6://merge
+      case 7://merge
       //delete table
 
       document.getElementById("p").innerHTML = 'now split the other array length 2';
@@ -287,7 +306,7 @@
         content += "</tr></table>";
         break;
 
-      case 7://split
+      case 8://split
 
       document.getElementById("p").innerHTML = 'compare the values, placing them from left to right, ascending in value';
 
@@ -308,7 +327,7 @@
         content += "</tr></table>";
         break;
 
-      case 8://merge
+      case 9://merge
 
       document.getElementById("p").innerHTML = 'compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array';
 
@@ -347,7 +366,7 @@
         content += "</tr></table>";
         break;
 
-      case 9://merge
+      case 10://merge
 
       document.getElementById("p").innerHTML = 'now that the left array has been sorted, split the right side array down the middle';
 
@@ -385,7 +404,7 @@
         content += "</tr></table>";
         break;
 
-      case 10://split
+      case 11://split
 
       document.getElementById("p").innerHTML = 'split the length 3 array down the middle';
 
@@ -406,7 +425,7 @@
         content += "</tr></table>";
         break;
 
-      case 11://split
+      case 12://split
 
       document.getElementById("p").innerHTML = 'split the final furthest down length 2 array down the middle';
 
@@ -428,7 +447,7 @@
         content += "</tr></table>";
         break;
 
-      case 12://split
+      case 13://split
 
       document.getElementById("p").innerHTML = 'compare the values, placing them from left to right, ascending in value';
 
@@ -449,7 +468,7 @@
         content += "</tr></table>";
         break;
 
-      case 13://merge
+      case 14://merge
 
       document.getElementById("p").innerHTML = 'compare the values again, placing them from left to right, ascending in value';
 
@@ -485,7 +504,7 @@
         content += "</tr></table>";
         break;
 
-      case 14://merge
+      case 15://merge
 
       document.getElementById("p").innerHTML = 'now split the other array length 2';
 
@@ -522,7 +541,7 @@
         content += "</tr></table>";
         break;
 
-      case 15://split
+      case 16://split
 
       document.getElementById("p").innerHTML = 'compare the values, placing them from left to right, ascending in value';
 
@@ -543,7 +562,7 @@
         content += "</tr></table>";
         break;
 
-      case 16://merge
+      case 17://merge
 
       document.getElementById("p").innerHTML = 'compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array';
 
@@ -582,7 +601,7 @@
         content += "</tr></table>";
         break;
 
-      case 17://merge
+      case 18://merge
 
       document.getElementById("p").innerHTML = 'compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 10 array';
 
@@ -620,7 +639,7 @@
         content += "</tr></table>";
         break;
 
-      case 18://merge
+      case 19://merge
 
       document.getElementById("p").innerHTML = 'merge sort complete!';
       
