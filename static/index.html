@@ -93,7 +93,22 @@
       case 0://split
 
       document.getElementById("p").innerHTML = 'split the left array down the middle';
+       var Row = document.getElementById("T1");  //getting the table
+       var Cells = Row.getElementsByTagName("th"); //getting the cells
+       var firstNum = (Cells[0].innerText); //retrieving info from the cells
+      //var secondNum = (Cells[1].innerText);
+      //var thirdNum = (Cells[2].innerText);
+      //var fourthNum = (Cells[3]).innerText)
+      //var fifthNum = (Cells[4]).innerText)
+      //var sixthNum = (Cells[5]).innerText)
+      //var seventhNum = (Cells[6]).innerText)
+      //var eightNum = (Cells[7]).innerText)
+      //var nineNum = (Cells[8]).innerText)
+      //var tenNum = (Cells[9]).innerText)
 
+        var questionAn1 = prompt("What are the numbers of the first split?") //adding the first interactive question
+        if (questionAn1 = firstNum )
+        {
         //2
         content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
         for (let i = 0; i < 5; i++) {
@@ -112,7 +127,12 @@
         }
         content += "</tr></table>";
         break;
+        }
+        else{
 
+          alert("WRONG");
+        }
+      
       case 1://split
 
       document.getElementById("p").innerHTML = 'split the length 3 array down the middle';
