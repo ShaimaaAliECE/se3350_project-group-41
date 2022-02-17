@@ -93,9 +93,12 @@
       case 0://split
 
       document.getElementById("p").innerHTML = 'split the left array down the middle';
-       var Row = document.getElementById("T1");  //getting the table
-       var Cells = Row.getElementsByTagName("th"); //getting the cells
-       var firstNum = (Cells[0].innerText); //retrieving info from the cells
+       //var Row = document.getElementById("T1");  //getting the table
+      // var Cells = Row.getElementsByTagName("th"); //getting the cells
+       //var firstNum = (Cells[0].innerText); //retrieving info from the cells
+       //var num1 = document.getElementById("T1").rows[0].cells.item(0).innerHTML;
+
+
       //var secondNum = (Cells[1].innerText);
       //var thirdNum = (Cells[2].innerText);
       //var fourthNum = (Cells[3]).innerText)
@@ -107,7 +110,7 @@
       //var tenNum = (Cells[9]).innerText)
 
         var questionAn1 = prompt("What are the numbers of the first split?") //adding the first interactive question
-        if (questionAn1 = firstNum )
+        if (questionAn1 = num1 )
         {
         //2
         content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
@@ -129,7 +132,6 @@
         break;
         }
         else{
-
           alert("WRONG");
         }
       
