@@ -144,9 +144,10 @@
           content += "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
           for (let i = 3; i < 5; i++) {
             content += "<th>"
-            content += nums[i];
+            content += "&nbsp;";
             content += "</th>"
           }
+          correctnums = [nums[0]];
           content += "</tr></table>";
           correctanswer = false;
           nextcount ++;
@@ -168,7 +169,7 @@
         content += "<table class = 'table7' style = 'width: 4%' id='T7'><tr>";
         for (let i = 1; i < 3; i++) {
           content += "<th>"
-          content += nums[i];
+          content += "&nbsp;";
           content += "</th>"
         }
       content += "</tr></table>";
