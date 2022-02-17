@@ -80,7 +80,7 @@
       content += "</th>"
     }
     content += "</tr></table><br><br>";
-    content += "<input type = 'button' onclick = 'NextLine()'' value = 'Next'>"; //creates the next button that calls the next step
+    content += "<input type = 'button' onclick = 'NextLine()' value = 'Next'>"; //creates the next button that calls the next step
     document.write(content);
   }
 
@@ -92,9 +92,9 @@
     switch(nextcount){
       case 0://split
 
-      document.getElementById("p").innerHTML = 'fill in the left array with the correct values from the origional table';
+      document.getElementById("p").innerHTML = 'enter the 5 numbers you would like to put in the left table in the designated space seperating the values by spaces';
 
-      let a = 1;
+        content += "<input type='text' id='arr1' placeholder='enter the 5 values here' style 'width: 200%'/>"
         //2
         content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
         for (let i = 0; i < 5; i++) {
@@ -113,7 +113,7 @@
         }
         content += "</tr></table>";
 
-        
+
 
         
         break;
