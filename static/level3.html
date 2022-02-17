@@ -648,11 +648,10 @@
     document.write(content);
   }
   function checkifsplitcorrect(){
-    
+    console.log(correctnums);
     var x = document.getElementById("arr1").value;
     let answer = 0;
     let inputednums = x.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } );
-    console.log(inputednums);
     for (let i = 0; i<inputednums.length; i++){
       if (correctnums[i] == inputednums[i]){
         answer++;
