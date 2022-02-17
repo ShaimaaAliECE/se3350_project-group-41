@@ -67,6 +67,7 @@
     a = Math.floor((Math.random() * 20) + 1);
     nums.push(a);
   }
+  correctnums = [nums[0],nums[1],nums[2],nums[3],nums[4]];
   function ShowLine(){//Creates the first line of the table
     
     let content = "";
@@ -96,6 +97,7 @@
     let sortednums = [];
     switch(nextcount){
       case -1:
+        
         document.getElementById("p").innerHTML = 'enter the 5 numbers you would like to put in the left table in the designated space seperating the values by spaces';
         content += "<input type = 'button' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
         content += "<input type='text' id='arr1' placeholder='enter the value'  style 'width: 200%'/>";
@@ -106,27 +108,23 @@
 
           //2
           if(correctanswer == true){
-          content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
-          for (let i = 0; i < 5; i++) {
-            content += "<th>";
+            content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
+            for (let i = 0; i < 5; i++) {
+              content += "<th>";
               content += nums[i];
-            content += "</th>";
-          }
-          content += "</tr></table>";
+              content += "</th>";
+            }
+            content += "</tr></table>";
 
-          //3
-          content += "<table class = 'table3' style='width: 10%' id='T3'><tr>";
-          for (let i = 5; i < 10; i++) {
-            content += "<th>";
+            //3
+            content += "<table class = 'table3' style='width: 10%' id='T3'><tr>";
+            for (let i = 5; i < 10; i++) {
+              content += "<th>";
               content += "&nbsp;";
-            content += "</th>";
-          }
-          content += "</tr></table>";
-          nocopy = 1;
-        
-          let correctnums = [nums[0],nums[1],nums[2],nums[3],nums[4]];
-
-          
+              content += "</th>";
+            }
+            content += "</tr></table>";
+            nocopy = 1;          
             console.log("it works")
             nocopy = 0;
             correctanswer = false;
@@ -650,6 +648,7 @@
     document.write(content);
   }
   function checkifsplitcorrect(){
+    console.log(correctnums);
     var x = document.getElementById("arr1").value;
     let answer = 0;
     let inputednums = x.split(" ");
@@ -661,7 +660,7 @@
     if(answer == inputednums.length){
       correctanswer = true;
     }
-    console.log(answer);
+    
   }
 
   function merge(left, right) {
