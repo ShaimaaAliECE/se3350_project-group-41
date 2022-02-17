@@ -52,9 +52,8 @@
     </style>
 </head>
 <body>
-  <h1>Start the tutorial</h1>
-  <input type = "button" onclick = "ShowLine()" value = "Display">
-  <a href="level3.html"> display level 3 </a>
+  <h1>Start level 3</h1>
+  <input type = "button" onclick = "ShowLine()" value = "Display Level 3">
 </body>
 </html>
 
@@ -81,7 +80,7 @@
       content += "</th>"
     }
     content += "</tr></table><br><br>";
-    content += "<input type = 'button' onclick = 'NextLine()'' value = 'Next'>"; //creates the next button that calls the next step
+    content += "<input type = 'button' onclick = 'NextLine()' value = 'Next'>"; //creates the next button that calls the next step
     document.write(content);
   }
 
@@ -93,28 +92,14 @@
     switch(nextcount){
       case 0://split
 
-      document.getElementById("p").innerHTML = 'split the left array down the middle';
-       var Row = document.getElementById("T1");  //getting the table
-       var Cells = Row.getElementsByTagName("th"); //getting the cells
-       var firstNum = (Cells[0].innerText); //retrieving info from the cells
-      //var secondNum = (Cells[1].innerText);
-      //var thirdNum = (Cells[2].innerText);
-      //var fourthNum = (Cells[3]).innerText)
-      //var fifthNum = (Cells[4]).innerText)
-      //var sixthNum = (Cells[5]).innerText)
-      //var seventhNum = (Cells[6]).innerText)
-      //var eightNum = (Cells[7]).innerText)
-      //var nineNum = (Cells[8]).innerText)
-      //var tenNum = (Cells[9]).innerText)
+      document.getElementById("p").innerHTML = 'enter the 5 numbers you would like to put in the left table in the designated space seperating the values by spaces';
 
-        var questionAn1 = prompt("What are the numbers of the first split?") //adding the first interactive question
-        if (questionAn1 = firstNum )
-        {
+        content += "<input type='text' id='arr1' placeholder='enter the 5 values here' style 'width: 200%'/>"
         //2
         content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
         for (let i = 0; i < 5; i++) {
-          content += "<th>"
-          content += nums[i];
+          content += "<th input type='number' id='a" + i + "'>"
+            content += "&nbsp;"
           content += "</th>"
         }
         content += "</tr></table>";
@@ -122,18 +107,17 @@
         //3
         content += "<table class = 'table3' style='width: 10%' id='T3'><tr>";
         for (let i = 5; i < 10; i++) {
-          content += "<th>"
-          content += nums[i];
+          content += "<th input type='number' id='b" + i + "'>"
+            content += "&nbsp;"
           content += "</th>"
         }
         content += "</tr></table>";
-        break;
-        }
-        else{
 
-          alert("WRONG");
-        }
-      
+
+
+        
+        break;
+
       case 1://split
 
       document.getElementById("p").innerHTML = 'split the length 3 array down the middle';
