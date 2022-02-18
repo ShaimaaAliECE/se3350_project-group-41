@@ -686,13 +686,17 @@
     let answer = 0;
     let inputednums = x.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } );
     for (let i = 0; i<inputednums.length; i++){
-      if (correctnums[i] == inputednums[i]){
+      if (correctnums[i] == inputednums[i])
+      {
+    
         answer++;
-        alert(" ")
       }
     } 
     if(answer == inputednums.length){
       correctanswer = true;
+      alert("CORRECT");
+        correctSound.play();
+        
     }
     
   }
