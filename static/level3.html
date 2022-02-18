@@ -688,16 +688,15 @@
     for (let i = 0; i<inputednums.length; i++){
       if (correctnums[i] == inputednums[i])
       {
-    
         answer++;
       }
     } 
     if(answer == inputednums.length){
       correctanswer = true;
-      alert("CORRECT");
-        correctSound.play();
-        
+      wrongSound.play();
+      alert("CORRECT");  
     }
+  
     
   }
 
