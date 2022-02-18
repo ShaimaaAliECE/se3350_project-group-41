@@ -208,11 +208,12 @@
 
       break;
 
+
       case 6://split
 
       document.getElementById("p").innerHTML = 'compare the values, placing them from left to right, ascending in value';
 
-
+        if(correctanswer == true){
         content += "</br><table class = 'table8' style = 'width: 2%' id ='T8'><tr>";
         for (let i = 1; i < 2; i++) {
           content += "<th>"
@@ -220,17 +221,30 @@
           content += "</th>"
         }
         content += "</tr></table>";
-        
-        content += "</br><table class = 'table9' style = 'width: 2%' id = 'T9'><tr>";
+        correctnums = [nums[2]];
+        correctanswer = false;
+        nextcount ++;
+      }
+        break;
+
+      case 7:
+      content += "</br><table class = 'table9' style = 'width: 2%' id = 'T9'><tr>";
+
+        if(correctanswer == true){
         for (let i = 2; i < 3; i++) {
           content += "<th>"
           content += nums[i];
           content += "</th>"
         }
         content += "</tr></table>";
-        break;
+        correctnums = [nums[1],nums[2]];
+        correctanswer = false;
+        nextcount ++;
+      }
+      break;
 
-      case 7://merge
+
+      case 8://merge
 
       document.getElementById("p").innerHTML = 'compare the values again, placing them from left to right, ascending in value';
 
@@ -254,7 +268,7 @@
         {
           elem9.parentNode.removeChild(elem9);
         }
-
+        if(correctanswer == true){
         shortA = [nums[1],nums[2]];
         sortednums = mergeSort(shortA);
         content += "</br><table class='table10' style ='width: 4%' id='T10'><tr>";
@@ -264,10 +278,14 @@
           content += "</th>"
         }
         content += "</tr></table>";
+        correctnums = [nums[0],nums[1],nums[2]];
+        correctanswer = false;
+        nextcount ++;
+      }
         
         break;
 
-      case 8://merge
+      case 9://merge
       //delete table
 
       document.getElementById("p").innerHTML = 'now split the other array length 2';
@@ -297,6 +315,8 @@
         {
           elem10.parentNode.removeChild(elem10);
         }
+
+        if(correctanswer == true){
         shortA = [nums[0],nums[1],nums[2]];
         sortednums = mergeSort(shortA);
         content += "</br><table style='width: 6%' id='T11' class='table11'><tr>";
@@ -306,9 +326,13 @@
           content += "</th>"
         }
         content += "</tr></table>";
+        correctnums = [nums[3],nums[4]];
+        correctanswer = false;
+        nextcount ++;
+      }
         break;
 
-      case 9://split
+      case 10://split
 
       document.getElementById("p").innerHTML = 'compare the values, placing them from left to right, ascending in value';
 
@@ -329,7 +353,7 @@
         content += "</tr></table>";
         break;
 
-      case 10://merge
+      case 11://merge
 
       document.getElementById("p").innerHTML = 'compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array';
 
@@ -368,7 +392,7 @@
         content += "</tr></table>";
         break;
 
-      case 11://merge
+      case 12://merge
 
       document.getElementById("p").innerHTML = 'now that the left array has been sorted, split the right side array down the middle';
 
@@ -406,7 +430,7 @@
         content += "</tr></table>";
         break;
 
-      case 12://split
+      case 13://split
 
       document.getElementById("p").innerHTML = 'split the length 3 array down the middle';
 
@@ -427,7 +451,7 @@
         content += "</tr></table>";
         break;
 
-      case 13://split
+      case 14://split
 
       document.getElementById("p").innerHTML = 'split the final furthest down length 2 array down the middle';
 
@@ -449,7 +473,7 @@
         content += "</tr></table>";
         break;
 
-      case 14://split
+      case 15://split
 
       document.getElementById("p").innerHTML = 'compare the values, placing them from left to right, ascending in value';
 
@@ -470,7 +494,7 @@
         content += "</tr></table>";
         break;
 
-      case 15://merge
+      case 16://merge
 
       document.getElementById("p").innerHTML = 'compare the values again, placing them from left to right, ascending in value';
 
@@ -506,7 +530,7 @@
         content += "</tr></table>";
         break;
 
-      case 16://merge
+      case 17://merge
 
       document.getElementById("p").innerHTML = 'now split the other array length 2';
 
@@ -543,7 +567,7 @@
         content += "</tr></table>";
         break;
 
-      case 17://split
+      case 18://split
 
       document.getElementById("p").innerHTML = 'compare the values, placing them from left to right, ascending in value';
 
@@ -564,7 +588,7 @@
         content += "</tr></table>";
         break;
 
-      case 18://merge
+      case 19://merge
 
       document.getElementById("p").innerHTML = 'compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array';
 
@@ -603,7 +627,7 @@
         content += "</tr></table>";
         break;
 
-      case 19://merge
+      case 20://merge
 
       document.getElementById("p").innerHTML = 'compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 10 array';
 
@@ -641,7 +665,7 @@
         content += "</tr></table>";
         break;
 
-      case 20://merge
+      case 21://merge
 
       document.getElementById("p").innerHTML = 'merge sort complete!';
       
