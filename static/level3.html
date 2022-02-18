@@ -840,30 +840,34 @@
     document.write(content);
   }
   function checkifsplitcorrect(){
-    console.log(correctnums);
     var correctSound = new Audio("correct.mp3")
     var wrongSound = new Audio("boing2.mp3");
     var x = document.getElementById("arr1").value;
     let answer = 0;
     let inputednums = x.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } );
+    console.log(inputednums);
     for (let i = 0; i<inputednums.length; i++){
       if (correctnums[i] == inputednums[i])
       {
         answer++;
       }
     } 
-    if(answer == inputednums.length){
+    if(inputednums.length == 0){
+      correctanswer = false; 
+      alert("WRONG");
+    }
+    else if(answer == inputednums.length){
       correctanswer = true;
       correctSound.play();
       alert("CORRECT");  
+    
     }
     else 
     {
         correctanswer = false; 
         wrongSound.play()
         alert("WRONG");
-        window.location.reload(); //reload to page
-    }
+    } 
     
   }
   
