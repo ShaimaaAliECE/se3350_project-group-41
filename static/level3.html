@@ -696,15 +696,16 @@
       wrongSound.play();
       alert("CORRECT");  
     }
-    else(answer != inputednums.length) 
+    else if(answer != inputednums.length) 
     {
         correctanswer = false; 
         wrongSound.play()
         alert("WRONG");
         window.location.reload(); //reload to page
     }
+    
   }
-
+  
   function merge(left, right) {
 	  let resultArray = [],
 	  	leftIndex = 0,
