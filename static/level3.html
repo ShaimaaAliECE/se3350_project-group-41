@@ -237,7 +237,9 @@
           content += "</th>"
         }
         content += "</tr></table>";
-        correctnums = [nums[1],nums[2]];
+        shortA = [nums[1],nums[2]];
+        sortednums = mergeSort(shortA);
+        correctanswer = shortA;
         correctanswer = false;
         nextcount ++;
       }
@@ -247,9 +249,9 @@
       case 8://merge
 
       document.getElementById("p").innerHTML = 'compare the values again, placing them from left to right, ascending in value';
-
-      var elem7 = document.getElementById('T7');
-
+      if(correctanswer == true){
+        var elem7 = document.getElementById('T7');
+      
         if (typeof elem7 != 'undefined')
         {
           elem7.parentNode.removeChild(elem7);
@@ -268,10 +270,9 @@
         {
           elem9.parentNode.removeChild(elem9);
         }
-        if(correctanswer == true){
+        
         shortA = [nums[1],nums[2]];
         sortednums = mergeSort(shortA);
-        correctanswer = shortA;
         content += "</br><table class='table10' style ='width: 4%' id='T10'><tr>";
           for (let i = 0; i < 2; i++) {
           content += "<th>"
@@ -279,7 +280,8 @@
           content += "</th>"
         }
         content += "</tr></table>";
-        correctnums = [nums[0],nums[1],nums[2]];
+        shortA = [nums[0],nums[1],nums[2]];
+        sortednums = mergeSort(shortA);
         correctanswer = false;
         nextcount ++;
       }
