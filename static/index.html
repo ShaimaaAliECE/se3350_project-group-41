@@ -213,22 +213,6 @@
 			case 0: //split
 				document.getElementById("p").innerHTML =
 					"split the left array down the middle";
-				//var Row = document.getElementById("T1");  //getting the table
-				// var Cells = Row.getElementsByTagName("th"); //getting the cells
-				//var firstNum = (Cells[0].innerText); //retrieving info from the cells
-				//var num1 = document.getElementById("T1").rows[0].cells.item(0).innerHTML;
-
-				//var secondNum = (Cells[1].innerText);
-				//var thirdNum = (Cells[2].innerText);
-				//var fourthNum = (Cells[3]).innerText)
-				//var fifthNum = (Cells[4]).innerText)
-				//var sixthNum = (Cells[5]).innerText)
-				//var seventhNum = (Cells[6]).innerText)
-
-				//var eightNum = (Cells[7]).innerText)
-				//var nineNum = (Cells[8]).innerText)
-				//var tenNum = (Cells[9]).innerText)
-
 				//2
 				content +=
 					"<table class = 'table2' style='width: 10%' id='T2'><tr>";
@@ -319,7 +303,8 @@
 				content += "</tr></table>";
 				break;
 
-			case 4: //merge
+			case 4: //merge,
+			//this is the point where the first mergesort should happen, change instructions, and add depth here
 				document.getElementById("p").innerHTML =
 					"compare the values again, placing them from left to right, ascending in value";
 
@@ -417,6 +402,7 @@
 				break;
 
 			case 7: //merge
+			//this is the second mergesort, same thing as case 4
 				document.getElementById("p").innerHTML =
 					"compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array";
 
