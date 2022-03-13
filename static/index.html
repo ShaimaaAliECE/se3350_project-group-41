@@ -176,7 +176,7 @@
 	let nums = [];
   let shortA = [];
   let sortednums = [];
-  let x = 0,y = 0;
+  let x = 0, y = 0, z = 0;
 	for (let i = 0; i < 10; i++) {
 		//randomly generates the table with 10 numbers
 		a = Math.floor(Math.random() * 20 + 1);
@@ -324,33 +324,23 @@
 				document.getElementById("p").innerHTML =
 					"compare the values again, placing them from left to right, ascending in value";
 
-				var elem7 = document.getElementById("T7");
-
-				if (typeof elem7 != "undefined") {
-					elem7.parentNode.removeChild(elem7);
-				}
+				var T7 = document.getElementById("T7");
+				var  m1 = T7.getElementsByTagName("th");
 				shortA = [nums[1], nums[2]];
 				sortednums = mergeSort(shortA);
-				content +=
-					"</br><table style ='width: 4%; margin-left: 15%; margin-right: auto; margin-top: -7.65pc;' id='T10'><tr>";
 				for (let i = 0; i < 2; i++) {
-					content += "<th>";
-					content += "&nbsp";
-					content += "</th>";
+					m1[i].innerHTML = "&nbsp";
 				}
-				content += "</tr></table>";
-
 				break;
       		case 5://add first value to table
-				var T8 = document.getElementById("T8")
-				var  m1 = T8.getElementsByTagName("th")
-				var T9 = document.getElementById("T9")
-				var  m2 = T9.getElementsByTagName("th")
+				var T8 = document.getElementById("T8");
+				var  m1 = T8.getElementsByTagName("th");
+				var T9 = document.getElementById("T9");
+				var  m2 = T9.getElementsByTagName("th");
+				var T7 = document.getElementById("T7");
+				var m3 = T7.getElementsByTagName("th");
 				
-	  			var elem8 = document.getElementById("T10");
-				  if (typeof elem8 != "undefined") {
-					elem8.parentNode.removeChild(elem8);
-				}
+				
 				if (m1[0].innerHTML == sortednums[0]){
 					if (typeof T8 != "undefined") {
 						m1[0].innerHTML = "&nbsp";
@@ -360,94 +350,100 @@
 						m2[0].innerHTML = "&nbsp";
 					}
 				}
-				content += "</br><table class='table10' style ='width: 4%; margin-top: -8.7pc;' id='T10'><tr>";
-				content += "<th>" + sortednums[0] + "</th><th>&nbsp</th>";
-				content += "</tr></table>";
+				m3[0].innerHTML = sortednums[0];
        			break;
       		case 6://add last value to table and change visibility of old tables
 			  	var T8 = document.getElementById("T8").style.visibility = "hidden";
 				var T9 = document.getElementById("T9").style.visibility = "hidden";
-			  	var T10 = document.getElementById("T10");
-
-				var  m1 = T10.getElementsByTagName("th");
-				if (typeof T8 != "undefined") {
+			  	var T7 = document.getElementById("T7");
+				var m1 = T7.getElementsByTagName("th");
+				if (typeof T7 != "undefined") {
 						m1[1].innerHTML = sortednums[1];
 				}
-				shortA = [nums[0], nums[1], nums[2]];
-				sortednums = mergeSort(shortA);
         		break;
 			case 7: //clear initial table
 				//delete table
-				var T6 = document.getElementById("T6")
-				var  m1 = T6.getElementsByTagName("th")
-				var T10 = document.getElementById("T10")
-				var  m2 = T10.getElementsByTagName("th")
-
-				if (m1[0].innerHTML == sortednums[0]){
-					if (typeof T8 != "undefined") {
-						m1[0].innerHTML = "&nbsp";
-					}
-				}else{
-					if (typeof T9 != "undefined") {
-						m2[0].innerHTML = "&nbsp";
-					}
-				}
-
-
-
-
-
-
-
-
-
-
-				document.getElementById("p").innerHTML =
-					"now split the other array length 2";
-
-				var elem4 = document.getElementById("T4");
-
-				if (typeof elem4 != "undefined") {
-					elem4.parentNode.removeChild(elem4);
-				}
-
-				//adjusting style for deletion of reference table
-				document.getElementById("T5").style.marginTop = "2pc";
-
-				//delete table
-				var elem6 = document.getElementById("T6");
-
-				if (typeof elem6 != "undefined") {
-					elem6.parentNode.removeChild(elem6);
-				}
-				//delete table
-				var elem10 = document.getElementById("T10");
-
-				if (typeof elem10 != "undefined") {
-					elem10.parentNode.removeChild(elem10);
-				}
-				
-				content +=
-					"</br><table style='width: 6%' id='T11' class='table11'><tr>";
+				var T4 = document.getElementById("T4")
+				var m1 = T4.getElementsByTagName("th");
+				shortA = [nums[0], nums[1], nums[2]];
+				sortednums = mergeSort(shortA);
 				for (let i = 0; i < 3; i++) {
-					content += "<th>";
-					content += sortednums[i];
-					content += "</th>";
+					m1[i].innerHTML = "&nbsp";
 				}
-				content += "</tr></table>";
+				console.log (x,y);
 				break;
 			case 8://add first value
+				var T6 = document.getElementById("T6");
+				var  m1 = T6.getElementsByTagName("th");
+				var T7 = document.getElementById("T7");
+				var  m2 = T7.getElementsByTagName("th");
+				var T4 = document.getElementById("T4");
+				var m3 = T4.getElementsByTagName("th");
+				
+				if (m1[0].innerHTML == sortednums[0]){
+					if (typeof T6 != "undefined") {
+						m1[0].innerHTML = "&nbsp";
+						x++;
+					}
+				}else{
+					if (typeof T7 != "undefined") {
+						m2[y].innerHTML = "&nbsp";
+						y++;
+					}
+				}
+				console.log (x,y);
+				m3[0].innerHTML = sortednums[0];
 				break;
 			case 9://add second value
+				var T6 = document.getElementById("T6");
+				var  m1 = T6.getElementsByTagName("th");
+				var T7 = document.getElementById("T7");
+				var  m2 = T7.getElementsByTagName("th");
+				var T4 = document.getElementById("T4");
+				var m3 = T4.getElementsByTagName("th");
+				
+				if (m1[0].innerHTML == sortednums[1]){
+					if (typeof T6 != "undefined") {
+						m1[x].innerHTML = "&nbsp";
+						x++;
+					}
+				}else{
+					if (typeof T7 != "undefined") {
+						m2[y].innerHTML = "&nbsp";
+						y++;
+					}
+				}
+				console.log (x,y);
+				m3[1].innerHTML = sortednums[1];
 				break;
 			case 10://add final value and set visibility of old tables to 0
+				var T6 = document.getElementById("T6");
+				var  m1 = T6.getElementsByTagName("th");
+				var T7 = document.getElementById("T7");
+				var  m2 = T7.getElementsByTagName("th");
+				var T4 = document.getElementById("T4");
+				var m3 = T4.getElementsByTagName("th");
+				if (m1[0].innerHTML == sortednums[2]){
+					if (typeof T6 != "undefined") {
+						m1[x].innerHTML = "&nbsp";
+					}
+				}else{
+					if (typeof T7 != "undefined") {
+						m2[y].innerHTML = "&nbsp";
+					}
+				}
+				document.getElementById("T6").style.visibility = "hidden";
+				document.getElementById("T7").style.visibility = "hidden";
+				m3[2].innerHTML = sortednums[2];
+				x=0;
+				y=0;
 				break;
 			case 11: //split
 				document.getElementById("p").innerHTML =
 					"compare the values, placing them from left to right, ascending in value";
 
 				content +=
-					"</br><table class= 'table12' id='T12' style = 'width: 2%'><tr>";
+					"</br><table class= 'table12' id='T12' style = 'width: 2%; margin-top: -8pc'><tr>";
 				for (let i = 3; i < 4; i++) {
 					content += "<th>";
 					content += nums[i];
@@ -464,91 +460,182 @@
 				}
 				content += "</tr></table>";
 				break;
-
 			case 12: //clear initial table
-				document.getElementById("p").innerHTML =
-					"compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array";
-
-				//adjusting style for deletion of reference table
-				document.getElementById("T11").style.marginTop = "-3.5pc";
-
-				var elem5 = document.getElementById("T5");
-
-				if (typeof elem5 != "undefined") {
-					elem5.parentNode.removeChild(elem5);
-				}
-
-				var elem13 = document.getElementById("T13");
-
-				if (typeof elem13 != "undefined") {
-					elem13.parentNode.removeChild(elem13);
-				}
-
-				var elem12 = document.getElementById("T12");
-
-				if (typeof elem12 != "undefined") {
-					elem12.parentNode.removeChild(elem12);
-				}
-
+				var T5 = document.getElementById("T5")
+				var m1 = T5.getElementsByTagName("th");
 				shortA = [nums[3], nums[4]];
 				sortednums = mergeSort(shortA);
-				content +=
-					"</br><table class='table14' id ='T14' style = 'width:4%'><tr>";
 				for (let i = 0; i < 2; i++) {
-					content += "<th>";
-					content += sortednums[i];
-					content += "</th>";
+					m1[i].innerHTML = "&nbsp";
 				}
-				content += "</tr></table>";
 				break;
 			case 13:// add first value
+				var T12 = document.getElementById("T12");
+				var  m1 = T12.getElementsByTagName("th");
+				var T13 = document.getElementById("T13");
+				var  m2 = T13.getElementsByTagName("th");
+				var T5 = document.getElementById("T5");
+				var m3 = T5.getElementsByTagName("th");
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[0]){
+					if (typeof T12 != "undefined") {
+						m1[x].innerHTML = "&nbsp";
+					}
+				}else{
+					if (typeof T13 != "undefined") {
+						m2[y].innerHTML = "&nbsp";
+					}
+				}
+				m3[0].innerHTML = sortednums[0];
 				break;
 			case 14:// add final value
+				var T12 = document.getElementById("T12");
+				var  m1 = T12.getElementsByTagName("th");
+				var T13 = document.getElementById("T13");
+				var  m2 = T13.getElementsByTagName("th");
+				var T5 = document.getElementById("T5");
+				var m3 = T5.getElementsByTagName("th");
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[2]){
+					if (typeof T12 != "undefined") {
+						m1[x].innerHTML = "&nbsp";
+					}
+				}else{
+					if (typeof T13 != "undefined") {
+						m2[y].innerHTML = "&nbsp";
+					}
+				}
+				document.getElementById("T12").style.visibility = "hidden";
+				document.getElementById("T13").style.visibility = "hidden";
+				m3[1].innerHTML = sortednums[1];
 				break;
 			case 15: //clear inital table
-				document.getElementById("p").innerHTML =
-					"now that the left array has been sorted, split the right side array down the middle";
-
-				document.getElementById("T3").style.marginTop = "2pc";
-
-				var elem2 = document.getElementById("T2");
-
-				if (typeof elem2 != "undefined") {
-					elem2.parentNode.removeChild(elem2);
-				}
-
-				var elem11 = document.getElementById("T11");
-
-				if (typeof elem11 != "undefined") {
-					elem11.parentNode.removeChild(elem11);
-				}
-
-				var elem14 = document.getElementById("T14");
-
-				if (typeof elem14 != "undefined") {
-					elem14.parentNode.removeChild(elem14);
-				}
-
-				shortA = [nums[0], nums[1], nums[2], nums[3], nums[4]];
+				var T2 = document.getElementById("T2")
+				var m1 = T2.getElementsByTagName("th");
+				shortA = [nums[0],nums[1],nums[2],nums[3], nums[4]];
 				sortednums = mergeSort(shortA);
-				content +=
-					"</br><table class ='table15' id='T15' style='width:10%'><tr>";
 				for (let i = 0; i < 5; i++) {
-					content += "<th>";
-					content += sortednums[i];
-					content += "</th>";
+					m1[i].innerHTML = "&nbsp";
 				}
-				content += "</tr></table>";
 				break;
 			case 16://add first value
+				var T4 = document.getElementById("T4");
+				var  m1 = T4.getElementsByTagName("th");
+				var T5 = document.getElementById("T5");
+				var  m2 = T5.getElementsByTagName("th");
+				var T2 = document.getElementById("T2");
+				var m3 = T2.getElementsByTagName("th");
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[0]){
+					if (typeof T4 != "undefined") {
+						m1[x].innerHTML = "&nbsp";
+						x++;
+					}
+				}else{
+					if (typeof T5 != "undefined") {
+						m2[y].innerHTML = "&nbsp";
+						y++;
+					}
+				}
+				m3[0].innerHTML = sortednums[0];
 				break;
 			case 17://add second value
+				var T4 = document.getElementById("T4");
+				var  m1 = T4.getElementsByTagName("th");
+				var T5 = document.getElementById("T5");
+				var  m2 = T5.getElementsByTagName("th");
+				var T2 = document.getElementById("T2");
+				var m3 = T2.getElementsByTagName("th");
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[1]){
+					if (typeof T4 != "undefined") {
+						m1[x].innerHTML = "&nbsp";
+						x++;
+					}
+				}else{
+					if (typeof T5 != "undefined") {
+						m2[y].innerHTML = "&nbsp";
+						y++;
+						if(y == 2){
+							y =0;
+						}
+					}
+				}
+				m3[1].innerHTML = sortednums[1];
 				break;
 			case 18://add third value
+				var T4 = document.getElementById("T4");
+				var  m1 = T4.getElementsByTagName("th");
+				var T5 = document.getElementById("T5");
+				var  m2 = T5.getElementsByTagName("th");
+				var T2 = document.getElementById("T2");
+				var m3 = T2.getElementsByTagName("th");
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[2]){
+					if (typeof T4 != "undefined") {
+						m1[x].innerHTML = "&nbsp";
+						x++;
+					}
+				}else{
+					if (typeof T5 != "undefined") {
+						m2[y].innerHTML = "&nbsp";
+						y++;
+						if(y == 2){
+							y =0;
+						}
+					}
+				}
+				m3[2].innerHTML = sortednums[2];
 				break;
 			case 19://add fourth value
+				var T4 = document.getElementById("T4");
+				var  m1 = T4.getElementsByTagName("th");
+				var T5 = document.getElementById("T5");
+				var  m2 = T5.getElementsByTagName("th");
+				var T2 = document.getElementById("T2");
+				var m3 = T2.getElementsByTagName("th");
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[3]){
+					if (typeof T4 != "undefined") {
+						m1[x].innerHTML = "&nbsp";
+						x++;
+						if (x == 3){
+							x = 0;
+						}
+					}
+				}else{
+					if (typeof T5 != "undefined") {
+						m2[y].innerHTML = "&nbsp";
+						y++;
+						if(y == 2){
+							y = 0;
+						}
+					}
+				}
+				m3[3].innerHTML = sortednums[3];
 				break;
 			case 20://add final value change visibility
+				var T4 = document.getElementById("T4");
+				var m1 = T4.getElementsByTagName("th");
+				var T5 = document.getElementById("T5");
+				var m2 = T5.getElementsByTagName("th");
+				var T2 = document.getElementById("T2");
+				var m3 = T2.getElementsByTagName("th");
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[4]){
+					if (typeof T4 != "undefined") {
+						m1[x].innerHTML = "&nbsp";
+					}
+				}else{
+					if (typeof T5 != "undefined") {
+						m2[y].innerHTML = "&nbsp";
+					}
+				}
+				document.getElementById("T4").style.visibility = "hidden";
+				document.getElementById("T5").style.visibility = "hidden";
+				m3[4].innerHTML = sortednums[4];
+				x == 0;
+				y == 0;
 				break;
 			case 21: //split
 				document.getElementById("p").innerHTML =
