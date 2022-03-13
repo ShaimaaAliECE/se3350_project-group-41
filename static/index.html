@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>working</title>
+		<title>Home</title>
 
 		<style>
 			header {
@@ -165,15 +165,18 @@
 	</head>
 	<body>
 		<h1>Start the tutorial</h1>
-		<input type="button" onclick="ShowLine()" value="Display" />
-		<a href="level2.html"> display level 2 </a>
-		<a href="level3.html"> display level 3 </a>
+		<input type="button" onclick="ShowLine()" value="Display Level 1" />
+		<a href="level2.html"> Display level 2 </a>
+		<a href="level3.html"> Display level 3 </a>
 	</body>
 </html>
 
 <script>
 	let nextcount = 0;
 	let nums = [];
+  let shortA = [];
+  let sortednums = [];
+  let x = 0,y = 0;
 	for (let i = 0; i < 10; i++) {
 		//randomly generates the table with 10 numbers
 		a = Math.floor(Math.random() * 20 + 1);
@@ -207,8 +210,6 @@
 		//contains all the steps of the tutorial
 		let content = "";
 		console.log(nextcount);
-		let shortA = [];
-		let sortednums = [];
 		switch (nextcount) {
 			case 0: //split
 				document.getElementById("p").innerHTML =
@@ -319,7 +320,7 @@
 				content += "</tr></table>";
 				break;
 
-			case 4: //merge
+			case 4: //instruction for initial merge
 				document.getElementById("p").innerHTML =
 					"compare the values again, placing them from left to right, ascending in value";
 
@@ -328,34 +329,78 @@
 				if (typeof elem7 != "undefined") {
 					elem7.parentNode.removeChild(elem7);
 				}
-
-				var elem8 = document.getElementById("T8");
-
-				if (typeof elem8 != "undefined") {
-					elem8.parentNode.removeChild(elem8);
-				}
-
-				var elem9 = document.getElementById("T9");
-
-				if (typeof elem9 != "undefined") {
-					elem9.parentNode.removeChild(elem9);
-				}
-
 				shortA = [nums[1], nums[2]];
 				sortednums = mergeSort(shortA);
 				content +=
-					"</br><table class='table10' style ='width: 4%' id='T10'><tr>";
+					"</br><table style ='width: 4%; margin-left: 15%; margin-right: auto; margin-top: -7.65pc;' id='T10'><tr>";
 				for (let i = 0; i < 2; i++) {
 					content += "<th>";
-					content += sortednums[i];
+					content += "&nbsp";
 					content += "</th>";
 				}
 				content += "</tr></table>";
 
 				break;
+      		case 5://add first value to table
+				var T8 = document.getElementById("T8")
+				var  m1 = T8.getElementsByTagName("th")
+				var T9 = document.getElementById("T9")
+				var  m2 = T9.getElementsByTagName("th")
+				
+	  			var elem8 = document.getElementById("T10");
+				  if (typeof elem8 != "undefined") {
+					elem8.parentNode.removeChild(elem8);
+				}
+				if (m1[0].innerHTML == sortednums[0]){
+					if (typeof T8 != "undefined") {
+						m1[0].innerHTML = "&nbsp";
+					}
+				}else{
+					if (typeof T9 != "undefined") {
+						m2[0].innerHTML = "&nbsp";
+					}
+				}
+				content += "</br><table class='table10' style ='width: 4%; margin-top: -8.7pc;' id='T10'><tr>";
+				content += "<th>" + sortednums[0] + "</th><th>&nbsp</th>";
+				content += "</tr></table>";
+       			break;
+      		case 6://add last value to table and change visibility of old tables
+			  	var T8 = document.getElementById("T8").style.visibility = "hidden";
+				var T9 = document.getElementById("T9").style.visibility = "hidden";
+			  	var T10 = document.getElementById("T10");
 
-			case 5: //merge
+				var  m1 = T10.getElementsByTagName("th");
+				if (typeof T8 != "undefined") {
+						m1[1].innerHTML = sortednums[1];
+				}
+				shortA = [nums[0], nums[1], nums[2]];
+				sortednums = mergeSort(shortA);
+        		break;
+			case 7: //clear initial table
 				//delete table
+				var T6 = document.getElementById("T6")
+				var  m1 = T6.getElementsByTagName("th")
+				var T10 = document.getElementById("T10")
+				var  m2 = T10.getElementsByTagName("th")
+
+				if (m1[0].innerHTML == sortednums[0]){
+					if (typeof T8 != "undefined") {
+						m1[0].innerHTML = "&nbsp";
+					}
+				}else{
+					if (typeof T9 != "undefined") {
+						m2[0].innerHTML = "&nbsp";
+					}
+				}
+
+
+
+
+
+
+
+
+
 
 				document.getElementById("p").innerHTML =
 					"now split the other array length 2";
@@ -381,8 +426,7 @@
 				if (typeof elem10 != "undefined") {
 					elem10.parentNode.removeChild(elem10);
 				}
-				shortA = [nums[0], nums[1], nums[2]];
-				sortednums = mergeSort(shortA);
+				
 				content +=
 					"</br><table style='width: 6%' id='T11' class='table11'><tr>";
 				for (let i = 0; i < 3; i++) {
@@ -392,8 +436,13 @@
 				}
 				content += "</tr></table>";
 				break;
-
-			case 6: //split
+			case 8://add first value
+				break;
+			case 9://add second value
+				break;
+			case 10://add final value and set visibility of old tables to 0
+				break;
+			case 11: //split
 				document.getElementById("p").innerHTML =
 					"compare the values, placing them from left to right, ascending in value";
 
@@ -416,7 +465,7 @@
 				content += "</tr></table>";
 				break;
 
-			case 7: //merge
+			case 12: //clear initial table
 				document.getElementById("p").innerHTML =
 					"compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array";
 
@@ -452,8 +501,11 @@
 				}
 				content += "</tr></table>";
 				break;
-
-			case 8: //merge
+			case 13:// add first value
+				break;
+			case 14:// add final value
+				break;
+			case 15: //clear inital table
 				document.getElementById("p").innerHTML =
 					"now that the left array has been sorted, split the right side array down the middle";
 
@@ -488,8 +540,17 @@
 				}
 				content += "</tr></table>";
 				break;
-
-			case 9: //split
+			case 16://add first value
+				break;
+			case 17://add second value
+				break;
+			case 18://add third value
+				break;
+			case 19://add fourth value
+				break;
+			case 20://add final value change visibility
+				break;
+			case 21: //split
 				document.getElementById("p").innerHTML =
 					"split the length 3 array down the middle";
 
@@ -512,7 +573,7 @@
 				content += "</tr></table>";
 				break;
 
-			case 10: //split
+			case 22: //split
 				document.getElementById("p").innerHTML =
 					"split the final furthest down length 2 array down the middle";
 
@@ -535,7 +596,7 @@
 				content += "</tr></table>";
 				break;
 
-			case 11: //split
+			case 23: //split
 				document.getElementById("p").innerHTML =
 					"compare the values, placing them from left to right, ascending in value";
 
@@ -558,7 +619,7 @@
 				content += "</tr></table>";
 				break;
 
-			case 12: //merge
+			case 24: //clear initial table
 				document.getElementById("p").innerHTML =
 					"compare the values again, placing them from left to right, ascending in value";
 
@@ -591,8 +652,11 @@
 				}
 				content += "</tr></table>";
 				break;
-
-			case 13: //merge
+			case 25://add first value
+				break;
+			case 26://add final value and change table visibility
+				break;
+			case 27: //clear initial table
 				document.getElementById("p").innerHTML =
 					"now split the other array length 2";
 
@@ -626,8 +690,13 @@
 				}
 				content += "</tr></table>";
 				break;
-
-			case 14: //split
+			case 28://add first value
+				break;
+			case 29://add second value
+				break;
+			case 30://add final value and change table visibility
+				break;
+			case 31: //split
 				document.getElementById("p").innerHTML =
 					"compare the values, placing them from left to right, ascending in value";
 
@@ -650,7 +719,7 @@
 				content += "</tr></table>";
 				break;
 
-			case 15: //merge
+			case 32: //Clear table
 				document.getElementById("p").innerHTML =
 					"compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array";
 
@@ -685,8 +754,11 @@
 				}
 				content += "</tr></table>";
 				break;
-
-			case 16: //merge
+			case 33://add first value
+				break;
+			case 34://add final value and change table visibility
+				break;
+			case 35: //merge
 				document.getElementById("p").innerHTML =
 					"compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 10 array";
 
@@ -721,8 +793,17 @@
 				}
 				content += "</tr></table>";
 				break;
-
-			case 17: //merge
+			case 36://add first value
+				break;
+			case 37://add second value
+				break;
+			case 38://add third value
+				break;
+			case 39://add fourth value
+				break;
+			case 40://add final value and change table visibility 
+				break;
+			case 41: //merge
 				document.getElementById("p").innerHTML = "merge sort complete!";
 
 				var elem1 = document.getElementById("T1");
