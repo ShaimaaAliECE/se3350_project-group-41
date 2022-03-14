@@ -1,7 +1,14 @@
-import React from "react";
+import React from 'react';
+import Columns from '../../components/Columns/Columns';
 
 function Home() {
-	return <div>Home</div>;
+	return (
+		<>
+			<header>
+				<Columns />
+			</header>
+		</>
+	);
 }
 
 export default Home;
