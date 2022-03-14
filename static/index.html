@@ -556,10 +556,14 @@
 					if (typeof T5 != "undefined") {
 						m2[y].innerHTML = "&nbsp";
 						y++;
-						if(y == 2){
-							y =0;
-						}
+						
 					}
+				}
+				if(x == 2){
+					x =0;
+				}
+				if(y == 2){
+					y =0;
 				}
 				m3[1].innerHTML = sortednums[1];
 				break;
@@ -580,10 +584,14 @@
 					if (typeof T5 != "undefined") {
 						m2[y].innerHTML = "&nbsp";
 						y++;
-						if(y == 2){
-							y =0;
-						}
+						
 					}
+				}
+				if(x == 2){
+					x =0;
+				}
+				if(y == 2){
+					y =0;
 				}
 				m3[2].innerHTML = sortednums[2];
 				break;
@@ -980,6 +988,9 @@
                     if (typeof T16 != "undefined") {
                         m1[x].innerHTML = "&nbsp";
                         x++;
+						if(x==2){
+							x == 0;
+						}
                     }
                 }else{
                     if (typeof T17 != "undefined") {
@@ -1001,16 +1012,21 @@
                     if (typeof T16 != "undefined") {
                         m1[x].innerHTML = "&nbsp";
                         x++;
+						
                     }
                 }else{
                     if (typeof T17 != "undefined") {
                         m2[y].innerHTML = "&nbsp";
                         y++;
-                        if(y == 2){
-                            y =0;
-                        }
+                        
                     }
                 }
+				if(y == 2){
+                    y =0;
+                }
+				if(x==2){
+					x == 0;
+				}
                 m3[1].innerHTML = sortednums[1];
 				break;
 			case 38://add third value
@@ -1025,15 +1041,20 @@
                     if (typeof T16 != "undefined") {
                         m1[x].innerHTML = "&nbsp";
                         x++;
+						
                     }
                 }else{
                     if (typeof T17 != "undefined") {
                         m2[y].innerHTML = "&nbsp";
                         y++;
-                        if(y == 2){
-                            y =0;
-                        }
+                        
                     }
+                }
+				if(x==2){
+					x == 0;
+				}
+				if(y == 2){
+                    y =0;
                 }
                 m3[2].innerHTML = sortednums[2];
 				break;
@@ -1044,22 +1065,24 @@
                 var  m2 = T17.getElementsByTagName("th");
                 var T3 = document.getElementById("T3");
                 var m3 = T3.getElementsByTagName("th");
+				if(y >= 2){
+                    y = 0;
+                }
+				if (x >= 3){
+                    x = 0;
+                }
                 console.log(x);
                 if (m1[x].innerHTML == sortednums[3]){
                     if (typeof T16 != "undefined") {
                         m1[x].innerHTML = "&nbsp";
                         x++;
-                        if (x == 3){
-                            x = 0;
-                        }
+                        
                     }
                 }else{
                     if (typeof T17 != "undefined") {
                         m2[y].innerHTML = "&nbsp";
                         y++;
-                        if(y == 2){
-                            y = 0;
-                        }
+                        
                     }
                 }
                 m3[3].innerHTML = sortednums[3];
@@ -1071,6 +1094,13 @@
                 var m2 = T17.getElementsByTagName("th");
                 var T3 = document.getElementById("T3");
                 var m3 = T3.getElementsByTagName("th");
+
+				if(y >= 2){
+                    y = 0;
+                }
+				if (x >= 3){
+                    x = 0;
+                }
                 console.log(x);
                 if (m1[x].innerHTML == sortednums[4]){
                     if (typeof T16 != "undefined") {
@@ -1088,34 +1118,59 @@
                 y == 0;
 				break;
 			case 41: //merge
-				document.getElementById("p").innerHTML = "merge sort complete!";
-
-				var elem1 = document.getElementById("T1");
-
-				if (typeof elem1 != "undefined") {
-					elem1.parentNode.removeChild(elem1);
+				var T2 = document.getElementById("T2")
+                var m1 = T2.getElementsByTagName("th");
+				var T3 = document.getElementById("T3")
+                var m2 = T3.getElementsByTagName("th");
+				var T1 = document.getElementById("T1")
+                var m3 = T1.getElementsByTagName("th");
+				shortA = [nums[0], nums[1], nums[2], nums[3], nums[4],nums[5], nums[6], nums[7], nums[8], nums[9]];
+				sortednums = mergeSort(shortA);
+                for (let i = 0; i < 10; i++) {
+                    m3[i].innerHTML = "&nbsp";
+                }
+				x = 0;
+				y = 0;
+				break;
+			case 42:
+					
+					
+				if(z <10){
+					var T2 = document.getElementById("T2");//length 3 one
+                	var  m1 = T2.getElementsByTagName("th");
+                	var T3 = document.getElementById("T3");//length 2
+                	var  m2 = T3.getElementsByTagName("th");
+                	var T1 = document.getElementById("T1");//length 5
+                	var m3 = T1.getElementsByTagName("th");
+					
+                	console.log(x,y,z);
+                	if (m1[x].innerHTML == sortednums[z]){
+                	    if (typeof T2 != "undefined") {
+                	        m1[x].innerHTML = "&nbsp";
+							if(x < 4){
+								x++;
+							}else{
+								x = 0;
+							}
+                	    }
+                	}else{
+                	    if (typeof T3 != "undefined") {
+                	        m2[y].innerHTML = "&nbsp";
+							if(y < 4){
+								y++;
+							}else{
+								y = 0;
+							}
+                	    }
+                	}
+					
+                	m3[z].innerHTML = sortednums[z];
+					z++
+					nextcount --;
+				}else{
+					document.getElementById("T2").style.visibility = "hidden";
+                	document.getElementById("T3").style.visibility = "hidden";
 				}
-
-				var elem15 = document.getElementById("T15");
-
-				if (typeof elem15 != "undefined") {
-					elem15.parentNode.removeChild(elem15);
-				}
-
-				var elem27 = document.getElementById("T27");
-
-				if (typeof elem27 != "undefined") {
-					elem27.parentNode.removeChild(elem27);
-				}
-
-				sortednums = mergeSort(nums);
-				content += "</br><table class = 'table28' id='T28'><tr>";
-				for (let i = 0; i < 10; i++) {
-					content += "<th>";
-					content += sortednums[i];
-					content += "</th>";
-				}
-				content += "</tr></table>";
 				break;
 		}
 		nextcount += 1;
