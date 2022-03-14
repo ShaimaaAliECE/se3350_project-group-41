@@ -276,7 +276,7 @@
 
 			case 2: //split
 				document.getElementById("p").innerHTML =
-					"split the final furthest down length 2 array down the middle";
+					"Split the final furthest down length 2 array down the middle";
 
 				content +=
 					"</br><table class = 'table6' style = 'width: 2%' id='T6'><tr>";
@@ -332,7 +332,10 @@
 					m1[i].innerHTML = "&nbsp";
 				}
 				break;
+
+
       		case 5://add first value to table
+          document.getElementById("p").innerHTML = "Add the value into the table in ascending order ";
 				var T8 = document.getElementById("T8");
 				var  m1 = T8.getElementsByTagName("th");
 				var T9 = document.getElementById("T9");
@@ -352,7 +355,9 @@
 				}
 				m3[0].innerHTML = sortednums[0];
        			break;
+
       		case 6://add last value to table and change visibility of old tables
+          document.getElementById("p").innerHTML = "Add the last value into the table";
 			  	var T8 = document.getElementById("T8").style.visibility = "hidden";
 				var T9 = document.getElementById("T9").style.visibility = "hidden";
 			  	var T7 = document.getElementById("T7");
@@ -363,6 +368,7 @@
         		break;
 			case 7: //clear initial table
 				//delete table
+        document.getElementById("p").innerHTML = "";
 				var T4 = document.getElementById("T4")
 				var m1 = T4.getElementsByTagName("th");
 				shortA = [nums[0], nums[1], nums[2]];
@@ -373,6 +379,7 @@
 				console.log (x,y);
 				break;
 			case 8://add first value
+      document.getElementById("p").innerHTML = " Compare the values and Add the first value into the table. Make sure its in ascending order";
 				var T6 = document.getElementById("T6");
 				var  m1 = T6.getElementsByTagName("th");
 				var T7 = document.getElementById("T7");
@@ -395,6 +402,7 @@
 				m3[0].innerHTML = sortednums[0];
 				break;
 			case 9://add second value
+      document.getElementById("p").innerHTML = "Add the second value into the table";
 				var T6 = document.getElementById("T6");
 				var  m1 = T6.getElementsByTagName("th");
 				var T7 = document.getElementById("T7");
@@ -417,6 +425,7 @@
 				m3[1].innerHTML = sortednums[1];
 				break;
 			case 10://add final value and set visibility of old tables to 0
+      document.getElementById("p").innerHTML = "Add the final value into the table";
 				var T6 = document.getElementById("T6");
 				var  m1 = T6.getElementsByTagName("th");
 				var T7 = document.getElementById("T7");
@@ -439,7 +448,7 @@
 				y=0;
 				break;
 			case 11: //split
-				document.getElementById("p").innerHTML =
+				document.getElementById("p").innerHTML = 
 					"compare the values, placing them from left to right, ascending in value";
 
 				content +=
@@ -461,6 +470,7 @@
 				content += "</tr></table>";
 				break;
 			case 12: //clear initial table
+      document.getElementById("p").innerHTML = "";
 				var T5 = document.getElementById("T5")
 				var m1 = T5.getElementsByTagName("th");
 				shortA = [nums[3], nums[4]];
@@ -470,6 +480,7 @@
 				}
 				break;
 			case 13:// add first value
+      document.getElementById("p").innerHTML = "Add the first value into the table, in ascending order";
 				var T12 = document.getElementById("T12");
 				var  m1 = T12.getElementsByTagName("th");
 				var T13 = document.getElementById("T13");
@@ -489,6 +500,7 @@
 				m3[0].innerHTML = sortednums[0];
 				break;
 			case 14:// add final value
+      document.getElementById("p").innerHTML = "Add the final value into the table";
 				var T12 = document.getElementById("T12");
 				var  m1 = T12.getElementsByTagName("th");
 				var T13 = document.getElementById("T13");
@@ -510,6 +522,7 @@
 				m3[1].innerHTML = sortednums[1];
 				break;
 			case 15: //clear inital table
+      document.getElementById("p").innerHTML = "";
 				var T2 = document.getElementById("T2")
 				var m1 = T2.getElementsByTagName("th");
 				shortA = [nums[0],nums[1],nums[2],nums[3], nums[4]];
@@ -519,6 +532,7 @@
 				}
 				break;
 			case 16://add first value
+      document.getElementById("p").innerHTML = "Add the first value into the table. Make sure its in ascedning";
 				var T4 = document.getElementById("T4");
 				var  m1 = T4.getElementsByTagName("th");
 				var T5 = document.getElementById("T5");
@@ -540,6 +554,7 @@
 				m3[0].innerHTML = sortednums[0];
 				break;
 			case 17://add second value
+      document.getElementById("p").innerHTML = "Add the second value into the table";
 				var T4 = document.getElementById("T4");
 				var  m1 = T4.getElementsByTagName("th");
 				var T5 = document.getElementById("T5");
@@ -568,6 +583,7 @@
 				m3[1].innerHTML = sortednums[1];
 				break;
 			case 18://add third value
+      document.getElementById("p").innerHTML = "Add the third value into the table";
 				var T4 = document.getElementById("T4");
 				var  m1 = T4.getElementsByTagName("th");
 				var T5 = document.getElementById("T5");
@@ -596,6 +612,7 @@
 				m3[2].innerHTML = sortednums[2];
 				break;
 			case 19://add fourth value
+      document.getElementById("p").innerHTML = "Add the fouth value into the table";
 				var T4 = document.getElementById("T4");
 				var  m1 = T4.getElementsByTagName("th");
 				var T5 = document.getElementById("T5");
@@ -623,6 +640,7 @@
 				m3[3].innerHTML = sortednums[3];
 				break;
 			case 20://add final value change visibility
+      document.getElementById("p").innerHTML = "Add the final value into the table";
 				var T4 = document.getElementById("T4");
 				var m1 = T4.getElementsByTagName("th");
 				var T5 = document.getElementById("T5");
@@ -746,6 +764,7 @@
 				
 				break;
 			case 25://add first value
+      document.getElementById("p").innerHTML = "Compare the values and Add the first value into the table, in ascending order from left to right";
 				var T20 = document.getElementById("T20");
 				var  m1 = T20.getElementsByTagName("th");
 				var T21 = document.getElementById("T21");
@@ -768,6 +787,7 @@
 
 				break;
 			case 26://add final value and change table visibility
+      document.getElementById("p").innerHTML = "Add the final value into the table";
 				var T20 = document.getElementById("T20").style.visibility = "hidden";
 				var T21 = document.getElementById("T21").style.visibility = "hidden";
 			  	var T19 = document.getElementById("T19");
@@ -813,6 +833,7 @@
 				}
 				break;
 			case 28://add first value
+      document.getElementById("p").innerHTML = "COMPARE THE VALUES AND ADD THE FIRST VALUE INTO THE TABLE IN ASCENDING ORDER, FROM LEFT TO RIGHT";
 				var T18 = document.getElementById("T18");
                 var  m1 = T18.getElementsByTagName("th");
                 var T19 = document.getElementById("T19");
@@ -835,6 +856,7 @@
                 m3[0].innerHTML = sortednums[0];
 				break;
 			case 29://add second value
+      document.getElementById("p").innerHTML = "Add the second value into the table";
 				var T18 = document.getElementById("T18");
                 var  m1 = T18.getElementsByTagName("th");
                 var T19 = document.getElementById("T19");
@@ -858,6 +880,7 @@
 				
 				break;
 			case 30://add final value and change table visibility
+      document.getElementById("p").innerHTML = "Add the final value into the table";
 				var T18 = document.getElementById("T18");
                 var  m1 = T18.getElementsByTagName("th");
                 var T19 = document.getElementById("T19");
@@ -936,6 +959,7 @@
 				}
 				break;
 			case 33://add first value
+      document.getElementById("p").innerHTML = "Compare the values and Add the first value into the table in ascending order from left to right";
 				var T24 = document.getElementById("T24");
 				var  m1 = T24.getElementsByTagName("th");
 				var T25 = document.getElementById("T25");
@@ -956,6 +980,7 @@
 				m3[0].innerHTML = sortednums[0];
 				break;
 			case 34://add final value and change table visibility
+      document.getElementById("p").innerHTML = "Add the final value into the table";
 				var T24 = document.getElementById("T24").style.visibility = "hidden";
 				var T25 = document.getElementById("T25").style.visibility = "hidden";
 			  	var T17 = document.getElementById("T17");
@@ -967,6 +992,7 @@
 				
 				break;
 			case 35: //merge
+      document.getElementById("p").innerHTML = "";
 				var T3 = document.getElementById("T3")
                 var m1 = T3.getElementsByTagName("th");
 				shortA = [nums[5], nums[6], nums[7], nums[8], nums[9]];
@@ -976,6 +1002,7 @@
                 }
 				break;
 			case 36://add first value
+      document.getElementById("p").innerHTML = "Compare the values and Add the first value into the table, in ascending order";
 				var T16 = document.getElementById("T16");//length 3 one
                 var  m1 = T16.getElementsByTagName("th");
                 var T17 = document.getElementById("T17");//length 2
@@ -1001,6 +1028,7 @@
                 m3[0].innerHTML = sortednums[0];
 				break;
 			case 37://add second value
+      document.getElementById("p").innerHTML = "Add the second value into the table";
 				var T16 = document.getElementById("T16");
                 var  m1 = T16.getElementsByTagName("th");
                 var T17 = document.getElementById("T17");
@@ -1030,6 +1058,7 @@
                 m3[1].innerHTML = sortednums[1];
 				break;
 			case 38://add third value
+      document.getElementById("p").innerHTML = "Add the third value into the table";
 				var T16 = document.getElementById("T16");
                 var  m1 = T16.getElementsByTagName("th");
                 var T17 = document.getElementById("T17");
@@ -1059,6 +1088,7 @@
                 m3[2].innerHTML = sortednums[2];
 				break;
 			case 39://add fourth value
+      document.getElementById("p").innerHTML = "Add the forth value into the table";
 				var T16 = document.getElementById("T16");
                 var  m1 = T16.getElementsByTagName("th");
                 var T17 = document.getElementById("T17");
@@ -1087,7 +1117,8 @@
                 }
                 m3[3].innerHTML = sortednums[3];
 				break;
-			case 40://add final value and change table visibility 
+			case 40://add final value and change table visibility
+      document.getElementById("p").innerHTML = "Add the final value into the table"; 
 				var T16 = document.getElementById("T16");
                 var m1 = T16.getElementsByTagName("th");
                 var T17 = document.getElementById("T17");
@@ -1118,6 +1149,7 @@
                 y == 0;
 				break;
 			case 41: //merge
+      document.getElementById("p").innerHTML = "";
 				var T2 = document.getElementById("T2")
                 var m1 = T2.getElementsByTagName("th");
 				var T3 = document.getElementById("T3")
@@ -1133,7 +1165,7 @@
 				y = 0;
 				break;
 			case 42:
-					
+      document.getElementById("p").innerHTML = "NOW MERGE THE NUMBERS IN ASCENDING ORDER";
 					
 				if(z <10){
 					var T2 = document.getElementById("T2");//length 3 one
@@ -1168,6 +1200,7 @@
 					z++
 					nextcount --;
 				}else{
+          document.getElementById("p").innerHTML = "MERGESORT COMPLETE";
 					document.getElementById("T2").style.visibility = "hidden";
                 	document.getElementById("T3").style.visibility = "hidden";
 				}
