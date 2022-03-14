@@ -623,7 +623,7 @@
 				document.getElementById("p").innerHTML =
 					"compare the values again, placing them from left to right, ascending in value";
 
-				var elem19 = document.getElementById("T19");
+				/*var elem19 = document.getElementById("T19");
 
 				if (typeof elem19 != "undefined") {
 					elem19.parentNode.removeChild(elem19);
@@ -639,28 +639,56 @@
 
 				if (typeof elem21 != "undefined") {
 					elem21.parentNode.removeChild(elem21);
-				}
+				}*/
 
 				shortA = [nums[6], nums[7]];
 				sortednums = mergeSort(shortA);
-				content +=
-					"</br><table class='table22' id='T22' style='width:4%'><tr>";
+				var T19 = document.getElementById("T19");
+				var m3 = T19.getElementsByTagName("th");
 				for (let i = 0; i < 2; i++) {
-					content += "<th>";
-					content += sortednums[i];
-					content += "</th>";
+					m3[i].innerHTML = "&nbsp";
 				}
-				content += "</tr></table>";
+				
 				break;
 			case 25://add first value
+				var T20 = document.getElementById("T20");
+				var  m1 = T20.getElementsByTagName("th");
+				var T21 = document.getElementById("T21");
+				var  m2 = T21.getElementsByTagName("th");
+				
+				if (m1[0].innerHTML == sortednums[0]){
+					if (typeof T20 != "undefined") {
+						m1[0].innerHTML = "&nbsp";
+					}
+				}else{
+					if (typeof T21 != "undefined") {
+						m2[0].innerHTML = "&nbsp";
+					}
+				}
+				var T19 = document.getElementById("T19");
+				var m3 = T19.getElementsByTagName("th");
+
+				m3[0].innerHTML = sortednums[0];
+
+
 				break;
 			case 26://add final value and change table visibility
+				var T20 = document.getElementById("T20").style.visibility = "hidden";
+				var T21 = document.getElementById("T21").style.visibility = "hidden";
+			  	var T19 = document.getElementById("T19");
+
+				var  m1 = T19.getElementsByTagName("th");
+				if (typeof T20 != "undefined") {
+						m1[1].innerHTML = sortednums[1];
+				}
+				shortA = [nums[5], nums[6], nums[7]];
+				sortednums = mergeSort(shortA);
 				break;
 			case 27: //clear initial table
 				document.getElementById("p").innerHTML =
 					"now split the other array length 2";
 
-				document.getElementById("T17").style.marginTop = "2pc";
+				/*document.getElementById("T17").style.marginTop = "2pc";
 
 				var elem16 = document.getElementById("T16");
 
@@ -678,23 +706,81 @@
 
 				if (typeof elem22 != "undefined") {
 					elem22.parentNode.removeChild(elem22);
-				}
-				shortA = [nums[5], nums[6], nums[7]];
-				sortednums = mergeSort(shortA);
-				content +=
-					"</br><table class='table23' id='T23' style='width: 6%'><tr>";
+				}*/
+
+
+				var T16 = document.getElementById("T16");
+				var m3 = T16.getElementsByTagName("th");
 				for (let i = 0; i < 3; i++) {
-					content += "<th>";
-					content += sortednums[i];
-					content += "</th>";
+					m3[i].innerHTML = "&nbsp";
 				}
-				content += "</tr></table>";
 				break;
 			case 28://add first value
+				var T18 = document.getElementById("T18");
+                var  m1 = T18.getElementsByTagName("th");
+                var T19 = document.getElementById("T19");
+                var  m2 = T19.getElementsByTagName("th");
+                var T16 = document.getElementById("T16");
+                var m3 = T16.getElementsByTagName("th");
+
+                if (m1[0].innerHTML == sortednums[0]){
+                    if (typeof T18 != "undefined") {
+                        m1[0].innerHTML = "&nbsp";
+                        x++;
+                    }
+                }else{
+                    if (typeof T19 != "undefined") {
+                        m2[y].innerHTML = "&nbsp";
+                        y++;
+                    }
+                }
+                console.log (x,y);
+                m3[0].innerHTML = sortednums[0];
 				break;
 			case 29://add second value
+				var T18 = document.getElementById("T18");
+                var  m1 = T18.getElementsByTagName("th");
+                var T19 = document.getElementById("T19");
+                var  m2 = T19.getElementsByTagName("th");
+                var T16 = document.getElementById("T16");
+                var m3 = T16.getElementsByTagName("th");
+
+                if (m1[0].innerHTML == sortednums[1]){
+                    if (typeof T18 != "undefined") {
+                        m1[x].innerHTML = "&nbsp";
+                        x++;
+                    }
+                }else{
+                    if (typeof T19 != "undefined") {
+                        m2[y].innerHTML = "&nbsp";
+                        y++;
+                    }
+                }
+                console.log (x,y);
+                m3[1].innerHTML = sortednums[1];
 				break;
 			case 30://add final value and change table visibility
+				var T18 = document.getElementById("T18");
+                var  m1 = T18.getElementsByTagName("th");
+                var T19 = document.getElementById("T19");
+                var  m2 = T19.getElementsByTagName("th");
+                var T16 = document.getElementById("T16");
+                var m3 = T16.getElementsByTagName("th");
+
+                if (m1[0].innerHTML == sortednums[2]){
+                    if (typeof T18 != "undefined") {
+                        m1[x].innerHTML = "&nbsp";
+                    }
+                }else{
+                    if (typeof T19 != "undefined") {
+                        m2[y].innerHTML = "&nbsp";
+                    }
+                }
+                document.getElementById("T18").style.visibility = "hidden";
+                document.getElementById("T19").style.visibility = "hidden";
+                m3[2].innerHTML = sortednums[2];
+                x=0;
+                y=0;
 				break;
 			case 31: //split
 				document.getElementById("p").innerHTML =
@@ -723,7 +809,7 @@
 				document.getElementById("p").innerHTML =
 					"compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array";
 
-				document.getElementById("T23").style.marginTop = "-3.75pc";
+				/*document.getElementById("T23").style.marginTop = "-3.75pc";
 
 				var elem17 = document.getElementById("T17");
 
@@ -741,67 +827,175 @@
 
 				if (typeof elem25 != "undefined") {
 					elem25.parentNode.removeChild(elem25);
-				}
+				}*/
 
 				shortA = [nums[8], nums[9]];
 				sortednums = mergeSort(shortA);
-				content +=
-					"</br><table class='table26' id='T26' style='width:4%'><tr>";
+				var T17 = document.getElementById("T17");
+				var m3 = T17.getElementsByTagName("th");
 				for (let i = 0; i < 2; i++) {
-					content += "<th>";
-					content += sortednums[i];
-					content += "</th>";
+					m3[i].innerHTML = "&nbsp";
 				}
-				content += "</tr></table>";
 				break;
 			case 33://add first value
+				var T24 = document.getElementById("T24");
+				var  m1 = T24.getElementsByTagName("th");
+				var T25 = document.getElementById("T25");
+				var  m2 = T25.getElementsByTagName("th");
+				
+				if (m1[0].innerHTML == sortednums[0]){
+					if (typeof T25 != "undefined") {
+						m1[0].innerHTML = "&nbsp";
+					}
+				}else{
+					if (typeof T24 != "undefined") {
+						m2[0].innerHTML = "&nbsp";
+					}
+				}
+				var T17 = document.getElementById("T17");
+				var m3 = T17.getElementsByTagName("th");
+
+				m3[0].innerHTML = sortednums[0];
 				break;
 			case 34://add final value and change table visibility
+				var T24 = document.getElementById("T24").style.visibility = "hidden";
+				var T25 = document.getElementById("T25").style.visibility = "hidden";
+			  	var T17 = document.getElementById("T17");
+
+				var  m1 = T17.getElementsByTagName("th");
+				if (typeof T24 != "undefined") {
+						m1[1].innerHTML = sortednums[1];
+				}
+				
 				break;
 			case 35: //merge
-				document.getElementById("p").innerHTML =
-					"compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 10 array";
-
-				document.getElementById("T15").style.marginTop = "-7pc";
-
-				var elem3 = document.getElementById("T3");
-
-				if (typeof elem3 != "undefined") {
-					elem3.parentNode.removeChild(elem3);
-				}
-
-				var elem23 = document.getElementById("T23");
-
-				if (typeof elem23 != "undefined") {
-					elem23.parentNode.removeChild(elem23);
-				}
-
-				var elem26 = document.getElementById("T26");
-
-				if (typeof elem26 != "undefined") {
-					elem26.parentNode.removeChild(elem26);
-				}
-
+				var T3 = document.getElementById("T3")
+                var m1 = T3.getElementsByTagName("th");
 				shortA = [nums[5], nums[6], nums[7], nums[8], nums[9]];
 				sortednums = mergeSort(shortA);
-				content +=
-					"</br><table class='table27' id='T27' style='width:10%'><tr>";
-				for (let i = 0; i < 5; i++) {
-					content += "<th>";
-					content += sortednums[i];
-					content += "</th>";
-				}
-				content += "</tr></table>";
+                for (let i = 0; i < 5; i++) {
+                    m1[i].innerHTML = "&nbsp";
+                }
 				break;
 			case 36://add first value
+				var T16 = document.getElementById("T16");//length 3 one
+                var  m1 = T16.getElementsByTagName("th");
+                var T17 = document.getElementById("T17");//length 2
+                var  m2 = T17.getElementsByTagName("th");
+                var T3 = document.getElementById("T3");//length 5
+                var m3 = T3.getElementsByTagName("th");
+
+                console.log(x);
+                if (m1[x].innerHTML == sortednums[0]){
+                    if (typeof T16 != "undefined") {
+                        m1[x].innerHTML = "&nbsp";
+                        x++;
+                    }
+                }else{
+                    if (typeof T17 != "undefined") {
+                        m2[y].innerHTML = "&nbsp";
+                        y++;
+                    }
+                }
+                m3[0].innerHTML = sortednums[0];
 				break;
 			case 37://add second value
+				var T16 = document.getElementById("T16");
+                var  m1 = T16.getElementsByTagName("th");
+                var T17 = document.getElementById("T17");
+                var  m2 = T17.getElementsByTagName("th");
+                var T3 = document.getElementById("T3");
+                var m3 = T3.getElementsByTagName("th");
+                console.log(x);
+                if (m1[x].innerHTML == sortednums[1]){
+                    if (typeof T16 != "undefined") {
+                        m1[x].innerHTML = "&nbsp";
+                        x++;
+                    }
+                }else{
+                    if (typeof T17 != "undefined") {
+                        m2[y].innerHTML = "&nbsp";
+                        y++;
+                        if(y == 2){
+                            y =0;
+                        }
+                    }
+                }
+                m3[1].innerHTML = sortednums[1];
 				break;
 			case 38://add third value
+				var T16 = document.getElementById("T16");
+                var  m1 = T16.getElementsByTagName("th");
+                var T17 = document.getElementById("T17");
+                var  m2 = T17.getElementsByTagName("th");
+                var T3 = document.getElementById("T3");
+                var m3 = T3.getElementsByTagName("th");
+                console.log(x);
+                if (m1[x].innerHTML == sortednums[2]){
+                    if (typeof T16 != "undefined") {
+                        m1[x].innerHTML = "&nbsp";
+                        x++;
+                    }
+                }else{
+                    if (typeof T17 != "undefined") {
+                        m2[y].innerHTML = "&nbsp";
+                        y++;
+                        if(y == 2){
+                            y =0;
+                        }
+                    }
+                }
+                m3[2].innerHTML = sortednums[2];
 				break;
 			case 39://add fourth value
+				var T16 = document.getElementById("T16");
+                var  m1 = T16.getElementsByTagName("th");
+                var T17 = document.getElementById("T17");
+                var  m2 = T17.getElementsByTagName("th");
+                var T3 = document.getElementById("T3");
+                var m3 = T3.getElementsByTagName("th");
+                console.log(x);
+                if (m1[x].innerHTML == sortednums[3]){
+                    if (typeof T16 != "undefined") {
+                        m1[x].innerHTML = "&nbsp";
+                        x++;
+                        if (x == 3){
+                            x = 0;
+                        }
+                    }
+                }else{
+                    if (typeof T17 != "undefined") {
+                        m2[y].innerHTML = "&nbsp";
+                        y++;
+                        if(y == 2){
+                            y = 0;
+                        }
+                    }
+                }
+                m3[3].innerHTML = sortednums[3];
 				break;
 			case 40://add final value and change table visibility 
+				var T16 = document.getElementById("T16");
+                var m1 = T16.getElementsByTagName("th");
+                var T17 = document.getElementById("T17");
+                var m2 = T17.getElementsByTagName("th");
+                var T3 = document.getElementById("T3");
+                var m3 = T3.getElementsByTagName("th");
+                console.log(x);
+                if (m1[x].innerHTML == sortednums[4]){
+                    if (typeof T16 != "undefined") {
+                        m1[x].innerHTML = "&nbsp";
+                    }
+                }else{
+                    if (typeof T17 != "undefined") {
+                        m2[y].innerHTML = "&nbsp";
+                    }
+                }
+                document.getElementById("T16").style.visibility = "hidden";
+                document.getElementById("T17").style.visibility = "hidden";
+                m3[4].innerHTML = sortednums[4];
+                x == 0;
+                y == 0;
 				break;
 			case 41: //merge
 				document.getElementById("p").innerHTML = "merge sort complete!";
