@@ -299,7 +299,8 @@
 
 			case 3: //split
 				document.getElementById("p").innerHTML =
-					"compare the values, placing them from left to right, ascending in value";
+					"Compare the smallest values from each array. Determine the smallest value between the arrays as it will be added to the newly merged array. ";
+				
 
 				content +=
 					"</br><table class = 'table8' style = 'width: 2%' id ='T8'><tr>";
@@ -322,7 +323,8 @@
 
 			case 4: //instruction for initial merge
 				document.getElementById("p").innerHTML =
-					"compare the values again, placing them from left to right, ascending in value";
+					"Now that you have determined the smallest value place it in the first cell of the merged array.";
+					//
 
 				var T7 = document.getElementById("T7");
 				var  m1 = T7.getElementsByTagName("th");
@@ -335,7 +337,7 @@
 
 
       		case 5://add first value to table
-          document.getElementById("p").innerHTML = "Add the value into the table in ascending order ";
+          document.getElementById("p").innerHTML = "Confirm that the remaining value is larger than the first value that is in the merged array";
 				var T8 = document.getElementById("T8");
 				var  m1 = T8.getElementsByTagName("th");
 				var T9 = document.getElementById("T9");
@@ -355,9 +357,9 @@
 				}
 				m3[0].innerHTML = sortednums[0];
        			break;
-
+				   
       		case 6://add last value to table and change visibility of old tables
-          document.getElementById("p").innerHTML = "Add the last value into the table";
+          document.getElementById("p").innerHTML = "Place the second value into the second cell of the merged array ";
 			  	var T8 = document.getElementById("T8").style.visibility = "hidden";
 				var T9 = document.getElementById("T9").style.visibility = "hidden";
 			  	var T7 = document.getElementById("T7");
@@ -379,7 +381,8 @@
 				console.log (x,y);
 				break;
 			case 8://add first value
-      document.getElementById("p").innerHTML = " Compare the values and Add the first value into the table. Make sure its in ascending order";
+      document.getElementById("p").innerHTML = "Compare the smallest values between the two arrays and determine which array contains the smallest value. Then add that smallest value into the newly merged array.";
+	 
 				var T6 = document.getElementById("T6");
 				var  m1 = T6.getElementsByTagName("th");
 				var T7 = document.getElementById("T7");
@@ -402,7 +405,8 @@
 				m3[0].innerHTML = sortednums[0];
 				break;
 			case 9://add second value
-      document.getElementById("p").innerHTML = "Add the second value into the table";
+      document.getElementById("p").innerHTML = "Compare the remaining two values and to determine which of the two values is the smallest. Then add that smallest value into the second cell of the newly merged array.";
+	  
 				var T6 = document.getElementById("T6");
 				var  m1 = T6.getElementsByTagName("th");
 				var T7 = document.getElementById("T7");
@@ -425,7 +429,8 @@
 				m3[1].innerHTML = sortednums[1];
 				break;
 			case 10://add final value and set visibility of old tables to 0
-      document.getElementById("p").innerHTML = "Add the final value into the table";
+      document.getElementById("p").innerHTML = "Confirm that the remaining value in the unmerged array is largest of all three values. Add that value into the third cell to complete this merged array";
+	  //y.
 				var T6 = document.getElementById("T6");
 				var  m1 = T6.getElementsByTagName("th");
 				var T7 = document.getElementById("T7");
@@ -449,8 +454,8 @@
 				break;
 			case 11: //split
 				document.getElementById("p").innerHTML = 
-					"compare the values, placing them from left to right, ascending in value";
-
+					"Compare the smallest values from each array. Determine the smallest value between the arrays as it will be added in the first cell to the newly merged array.";
+//Compare
 				content +=
 					"</br><table class= 'table12' id='T12' style = 'width: 2%; margin-top: -8pc'><tr>";
 				for (let i = 3; i < 4; i++) {
@@ -480,7 +485,9 @@
 				}
 				break;
 			case 13:// add first value
-      document.getElementById("p").innerHTML = "Add the first value into the table, in ascending order";
+      document.getElementById("p").innerHTML = "Confirm that the remaining value in the unmerged array is the largest value. Add this value to complete this merged array";
+
+	  
 				var T12 = document.getElementById("T12");
 				var  m1 = T12.getElementsByTagName("th");
 				var T13 = document.getElementById("T13");
@@ -500,7 +507,8 @@
 				m3[0].innerHTML = sortednums[0];
 				break;
 			case 14:// add final value
-      document.getElementById("p").innerHTML = "Add the final value into the table";
+      document.getElementById("p").innerHTML = "";
+	  //Add the final value into the table
 				var T12 = document.getElementById("T12");
 				var  m1 = T12.getElementsByTagName("th");
 				var T13 = document.getElementById("T13");
@@ -522,7 +530,7 @@
 				m3[1].innerHTML = sortednums[1];
 				break;
 			case 15: //clear inital table
-      document.getElementById("p").innerHTML = "";
+      document.getElementById("p").innerHTML = "Compare the smallest value of the two arrays. Determine which value is smaller between these two smallest values. This value will be added to the first cell of the newly merged array";
 				var T2 = document.getElementById("T2")
 				var m1 = T2.getElementsByTagName("th");
 				shortA = [nums[0],nums[1],nums[2],nums[3], nums[4]];
@@ -532,7 +540,7 @@
 				}
 				break;
 			case 16://add first value
-      document.getElementById("p").innerHTML = "Add the first value into the table. Make sure its in ascedning";
+      document.getElementById("p").innerHTML = "";
 				var T4 = document.getElementById("T4");
 				var  m1 = T4.getElementsByTagName("th");
 				var T5 = document.getElementById("T5");
@@ -554,7 +562,8 @@
 				m3[0].innerHTML = sortednums[0];
 				break;
 			case 17://add second value
-      document.getElementById("p").innerHTML = "Add the second value into the table";
+      document.getElementById("p").innerHTML = "Now compare the smallest values of the two arrays once more. Determine which value is smaller between these two smallest values. This value will be added to the second cell of the newly merged array";
+	  //Examine the smallest value of unmerged array that still has all of its remaining values. Confirm that it is the smallest value between both arrays. Add this value to the second cell on the newly merged array
 				var T4 = document.getElementById("T4");
 				var  m1 = T4.getElementsByTagName("th");
 				var T5 = document.getElementById("T5");
@@ -583,7 +592,7 @@
 				m3[1].innerHTML = sortednums[1];
 				break;
 			case 18://add third value
-      document.getElementById("p").innerHTML = "Add the third value into the table";
+      document.getElementById("p").innerHTML = "Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. This value will be added to the third cell of the newly merged array";
 				var T4 = document.getElementById("T4");
 				var  m1 = T4.getElementsByTagName("th");
 				var T5 = document.getElementById("T5");
@@ -612,7 +621,7 @@
 				m3[2].innerHTML = sortednums[2];
 				break;
 			case 19://add fourth value
-      document.getElementById("p").innerHTML = "Add the fouth value into the table";
+      document.getElementById("p").innerHTML = "Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. This value will be added to the fourth cell of the newly merged array";
 				var T4 = document.getElementById("T4");
 				var  m1 = T4.getElementsByTagName("th");
 				var T5 = document.getElementById("T5");
@@ -640,7 +649,7 @@
 				m3[3].innerHTML = sortednums[3];
 				break;
 			case 20://add final value change visibility
-      document.getElementById("p").innerHTML = "Add the final value into the table";
+      document.getElementById("p").innerHTML = "Confirm that the remianing value in the unmerged array is the largest of all the five values that have just been sorted. Add this value into the fifth cell to finish the merged array";
 				var T4 = document.getElementById("T4");
 				var m1 = T4.getElementsByTagName("th");
 				var T5 = document.getElementById("T5");
@@ -711,7 +720,7 @@
 
 			case 23: //split
 				document.getElementById("p").innerHTML =
-					"compare the values, placing them from left to right, ascending in value";
+					"Compare the smallest values from each array. Determine the smallest value between the arrays as it will be added to the newly merged array.";
 
 				content +=
 					"</br><table class = 'table20' id='T20' style='width:2%'><tr>";
@@ -734,7 +743,7 @@
 
 			case 24: //clear initial table
 				document.getElementById("p").innerHTML =
-					"compare the values again, placing them from left to right, ascending in value";
+					"Now that you have determined the smallest value place it in the first cell of the merged array.";
 
 				/*var elem19 = document.getElementById("T19");
 
@@ -764,7 +773,7 @@
 				
 				break;
 			case 25://add first value
-      document.getElementById("p").innerHTML = "Compare the values and Add the first value into the table, in ascending order from left to right";
+      document.getElementById("p").innerHTML = "Confirm that the remaining value is larger than the first value that is in the merged array";
 				var T20 = document.getElementById("T20");
 				var  m1 = T20.getElementsByTagName("th");
 				var T21 = document.getElementById("T21");
