@@ -7,6 +7,7 @@ function Home() {
 			<header>
 				<Columns />
 			</header>
+			<body></body>
 		</>
 	);
 }

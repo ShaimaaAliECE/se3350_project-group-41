@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './Columns.css';
 
-function Columns() {
+// randomly generates the table with 10 numbers
+
+let nums = [];
+for (let i = 0; i < 10; i++) {
+	let a = Math.floor(Math.random() * 20 + 1);
+	nums.push(a);
+}
+
+function Columns(props) {
+	const [array, setArray] = useState(nums);
+
 	return (
-		<>
-			<table>
-				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
-					<td>5</td>
-					<td>6</td>
-					<td>7</td>
-					<td>8</td>
-					<td>9</td>
-					<td>10</td>
-				</tr>
-			</table>
-		</>
+		<div className="row">
+			{array.map((contact) => (
+				<div className="col" key={contact.index}>
+					{contact}
+				</div>
+			))}
+		</div>
 	);
 }
 
