@@ -164,8 +164,8 @@
 		</style>
 	</head>
 	<body>
-		<h1>Start level 3</h1>
-		<input type="button" onclick="ShowLine()" value="Display Level 3" />
+		<h1>Start level 2</h1>
+		<input type="button" onclick="ShowLine()" value="Display Level 2" />
 	</body>
 </html>
 
@@ -174,6 +174,16 @@
 		nocopy = 0;
 	let nums = [];
 	let correctnums = [];
+
+	//contains the score
+	let score = 0;
+	let scoreIncrement = 10;
+	let scoreMultiplier = 1;
+	//regarding the amount of answers correct in a row
+	let streak = 0;
+
+
+
 	let correctanswer = false;
 	let mergeornot = false;
 	for (let i = 0; i < 10; i++) {
@@ -191,7 +201,11 @@
 			"<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:center;} table,th,td {border:1px solid #000;} .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;} .table3, .table3 th, .table3 td{margin-left: auto;margin-right: 20%;margin-top:-1.75pc;} .table4, .table4 th, .table4 td{margin-left: 10%;margin-right: auto;margin-top: 2pc;} .table5, .table5 th, .table5 td{margin-left: 35%;margin-right: auto;margin-top:-1.75pc;} .table6, .table6 th, .table6 td{margin-left: 7%;margin-right: auto;margin-top: 2pc;} .table7, .table7 th, .table7 td{margin-left: 15%;margin-right: auto;margin-top: -1.75pc;}.table8, .table8 th, .table8 td{margin-left: 12%;margin-right: auto;margin-top: 2pc;} .table9, .table9 th, .table9 td{margin-left: 20%;margin-right: auto;margin-top: -3pc;} .table10, .table10 th, .table10 td{margin-left: 15%;margin-right: auto;margin-top: -5.25pc;} .table11, .table11 th, .table11 td{margin-left: 10%;margin-right: auto;margin-top: -7.25pc;}.table12, .table12 th, .table12 td{margin-left: 40%;margin-right: auto;} .table13, .table13 th, .table13 td{margin-left: 32%;margin-right: auto;margin-top: -1.75pc;}  .table14, .table14 th, .table14 td{margin-left: 35%;margin-right: auto;margin-top: -4pc;}  .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;}  .table15, .table15 th, .table15 td{margin-left: 20%;margin-right: auto;margin-top: -12pc;} .table16, .table16 th, .table16 td{margin-left: auto;margin-right: 30%;margin-top: 2pc;} .table17, .table17 th, .table17 td{margin-left: auto;margin-right: 13%;margin-top: -1.75pc;} .table18, .table18 th, .table18 td{margin-left: auto;margin-right: 38%;margin-top: 1pc;}  .table19, .table19 th, .table19 td{margin-left: auto;margin-right: 25%;margin-top: -1.75pc;} .table20, .table20 th, .table20 td{margin-left: auto;margin-right: 30%;margin-top: 1pc;} .table21, .table21 th, .table21 td{margin-left: auto;margin-right: 22%;margin-top: -2.75pc;} .table22, .table22 th, .table22 td{margin-left: auto;margin-right: 25%;margin-top: -5.5pc;}  .table23, .table23 th, .table23 td{margin-left: auto;margin-right: 30%;margin-top: -7.25pc;} .table24, .table24 th, .table24 td{margin-left: auto;margin-right: 20%;margin-top: 1pc;} .table25, .table25 th, .table25 td{margin-left: auto;margin-right: 9%;margin-top: -1.75pc;}  .table26, .table26 th, .table26 td{margin-left: auto;margin-right: 13%;margin-top: -4pc;} .table27, .table27 th, .table27 td{margin-left: auto;margin-right: 20%;margin-top:-12pc;} .table28, .table28 th, .table28 td{margin-left: auto;margin-right: auto;margin-top: -24pc;}</style>";
 		content += "<style></style>";
 		content += "<h1> Merge Sort Game </h1>";
-		// content += "<p id='p'>split the array down the middle</p>";
+		content += "<p id='p'>split the array down the middle</p>";
+		//score
+		content += "<p id='score'>Score: 0</p>";
+		content += "<p id='streak'>Streak: 0</p>";
+
 		content += "<table style=text-align: center; id='T1'><tr>";
 
 		for (let i = 0; i < 10; i++) {
@@ -215,18 +229,24 @@
 		let sortednums = [];
 		switch (nextcount) {
 			case -1:
-				// document.getElementById("p").innerHTML =	"enter the first 5 numbers of the table in the input box, seperating the values by spaces"; //instructions
+				document.getElementById("p").innerHTML =
+					"enter the first 5 numbers of the table in the input box, seperating the values by spaces"; //instructions
 				content +=
 					"<input type = 'button' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
 				content +=
-					"<input type='text' id='arr1' placeholder='enter the value'  style 'width: 200%'/>";
+					"<input type='text' id='arr1' placeholder='enter the value'   style 'width: 200%'/>";
 				nextcount++;
+
+				
+
 				break;
 
 			case 0: //split
 				//2
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = "enter the last 5 numbers of the table in the input box, seperating the values by spaces, to complete the split of the first table"; //instructions
+
+					document.getElementById("p").innerHTML =
+						"enter the last 5 numbers of the table in the input box, seperating the values by spaces, to complete the split of the first table"; //instructions
 
 					content +=
 						"<table class = 'table2' style='width: 10%' id='T2'><tr>";
@@ -242,11 +262,16 @@
 					correctanswer = false;
 					nextcount++;
 				}
+
+
 				break;
 
 			case 1:
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML ="enter the first 3 numbers of the left table to split the array again"; //instructions
+
+
+					document.getElementById("p").innerHTML =
+						"enter the first 3 numbers of the left table to split the array again"; //instructions
 					//3
 					content +=
 						"<table class = 'table3' style='width: 10%' id='T3'><tr>";
@@ -259,13 +284,15 @@
 					content += "</tr></table>";
 					correctanswer = false;
 					nextcount++;
+
 				}
 
 				break;
 
 			case 2: //split
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML =	"enter the last 2 numbers of the left table to split the rest of the array"; //instructions
+					document.getElementById("p").innerHTML =
+						"enter the last 2 numbers of the left table to split the rest of the array"; //instructions
 					content +=
 						"</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
 					for (let i = 0; i < 3; i++) {
@@ -277,12 +304,14 @@
 					correctnums = [nums[3], nums[4]];
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 3:
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML ="enter the first number of the length 3 array, splitting it"; //instructions
+					document.getElementById("p").innerHTML =
+						"enter the first number of the length 3 array, splitting it"; //instructions
 					content +=
 						"<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
 					for (let i = 3; i < 5; i++) {
@@ -294,12 +323,14 @@
 					content += "</tr></table>";
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 4: //split
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = "enter the last 2 numbers of the length 3 array, splitting it"; //instructions
+					document.getElementById("p").innerHTML =
+						"enter the last 2 numbers of the length 3 array, splitting it"; //instructions
 
 					content +=
 						"</br><table class = 'table6' style = 'width: 2%' id='T6'><tr>";
@@ -312,12 +343,14 @@
 					correctnums = [nums[1], nums[2]];
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 5:
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = "enter the first number of the newly created length 2 array, splitting it"; //instructions
+					document.getElementById("p").innerHTML =
+						"enter the first number of the newly created length 2 array, splitting it"; //instructions
 					content +=
 						"<table class = 'table7' style = 'width: 4%' id='T7'><tr>";
 					for (let i = 1; i < 3; i++) {
@@ -335,7 +368,8 @@
 
 			case 6: //split
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML =	"enter the second number of the length 2 array, splitting it"; //instructions
+					document.getElementById("p").innerHTML =
+						"enter the second number of the length 2 array, splitting it"; //instructions
 
 					content +=
 						"</br><table class = 'table8' style = 'width: 2%' id ='T8'><tr>";
@@ -354,7 +388,8 @@
 			case 7:
 				if (correctanswer == true) {
 					//include instructions here
-					// document.getElementById("p").innerHTML =	"enter the 2 numbers in ascending order to merge the two numbers"; //instructions
+					document.getElementById("p").innerHTML =
+						"enter the 2 numbers in ascending order to merge the two numbers"; //instructions
 
 					content +=
 						"</br><table class = 'table9' style = 'width: 2%' id = 'T9'><tr>";
@@ -375,7 +410,8 @@
 
 			case 8: //merge
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = "compare the values again, placing them from left to right, ascending in value, to merge the length 2 array with the length 1"; //instructions
+					document.getElementById("p").innerHTML =
+						"compare the values again, placing them from left to right, ascending in value, to merge the length 2 array with the length 1"; //instructions
 					var elem7 = document.getElementById("T7");
 
 					if (typeof elem7 != "undefined") {
@@ -409,6 +445,7 @@
 					correctnums = sortednums;
 					correctanswer = false;
 					nextcount++;
+
 				}
 
 				break;
@@ -416,7 +453,8 @@
 			case 9: //merge
 				//delete table
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = "enter the first number of the newly created length 2 array, splitting it"; //instructions
+					document.getElementById("p").innerHTML =
+						"enter the first number of the newly created length 2 array, splitting it"; //instructions
 
 					var elem4 = document.getElementById("T4");
 
@@ -452,14 +490,16 @@
 					content += "</tr></table>";
 					correctnums = [nums[3]];
 					correctanswer = false;
-					nextcount++;
+					nextcount++;;
+
 				}
 
 				break;
 
 			case 10: //split
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML =	"enter the second number of the length 2 array, splitting it"; //instructions
+					document.getElementById("p").innerHTML =
+						"enter the second number of the length 2 array, splitting it"; //instructions
 
 					content +=
 						"</br><table class= 'table12' id='T12' style = 'width: 2%'><tr>";
@@ -472,11 +512,13 @@
 					correctnums = [nums[4]];
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 11:
-				// document.getElementById("p").innerHTML = 'compare the 2 values, placing them from left to right, ascending in value';//instructions
+				document.getElementById("p").innerHTML =
+					"compare the 2 values, placing them from left to right, ascending in value"; //instructions
 
 				if (correctanswer == true) {
 					content +=
@@ -492,12 +534,14 @@
 					correctnums = sortednums;
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 12: //merge
 				if (correctanswer == true) {
-					//document.getElementById("p").innerHTML = 'enter 5 numbers comparing the values in the length 2 array with the length 3 array placing them from left to right, ascending in value';//instructions
+					document.getElementById("p").innerHTML =
+						"enter 5 numbers comparing the values in the length 2 array with the length 3 array placing them from left to right, ascending in value"; //instructions
 
 					//adjusting style for deletion of reference table
 					document.getElementById("T11").style.marginTop = "-3.5pc";
@@ -535,12 +579,14 @@
 					correctnums = sortednums;
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 13: //merge
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = 'now that the left array has been sorted, split the right side, enter the first 3 values of the right side length 5 array';//instructions
+					document.getElementById("p").innerHTML =
+						"now that the left array has been sorted, split the right side, enter the first 3 values of the right side length 5 array"; //instructions
 
 					document.getElementById("T3").style.marginTop = "2pc";
 
@@ -580,7 +626,8 @@
 
 			case 14: //split
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = 'now enter the last 2 numbers of the right side length 5 array to split it';//instructions
+					document.getElementById("p").innerHTML =
+						"now enter the last 2 numbers of the right side length 5 array to split it"; //instructions
 
 					content +=
 						"</br><table class ='table16' id='T16' style='width:6%'><tr>";
@@ -599,7 +646,8 @@
 			case 15:
 				if (correctanswer == true) {
 					//instructions here
-					// document.getElementById("p").innerHTML = 'enter the first number of the length 3 array splitting it';//instructions
+					document.getElementById("p").innerHTML =
+						"enter the first number of the length 3 array splitting it"; //instructions
 
 					content +=
 						"<table class ='table17' id='T17' style='width:6%'><tr>";
@@ -618,7 +666,8 @@
 
 			case 16: //split
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = 'enter the last 2 values to complete the split';//instructions
+					document.getElementById("p").innerHTML =
+						"enter the last 2 values to complete the split"; //instructions
 
 					content +=
 						"</br><table class ='table18' id='T18' style = 'width:2%'><tr>";
@@ -636,8 +685,8 @@
 
 			case 17:
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = 'enter the first number of the newly created length 2 array to split it';//instructions
-
+					document.getElementById("p").innerHTML =
+						"enter the first number of the newly created length 2 array to split it"; //instructions
 					content +=
 						"<table class = 'table19' id='T19' style='width:4%'><tr>";
 					for (let i = 6; i < 8; i++) {
@@ -649,12 +698,14 @@
 					correctnums = [nums[6]];
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 18:
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = 'enter the second number of the length 2 array to complete the split';//instructions
+					document.getElementById("p").innerHTML =
+						"enter the second number of the length 2 array to complete the split"; //instructions
 
 					content +=
 						"</br><table class = 'table20' id='T20' style='width:2%'><tr>";
@@ -667,12 +718,14 @@
 					correctnums = [nums[7]];
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 19: //split
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = ("compare the 2 values, placing them from left to right, ascending in value"); //instructions
+					document.getElementById("p").innerHTML =
+						"compare the 2 values, placing them from left to right, ascending in value"; //instructions
 					content +=
 						"</br><table class = 'table21' id='T21' style='width: 2%'><tr>";
 					for (let i = 7; i < 8; i++) {
@@ -686,12 +739,14 @@
 					correctnums = sortednums;
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 20: //merge
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = ("enter 3 numbers comparing the values in the length 2 array with the length 1 array, placing them from left to right, ascending in value"); //instructions
+					document.getElementById("p").innerHTML =
+						"enter 3 numbers comparing the values in the length 2 array with the length 1 array, placing them from left to right, ascending in value"; //instructions
 
 					var elem19 = document.getElementById("T19");
 
@@ -726,12 +781,14 @@
 					correctnums = sortednums;
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 21: //merge
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML =	("now to split the other length 2 array, enter the first value of the length 2 array"); //instructions
+					document.getElementById("p").innerHTML =
+						"now to split the other length 2 array, enter the first value of the length 2 array"; //instructions
 
 					document.getElementById("T17").style.marginTop = "2pc";
 
@@ -766,12 +823,14 @@
 					correctnums = [nums[8]];
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 22: //split
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML =	("enter the second value of the length 2 array"); //instructions
+					document.getElementById("p").innerHTML =
+						"enter the second value of the length 2 array"; //instructions
 
 					content +=
 						"</br><table class='table24' id='T24' style='width:2%'><tr>";
@@ -784,12 +843,14 @@
 					correctnums = [nums[9]];
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 23:
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML =	("enter 2 numbers comparing the 2 value, placing them from left to right, ascending in value"); //instructions
+					document.getElementById("p").innerHTML =
+						"enter 2 numbers comparing the 2 value, placing them from left to right, ascending in value"; //instructions
 
 					content +=
 						"<table class='table25' id='T25' style='width:2%'><tr>";
@@ -804,12 +865,14 @@
 					correctnums = sortednums;
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 24: //merge
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML =	"enter 5 numbers comparing the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array"; //instructions
+					document.getElementById("p").innerHTML =
+						"enter 5 numbers comparing the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array"; //instructions
 
 					document.getElementById("T23").style.marginTop = "-3.75pc";
 
@@ -846,12 +909,14 @@
 					correctnums = sortednums;
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 25: //merge
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML =	"enter 10 numbers comparing the values between the two length 5 sorted arrays, placing them from left to right, ascending in value in the original length 10 array"; //instructions
+					document.getElementById("p").innerHTML =
+						"enter 10 numbers comparing the values between the two length 5 sorted arrays, placing them from left to right, ascending in value in the original length 10 array"; //instructions
 
 					document.getElementById("T15").style.marginTop = "-7pc";
 
@@ -888,12 +953,14 @@
 					correctnums = sortednums;
 					correctanswer = false;
 					nextcount++;
+
 				}
 				break;
 
 			case 26: //merge
 				if (correctanswer == true) {
-					// document.getElementById("p").innerHTML = "merge sort complete!";
+					document.getElementById("p").innerHTML =
+						"merge sort complete!";
 
 					var elem1 = document.getElementById("T1");
 
@@ -921,6 +988,7 @@
 						content += "</th>";
 					}
 					content += "</tr></table>";
+
 				}
 				break;
 		}
@@ -944,14 +1012,18 @@
 		if (inputednums.length == 0) {
 			correctanswer = false;
 			alert("WRONG");
+			wrongAnswer();
+
 		} else if (answer == inputednums.length) {
 			correctanswer = true;
 			correctSound.play();
 			alert("CORRECT");
+			increaseScore();
 		} else {
 			correctanswer = false;
 			wrongSound.play();
 			alert("WRONG");
+			wrongAnswer();
 		}
 	}
 
@@ -994,5 +1066,32 @@
 
 		// Using recursion to combine the left and right
 		return merge(mergeSort(left), mergeSort(right));
+	}
+
+	//after correct answer
+	function increaseScore(){
+		//regarding the score
+
+		score = score + scoreIncrement*scoreMultiplier;
+		streak++;
+
+		document.getElementById("score").innerHTML = 
+				"Score: " + score;
+
+		document.getElementById("streak").innerHTML = 
+				"Streak: " + streak;
+
+
+		scoreMultiplier = scoreMultiplier*2;
+
+
+	}
+
+	//for when the user gets a wrong answer
+	function wrongAnswer(){
+
+		scoreMultiplier = 1;
+		streak = 0;
+
 	}
 </script>
