@@ -181,6 +181,10 @@
 	let correctnums = [];
 	let correctanswer = false;
 	let mergeornot = false;
+
+
+	let mistakes = 0;
+
 	for (let i = 0; i < 10; i++) {
 		//randomly generates the table with 10 numbers
 		a = Math.floor(Math.random() * 20 + 1);
@@ -1001,7 +1005,9 @@
 		}
 		if (inputednums.length == 0) {
 			correctanswer = false;
+			wrongSound.play();
 			alert("WRONG");
+			mistakes++;
 		} else if (answer == inputednums.length) {
 			correctanswer = true;
 			correctSound.play();
@@ -1010,7 +1016,13 @@
 			correctanswer = false;
 			wrongSound.play();
 			alert("WRONG");
+			mistakes++;
 		}
+
+		if(mistakes == 3){
+			location.href = 'menu.html';
+		}
+
 	}
 
 	function merge(left, right) {

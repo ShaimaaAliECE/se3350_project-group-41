@@ -183,6 +183,7 @@
 	let correctnums = [];
 	let correctanswer = false;
 	let mergeornot = false;
+	let mistakes = 0;
 
 	function timerStart(){
 		
@@ -219,7 +220,7 @@
 
 		idleTime = idleTime + 1;
         if (idleTime > 302) { // change to 302 seconds
-            alert("You have been idel for too long");
+            alert("You have been idle for too long");
 			location.href = 'index.html';
         }
 
@@ -268,6 +269,8 @@
 		console.log(nextcount);
 		let shortA = [];
 		let sortednums = [];
+
+	
 		switch (nextcount) {
 			case -1:
 				document.getElementById("p").innerHTML =
@@ -1030,7 +1033,9 @@
 		}
 		if (inputednums.length == 0) {
 			correctanswer = false;
+			wrongSound.play();
 			alert("WRONG");
+			mistakes++;
 		} else if (answer == inputednums.length) {
 			correctanswer = true;
 			correctSound.play();
@@ -1039,7 +1044,14 @@
 			correctanswer = false;
 			wrongSound.play();
 			alert("WRONG");
+			mistakes++;
 		}
+
+		if(mistakes == 3){
+			location.href = 'menu.html';
+		}
+
+
 	}
 
 	function merge(left, right) {
