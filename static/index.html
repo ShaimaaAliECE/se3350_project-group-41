@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Home</title>
-
+		
 		<style>
 			header {
 				margin-top: 1pc;
@@ -165,13 +165,15 @@
 	</head>
 	<body>
 		<h1>Start the tutorial</h1>
-		<input type="button" onclick="ShowLine()" value="Level 1" />
-		<button type="button" onclick="window.location.href='level2.html'">Level 2</button>
-		<button type="button" onclick="window.location.href='level3.html'">Level 3</button>
+		<input type="button" id="l1" onclick="ShowLine()" value="Start Level 1" />
+		<button type="button" id="l2" onclick="window.location.href='level2.html'">Level 2</button>
+		<button type="button" id="l3"  onclick="window.location.href='level3.html'">Level 3</button>
 	</body>
 </html>
 
 <script>
+	const level2Button = document.getElementById("l2")
+	level2Button.disabled = true;
 	let nextcount = 0;
 	let nums = [];
 	let shortA = [];
@@ -1184,14 +1186,19 @@
 					z++;
 					nextcount--;
 				} else {
-					document.getElementById('p').innerHTML = 'MERGESORT COMPLETE';
+					document.getElementById('p').innerHTML = 'MERGESORT COMPLETE /n LEVEL 2 UNLOCKED';
 					document.getElementById('T2').style.visibility = 'hidden';
 					document.getElementById('T3').style.visibility = 'hidden';
+					setTimeout(goToLevel2,7000); //go to window location after 7000ms
 				}
 				break;
 		}
 		nextcount += 1;
 		document.write(content);
+	}
+	function goToLevel2()
+	{
+		window.location = "level2.html"; //chaning window location
 	}
 
 	function merge(left, right) {
