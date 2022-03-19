@@ -176,54 +176,63 @@
 	let correctnums = [];
 	let correctanswer = false;
 	let mergeornot = false;
+	let shortA = [];
+	let sortednums = [];
+	let x = 0,
+		y = 0,
+		z = 0,
+		sn = 0;
 	for (let i = 0; i < 10; i++) {
 		//randomly generates the table with 10 numbers
 		a = Math.floor(Math.random() * 20 + 1);
 		nums.push(a);
 	}
-
 	correctnums = [nums[0], nums[1], nums[2], nums[3], nums[4]];
-
 	function ShowLine() {
 		//Creates the first line of the table
 
-		let content = '';
+		let content = "";
 
 		content +=
-			'<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:center;} table,th,td {border:1px solid #000;} .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;} .table3, .table3 th, .table3 td{margin-left: auto;margin-right: 20%;margin-top:-1.75pc;} .table4, .table4 th, .table4 td{margin-left: 10%;margin-right: auto;margin-top: 2pc;} .table5, .table5 th, .table5 td{margin-left: 35%;margin-right: auto;margin-top:-1.75pc;} .table6, .table6 th, .table6 td{margin-left: 7%;margin-right: auto;margin-top: 2pc;} .table7, .table7 th, .table7 td{margin-left: 15%;margin-right: auto;margin-top: -1.75pc;}.table8, .table8 th, .table8 td{margin-left: 12%;margin-right: auto;margin-top: 2pc;} .table9, .table9 th, .table9 td{margin-left: 20%;margin-right: auto;margin-top: -3pc;} .table10, .table10 th, .table10 td{margin-left: 15%;margin-right: auto;margin-top: -5.25pc;} .table11, .table11 th, .table11 td{margin-left: 10%;margin-right: auto;margin-top: -7.25pc;}.table12, .table12 th, .table12 td{margin-left: 40%;margin-right: auto;} .table13, .table13 th, .table13 td{margin-left: 32%;margin-right: auto;margin-top: -1.75pc;}  .table14, .table14 th, .table14 td{margin-left: 35%;margin-right: auto;margin-top: -4pc;}  .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;}  .table15, .table15 th, .table15 td{margin-left: 20%;margin-right: auto;margin-top: -12pc;} .table16, .table16 th, .table16 td{margin-left: auto;margin-right: 30%;margin-top: 2pc;} .table17, .table17 th, .table17 td{margin-left: auto;margin-right: 13%;margin-top: -1.75pc;} .table18, .table18 th, .table18 td{margin-left: auto;margin-right: 38%;margin-top: 1pc;}  .table19, .table19 th, .table19 td{margin-left: auto;margin-right: 25%;margin-top: -1.75pc;} .table20, .table20 th, .table20 td{margin-left: auto;margin-right: 30%;margin-top: 1pc;} .table21, .table21 th, .table21 td{margin-left: auto;margin-right: 22%;margin-top: -2.75pc;} .table22, .table22 th, .table22 td{margin-left: auto;margin-right: 25%;margin-top: -5.5pc;}  .table23, .table23 th, .table23 td{margin-left: auto;margin-right: 30%;margin-top: -7.25pc;} .table24, .table24 th, .table24 td{margin-left: auto;margin-right: 20%;margin-top: 1pc;} .table25, .table25 th, .table25 td{margin-left: auto;margin-right: 9%;margin-top: -1.75pc;}  .table26, .table26 th, .table26 td{margin-left: auto;margin-right: 13%;margin-top: -4pc;} .table27, .table27 th, .table27 td{margin-left: auto;margin-right: 20%;margin-top:-12pc;} .table28, .table28 th, .table28 td{margin-left: auto;margin-right: auto;margin-top: -24pc;}</style>';
-		content += '<style></style>';
-		content += '<h1> Merge Sort Game </h1>';
+			"<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:center;} table,th,td {border:1px solid #000;} .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;} .table3, .table3 th, .table3 td{margin-left: auto;margin-right: 20%;margin-top:-1.75pc;} .table4, .table4 th, .table4 td{margin-left: 10%;margin-right: auto;margin-top: 2pc;} .table5, .table5 th, .table5 td{margin-left: 35%;margin-right: auto;margin-top:-1.75pc;} .table6, .table6 th, .table6 td{margin-left: 7%;margin-right: auto;margin-top: 2pc;} .table7, .table7 th, .table7 td{margin-left: 15%;margin-right: auto;margin-top: -1.75pc;}.table8, .table8 th, .table8 td{margin-left: 12%;margin-right: auto;margin-top: 2pc;} .table9, .table9 th, .table9 td{margin-left: 20%;margin-right: auto;margin-top: -3pc;} .table10, .table10 th, .table10 td{margin-left: 15%;margin-right: auto;margin-top: -5.25pc;} .table11, .table11 th, .table11 td{margin-left: 10%;margin-right: auto;margin-top: -7.25pc;}.table12, .table12 th, .table12 td{margin-left: 40%;margin-right: auto;} .table13, .table13 th, .table13 td{margin-left: 32%;margin-right: auto;margin-top: -1.75pc;}  .table14, .table14 th, .table14 td{margin-left: 35%;margin-right: auto;margin-top: -4pc;}  .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;}  .table15, .table15 th, .table15 td{margin-left: 20%;margin-right: auto;margin-top: -12pc;} .table16, .table16 th, .table16 td{margin-left: auto;margin-right: 30%;margin-top: 2pc;} .table17, .table17 th, .table17 td{margin-left: auto;margin-right: 13%;margin-top: -1.75pc;} .table18, .table18 th, .table18 td{margin-left: auto;margin-right: 38%;margin-top: 1pc;}  .table19, .table19 th, .table19 td{margin-left: auto;margin-right: 25%;margin-top: -1.75pc;} .table20, .table20 th, .table20 td{margin-left: auto;margin-right: 30%;margin-top: 1pc;} .table21, .table21 th, .table21 td{margin-left: auto;margin-right: 22%;margin-top: -2.75pc;} .table22, .table22 th, .table22 td{margin-left: auto;margin-right: 25%;margin-top: -5.5pc;}  .table23, .table23 th, .table23 td{margin-left: auto;margin-right: 30%;margin-top: -7.25pc;} .table24, .table24 th, .table24 td{margin-left: auto;margin-right: 20%;margin-top: 1pc;} .table25, .table25 th, .table25 td{margin-left: auto;margin-right: 9%;margin-top: -1.75pc;}  .table26, .table26 th, .table26 td{margin-left: auto;margin-right: 13%;margin-top: -4pc;} .table27, .table27 th, .table27 td{margin-left: auto;margin-right: 20%;margin-top:-12pc;} .table28, .table28 th, .table28 td{margin-left: auto;margin-right: auto;margin-top: -24pc;}</style>";
+		content += "<style></style>";
+		content += "<h1> Merge Sort Game </h1>";
 		content += "<p id='p'>split the array down the middle</p>";
 		content += "<table style=text-align: center; id='T1'><tr>";
 
 		for (let i = 0; i < 10; i++) {
 			//fills the table
-			content += `<th> ${nums[i]} </th>`;
+			content += "<th>";
+			content += nums[i];
+			content += "</th>";
 		}
-		content += '</tr></table><br><br>';
-		content += "<input type = 'button' onclick = 'NextLine()' value = 'Next'>"; //creates the next button that calls the next step
+		content += "</tr></table><br><br>";
+		content +=
+			"<input type = 'button' onclick = 'NextLine()' value = 'Next'>"; //creates the next button that calls the next step
 
 		document.write(content);
 	}
 
 	function NextLine() {
 		//contains all the steps of the tutorial
-		let content = '';
+		let content = "";
 		console.log(nextcount);
-		let shortA = [];
-		let sortednums = [];
+		
 		switch (nextcount) {
 			case -1:
-				document.getElementById('p').innerHTML = 'enter the first 5 numbers of the table in the input box, seperating the values by spaces'; //instructions
-				content += `<input type = 'button' onclick = 'checkifsplitcorrect()' value = 'check' id='check'> <input type='text' id='arr1' placeholder='enter the value'   style 'width: 200%'/>`;
+				document.getElementById("p").innerHTML =
+					"enter the first 5 numbers of the table in the input box, seperating the values by spaces"; //instructions
+				content +=
+					"<input type = 'button' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
+				content +=
+					"<input type='text' id='arr1' placeholder='enter the value'   style 'width: 200%'/>";
 				nextcount++;
 				break;
 
 			case 0: //split
-				//2
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the last 5 numbers of the table in the input box, seperating the values by spaces, to complete the split of the first table'; //instructions
-
+				if (correctanswer){
+					document.getElementById('p').innerHTML = 'split the left array down the middle';
+					//2
 					content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
 					for (let i = 0; i < 5; i++) {
 						content += '<th>';
@@ -231,677 +240,978 @@
 						content += '</th>';
 					}
 					content += '</tr></table>';
-
-					correctnums = [nums[5], nums[6], nums[7], nums[8], nums[9]];
-					content += '</tr></table>';
+					correctnums = [nums[5], nums[6], nums[7],nums[8],nums[9]];
 					correctanswer = false;
-					nextcount++;
+                    nextcount++;
 				}
 				break;
-
 			case 1:
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the first 3 numbers of the left table to split the array again'; //instructions
-					//3
-					content += "<table class = 'table3' style='width: 10%' id='T3'><tr>";
-					for (let i = 5; i < 10; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					correctnums = [nums[0], nums[1], nums[2]];
-					content += '</tr></table>';
-					correctanswer = false;
-					nextcount++;
-				}
+                if (correctanswer) {
+                    document.getElementById("p").innerHTML =
+                        "enter the first 3 numbers of the left table to split the array again"; //instructions
+                    //3
+                    content +=
+                        "<table class = 'table3' style='width: 10%' id='T3'><tr>";
+                    for (let i = 5; i < 10; i++) {
+                        content += "<th>";
+                        content += nums[i];
+                        content += "</th>";
+                    }
+                    correctnums = [nums[0], nums[1], nums[2]];
+                    content += "</tr></table>";
+                    correctanswer = false;
+                    nextcount++;
+                }
 
-				break;
+                break;
 
 			case 2: //split
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the last 2 numbers of the left table to split the rest of the array'; //instructions
-					content += "</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
-					for (let i = 0; i < 3; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[3], nums[4]];
-					correctanswer = false;
-					nextcount++;
-				}
+				if (correctanswer) {
+                    document.getElementById("p").innerHTML =
+                        "enter the last 2 numbers of the left table to split the rest of the array"; //instructions
+                    content +=
+                        "</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
+                    for (let i = 0; i < 3; i++) {
+                        content += "<th>";
+                        content += nums[i];
+                        content += "</th>";
+                    }
+                    content += "</tr></table>";
+                    correctnums = [nums[3], nums[4]];
+                    correctanswer = false;
+                    nextcount++;
+                }
 				break;
-
 			case 3:
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the first number of the length 3 array, splitting it'; //instructions
-					content += "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
-					for (let i = 3; i < 5; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					correctnums = [nums[0]];
-					content += '</tr></table>';
-					correctanswer = false;
-					nextcount++;
-				}
+				if (correctanswer) {
+                    document.getElementById("p").innerHTML =
+                        "enter the first number of the length 3 array, splitting it"; //instructions
+                    content +=
+                        "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
+                    for (let i = 3; i < 5; i++) {
+                        content += "<th>";
+                        content += nums[i];
+                        content += "</th>";
+                    }
+                    correctnums = [nums[0]];
+                    content += "</tr></table>";
+                    correctanswer = false;
+                    nextcount++;
+                }
 				break;
 
 			case 4: //split
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the last 2 numbers of the length 3 array, splitting it'; //instructions
+				if (correctanswer) {
+                    document.getElementById("p").innerHTML =
+                        "enter the last 2 numbers of the length 3 array, splitting it"; //instructions
 
-					content += "</br><table class = 'table6' style = 'width: 2%' id='T6'><tr>";
-					for (let i = 0; i < 1; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[1], nums[2]];
-					correctanswer = false;
-					nextcount++;
-				}
+                    content +=
+                        "</br><table class = 'table6' style = 'width: 2%' id='T6'><tr>";
+                    for (let i = 0; i < 1; i++) {
+                        content += "<th>";
+                        content += nums[i];
+                        content += "</th>";
+                    }
+                    content += "</tr></table>";
+                    correctnums = [nums[1], nums[2]];
+                    correctanswer = false;
+                    nextcount++;
+                }
 				break;
-
 			case 5:
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the first number of the newly created length 2 array, splitting it'; //instructions
-					content += "<table class = 'table7' style = 'width: 4%' id='T7'><tr>";
-					for (let i = 1; i < 3; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[1]];
-					correctanswer = false;
-					nextcount++;
-				}
-
+				if (correctanswer) {
+                    document.getElementById("p").innerHTML =
+                        "enter the first number of the newly created length 2 array, splitting it"; //instructions
+                    content +=
+                        "<table class = 'table7' style = 'width: 4%' id='T7'><tr>";
+                    for (let i = 1; i < 3; i++) {
+                        content += "<th>";
+                        content += nums[i];
+                        content += "</th>";
+                    }
+                    content += "</tr></table>";
+                    correctnums = [nums[1]];
+                    correctanswer = false;
+                    nextcount++;
+                }
 				break;
+			case 6:
+				if (correctanswer) {
+                    document.getElementById("p").innerHTML =
+                        "enter the second number of the length 2 array, splitting it"; //instructions
 
-			case 6: //split
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the second number of the length 2 array, splitting it'; //instructions
-
-					content += "</br><table class = 'table8' style = 'width: 2%' id ='T8'><tr>";
-					for (let i = 1; i < 2; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[2]];
-					correctanswer = false;
-					nextcount++;
-				}
+                    content +=
+                        "</br><table class = 'table8' style = 'width: 2%' id ='T8'><tr>";
+                    for (let i = 1; i < 2; i++) {
+                        content += "<th>";
+                        content += nums[i];
+                        content += "</th>";
+                    }
+                    content += "</tr></table>";
+                    correctnums = [nums[2]];
+                    correctanswer = false;
+                    nextcount++;
+                }
 				break;
-
 			case 7:
-				if (correctanswer == true) {
-					//include instructions here
-					document.getElementById('p').innerHTML = 'enter the 2 numbers in ascending order to merge the two numbers'; //instructions
+				if (correctanswer) {
+                    document.getElementById("p").innerHTML =
+                        "enter the second number of the length 2 array, splitting it"; //instructions
 
-					content += "</br><table class = 'table9' style = 'width: 2%' id = 'T9'><tr>";
+                    content +=
+                        "</br><table class = 'table9' style = 'width: 2%' id ='T9'><tr>";
+                    for (let i = 2; i < 3; i++) {
+                        content += "<th>";
+                        content += nums[i];
+                        content += "</th>";
+                    }
+                    content += "</tr></table>";
+                    correctanswer = false;
+                    nextcount++;
+                }
+				break;
+			case 8: //instruction for initial merge
+				document.getElementById('p').innerHTML = 'Now that you have determined the smallest value place it in the first cell of the merged array.';
+				var bc = document.getElementById('check');
+				bc.onclick = checkifmergecorrect()
+				content += "<input type = 'button' onclick = 'checkifmergecorrect()' value = 'check' id='check'>";
+				var T7 = document.getElementById('T7');
+				var m1 = T7.getElementsByTagName('th');
+				shortA = [nums[1], nums[2]];
+				sortednums = mergeSort(shortA);
+				sn = 0;
+				for (let i = 0; i < 2; i++) {
+					m1[i].innerHTML = '&nbsp';
+				}
+				nextcount++;
+				break;
 
-					for (let i = 2; i < 3; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
+			case 9: //add first value to table
+				if (correctanswer){
+					document.getElementById('p').innerHTML = 'Confirm that the remaining value in the unmerged array is the largest value. Add this value to complete this merged array';
+					var T8 = document.getElementById('T8');
+					var m1 = T8.getElementsByTagName('th');
+					var T9 = document.getElementById('T9');
+					var m2 = T9.getElementsByTagName('th');
+					var T7 = document.getElementById('T7');
+					var m3 = T7.getElementsByTagName('th');
+
+					if (m1[0].innerHTML == sortednums[0]) {
+						if (typeof T8 != 'undefined') {
+							m1[0].innerHTML = '&nbsp';
+						}
+					} else {
+						if (typeof T9 != 'undefined') {
+							m2[0].innerHTML = '&nbsp';
+						}
 					}
-					content += '</tr></table>';
-					shortA = [nums[1], nums[2]];
-					sortednums = mergeSort(shortA);
-					correctnums = sortednums;
+					m3[0].innerHTML = sortednums[0];
 					correctanswer = false;
-					nextcount++;
+                    nextcount++;
 				}
 				break;
 
-			case 8: //merge
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'compare the values again, placing them from left to right, ascending in value, to merge the length 2 array with the length 1'; //instructions
-					var elem7 = document.getElementById('T7');
-
-					if (typeof elem7 != 'undefined') {
-						elem7.parentNode.removeChild(elem7);
+			case 10: //add last value to table and change visibility of old tables
+				if(correctanswer){
+					document.getElementById('p').innerHTML = '';
+					var T8 = (document.getElementById('T8').style.visibility = 'hidden');
+					var T9 = (document.getElementById('T9').style.visibility = 'hidden');
+					var T7 = document.getElementById('T7');
+					var m1 = T7.getElementsByTagName('th');
+					if (typeof T7 != 'undefined') {
+						m1[1].innerHTML = sortednums[1];
 					}
-
-					var elem8 = document.getElementById('T8');
-
-					if (typeof elem8 != 'undefined') {
-						elem8.parentNode.removeChild(elem8);
-					}
-
-					var elem9 = document.getElementById('T9');
-
-					if (typeof elem9 != 'undefined') {
-						elem9.parentNode.removeChild(elem9);
-					}
-
-					shortA = [nums[1], nums[2]];
-					sortednums = mergeSort(shortA);
-					content += "</br><table class='table10' style ='width: 4%' id='T10'><tr>";
-					for (let i = 0; i < 2; i++) {
-						content += '<th>';
-						content += sortednums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					shortA = [nums[0], nums[1], nums[2]];
-					sortednums = mergeSort(shortA);
-					correctnums = sortednums;
 					correctanswer = false;
-					nextcount++;
+                    nextcount++;
 				}
-
 				break;
-
-			case 9: //merge
+			case 11: //clear initial table
 				//delete table
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the first number of the newly created length 2 array, splitting it'; //instructions
+				document.getElementById('p').innerHTML =
+					'Compare the smallest values between the two arrays and determine which array contains the smallest value. Then add that smallest value into the newly merged array.';
+				var T4 = document.getElementById('T4');
+				var m1 = T4.getElementsByTagName('th');
+				shortA = [nums[0], nums[1], nums[2]];
+				sortednums = mergeSort(shortA);
+				sn = 0;
+				for (let i = 0; i < 3; i++) {
+					m1[i].innerHTML = '&nbsp';
+				}
+				console.log(x, y);
+				break;
+			case 12: //add first value
+				document.getElementById('p').innerHTML =
+					'Compare the remaining two values and to determine which of the two values is the smallest. Then add that smallest value into the second cell of the newly merged array.';
 
-					var elem4 = document.getElementById('T4');
+				var T6 = document.getElementById('T6');
+				var m1 = T6.getElementsByTagName('th');
+				var T7 = document.getElementById('T7');
+				var m2 = T7.getElementsByTagName('th');
+				var T4 = document.getElementById('T4');
+				var m3 = T4.getElementsByTagName('th');
 
-					if (typeof elem4 != 'undefined') {
-						elem4.parentNode.removeChild(elem4);
+				if (m1[0].innerHTML == sortednums[0]) {
+					if (typeof T6 != 'undefined') {
+						m1[0].innerHTML = '&nbsp';
+						x++;
 					}
-
-					//adjusting style for deletion of reference table
-					document.getElementById('T5').style.marginTop = '2pc';
-
-					//delete table
-					var elem6 = document.getElementById('T6');
-
-					if (typeof elem6 != 'undefined') {
-						elem6.parentNode.removeChild(elem6);
+				} else {
+					if (typeof T7 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
 					}
-					//delete table
-					var elem10 = document.getElementById('T10');
+				}
+				console.log(x, y);
+				m3[0].innerHTML = sortednums[0];
+				break;
+			case 13: //add second value
+				document.getElementById('p').innerHTML =
+					'Confirm that the remaining value in the unmerged array is largest of all three values. Add that value into the third cell to complete this merged array';
 
-					if (typeof elem10 != 'undefined') {
-						elem10.parentNode.removeChild(elem10);
-					}
+				var T6 = document.getElementById('T6');
+				var m1 = T6.getElementsByTagName('th');
+				var T7 = document.getElementById('T7');
+				var m2 = T7.getElementsByTagName('th');
+				var T4 = document.getElementById('T4');
+				var m3 = T4.getElementsByTagName('th');
 
-					shortA = [nums[0], nums[1], nums[2]];
-					sortednums = mergeSort(shortA);
-					content += "</br><table style='width: 6%' id='T11' class='table11'><tr>";
-					for (let i = 0; i < 3; i++) {
-						content += '<th>';
-						content += sortednums[i];
-						content += '</th>';
+				if (m1[0].innerHTML == sortednums[1]) {
+					if (typeof T6 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+						x++;
 					}
-					content += '</tr></table>';
-					correctnums = [nums[3]];
-					correctanswer = false;
-					nextcount++;
+				} else {
+					if (typeof T7 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
+					}
+				}
+				console.log(x, y);
+				m3[1].innerHTML = sortednums[1];
+				break;
+			case 14: //add final value and set visibility of old tables to 0
+				document.getElementById('p').innerHTML = ''; //y.
+				var T6 = document.getElementById('T6');
+				var m1 = T6.getElementsByTagName('th');
+				var T7 = document.getElementById('T7');
+				var m2 = T7.getElementsByTagName('th');
+				var T4 = document.getElementById('T4');
+				var m3 = T4.getElementsByTagName('th');
+				if (m1[0].innerHTML == sortednums[2]) {
+					if (typeof T6 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+					}
+				} else {
+					if (typeof T7 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+					}
+				}
+				document.getElementById('T6').style.visibility = 'hidden';
+				document.getElementById('T7').style.visibility = 'hidden';
+				m3[2].innerHTML = sortednums[2];
+				x = 0;
+				y = 0;
+				break;
+			case 15: //split
+				document.getElementById('p').innerHTML =
+					'Compare the smallest values from each array. Determine the smallest value between the arrays as it will be added in the first cell to the newly merged array.';
+				//Compare
+				content += "</br><table class= 'table12' id='T12' style = 'width: 2%; margin-top: -8pc'><tr>";
+				for (let i = 3; i < 4; i++) {
+					content += '<th>';
+					content += nums[i];
+					content += '</th>';
+				}
+				content += '</tr></table>';
+
+				content += "<table class = 'table13' id='T13' style = 'width:2%'><tr>"; //split
+				for (let i = 4; i < 5; i++) {
+					content += '<th>';
+					content += nums[i];
+					content += '</th>';
+				}
+				content += '</tr></table>';
+				break;
+			case 16: //clear initial table
+				document.getElementById('p').innerHTML = '';
+				var T5 = document.getElementById('T5');
+				var m1 = T5.getElementsByTagName('th');
+				shortA = [nums[3], nums[4]];
+				sortednums = mergeSort(shortA);
+				for (let i = 0; i < 2; i++) {
+					m1[i].innerHTML = '&nbsp';
+				}
+				break;
+			case 17: // add first value
+				document.getElementById('p').innerHTML = 'Confirm that the remaining value in the unmerged array is the largest value. Add this value to complete this merged array';
+
+				var T12 = document.getElementById('T12');
+				var m1 = T12.getElementsByTagName('th');
+				var T13 = document.getElementById('T13');
+				var m2 = T13.getElementsByTagName('th');
+				var T5 = document.getElementById('T5');
+				var m3 = T5.getElementsByTagName('th');
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[0]) {
+					if (typeof T12 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+					}
+				} else {
+					if (typeof T13 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+					}
+				}
+				m3[0].innerHTML = sortednums[0];
+				break;
+			case 18: // add final value
+				document.getElementById('p').innerHTML = '';
+				//Add the final value into the table
+				var T12 = document.getElementById('T12');
+				var m1 = T12.getElementsByTagName('th');
+				var T13 = document.getElementById('T13');
+				var m2 = T13.getElementsByTagName('th');
+				var T5 = document.getElementById('T5');
+				var m3 = T5.getElementsByTagName('th');
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[2]) {
+					if (typeof T12 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+					}
+				} else {
+					if (typeof T13 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+					}
+				}
+				document.getElementById('T12').style.visibility = 'hidden';
+				document.getElementById('T13').style.visibility = 'hidden';
+				m3[1].innerHTML = sortednums[1];
+				break;
+			case 19: //clear inital table
+				document.getElementById('p').innerHTML =
+					'Compare the smallest value of the two arrays. Determine which value is smaller between these two smallest values. This value will be added to the first cell of the newly merged array';
+				var T2 = document.getElementById('T2');
+				var m1 = T2.getElementsByTagName('th');
+				shortA = [nums[0], nums[1], nums[2], nums[3], nums[4]];
+				sortednums = mergeSort(shortA);
+				for (let i = 0; i < 5; i++) {
+					m1[i].innerHTML = '&nbsp';
+				}
+				break;
+			case 20: //add first value
+				document.getElementById('p').innerHTML =
+					'Now compare the smallest values of the two arrays once more. Determine which value is smaller between these two smallest values. This value will be added to the second cell of the newly merged array';
+
+				var T4 = document.getElementById('T4');
+				var m1 = T4.getElementsByTagName('th');
+				var T5 = document.getElementById('T5');
+				var m2 = T5.getElementsByTagName('th');
+				var T2 = document.getElementById('T2');
+				var m3 = T2.getElementsByTagName('th');
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[0]) {
+					if (typeof T4 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+						x++;
+					}
+				} else {
+					if (typeof T5 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
+					}
+				}
+				m3[0].innerHTML = sortednums[0];
+				break;
+			case 21: //add second value
+				document.getElementById('p').innerHTML =
+					'Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. This value will be added to the third cell of the newly merged array';
+
+				//Examine the smallest value of unmerged array that still has all of its remaining values. Confirm that it is the smallest value between both arrays. Add this value to the second cell on the newly merged array
+				var T4 = document.getElementById('T4');
+				var m1 = T4.getElementsByTagName('th');
+				var T5 = document.getElementById('T5');
+				var m2 = T5.getElementsByTagName('th');
+				var T2 = document.getElementById('T2');
+				var m3 = T2.getElementsByTagName('th');
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[1]) {
+					if (typeof T4 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+						x++;
+					}
+				} else {
+					if (typeof T5 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
+					}
+				}
+				if (x == 2) {
+					x = 0;
+				}
+				if (y == 2) {
+					y = 0;
+				}
+				m3[1].innerHTML = sortednums[1];
+				break;
+			case 22: //add third value
+				document.getElementById('p').innerHTML =
+					'Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. This value will be added to the fourth cell of the newly merged array';
+
+				var T4 = document.getElementById('T4');
+				var m1 = T4.getElementsByTagName('th');
+				var T5 = document.getElementById('T5');
+				var m2 = T5.getElementsByTagName('th');
+				var T2 = document.getElementById('T2');
+				var m3 = T2.getElementsByTagName('th');
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[2]) {
+					if (typeof T4 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+						x++;
+					}
+				} else {
+					if (typeof T5 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
+					}
+				}
+				if (x == 2) {
+					x = 0;
+				}
+				if (y == 2) {
+					y = 0;
+				}
+				m3[2].innerHTML = sortednums[2];
+				break;
+			case 23: //add fourth value
+				document.getElementById('p').innerHTML =
+					'Confirm that the remianing value in the unmerged array is the largest of all the five values that have just been sorted. Add this value into the fifth cell to finish the merged array';
+
+				var T4 = document.getElementById('T4');
+				var m1 = T4.getElementsByTagName('th');
+				var T5 = document.getElementById('T5');
+				var m2 = T5.getElementsByTagName('th');
+				var T2 = document.getElementById('T2');
+				var m3 = T2.getElementsByTagName('th');
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[3]) {
+					if (typeof T4 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+						x++;
+						if (x == 3) {
+							x = 0;
+						}
+					}
+				} else {
+					if (typeof T5 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
+						if (y == 2) {
+							y = 0;
+						}
+					}
+				}
+				m3[3].innerHTML = sortednums[3];
+				break;
+			case 24: //add final value change visibility
+				document.getElementById('p').innerHTML = '';
+				var T4 = document.getElementById('T4');
+				var m1 = T4.getElementsByTagName('th');
+				var T5 = document.getElementById('T5');
+				var m2 = T5.getElementsByTagName('th');
+				var T2 = document.getElementById('T2');
+				var m3 = T2.getElementsByTagName('th');
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[4]) {
+					if (typeof T4 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+					}
+				} else {
+					if (typeof T5 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+					}
+				}
+				document.getElementById('T4').style.visibility = 'hidden';
+				document.getElementById('T5').style.visibility = 'hidden';
+				m3[4].innerHTML = sortednums[4];
+				x == 0;
+				y == 0;
+				break;
+			case 25: //split
+				document.getElementById('p').innerHTML = 'Split the length 3 array down the middle';
+
+				content += "</br><table class ='table16' id='T16' style='width:6%; margin-top: -8pc'><tr>";
+				for (let i = 5; i < 8; i++) {
+					content += '<th>';
+					content += nums[i];
+					content += '</th>';
+				}
+				content += '</tr></table>';
+
+				content += "<table class ='table17' id='T17' style='width:6%; margin-top: -1.75pc'><tr>";
+				for (let i = 8; i < 10; i++) {
+					content += '<th>';
+					content += nums[i];
+					content += '</th>';
+				}
+				content += '</tr></table>';
+				break;
+
+			case 26: //split
+				document.getElementById('p').innerHTML = 'Split the final furthest down length 2 array down the middle';
+
+				content += "</br><table class ='table18' id='T18' style = 'width:2%'><tr>";
+				for (let i = 5; i < 6; i++) {
+					content += '<th>';
+					content += nums[i];
+					content += '</th>';
+				}
+				content += '</tr></table>';
+
+				content += "<table class = 'table19' id='T19' style='width:4%'><tr>";
+				for (let i = 6; i < 8; i++) {
+					content += '<th>';
+					content += nums[i];
+					content += '</th>';
+				}
+				content += '</tr></table>';
+				break;
+
+			case 27: //split
+				document.getElementById('p').innerHTML = 'Compare the smallest values from each array. Determine the smallest value between the arrays as it will be added to the newly merged array.';
+
+				content += "</br><table class = 'table20' id='T20' style='width:2%'><tr>";
+				for (let i = 6; i < 7; i++) {
+					content += '<th>';
+					content += nums[i];
+					content += '</th>';
+				}
+				content += '</tr></table>';
+
+				content += "</br><table class = 'table21' id='T21' style='width: 2%'><tr>";
+				for (let i = 7; i < 8; i++) {
+					content += '<th>';
+					content += nums[i];
+					content += '</th>';
+				}
+				content += '</tr></table>';
+				break;
+
+			case 28: //clear initial table
+				document.getElementById('p').innerHTML = 'Now that you have determined the smallest value place it in the first cell of the merged array.';
+
+				shortA = [nums[6], nums[7]];
+				sortednums = mergeSort(shortA);
+				var T19 = document.getElementById('T19');
+				var m3 = T19.getElementsByTagName('th');
+				for (let i = 0; i < 2; i++) {
+					m3[i].innerHTML = '&nbsp';
 				}
 
 				break;
+			case 29: //add first value
+				document.getElementById('p').innerHTML = 'Confirm that the remaining value is larger than the first value that is in the merged array';
+				var T20 = document.getElementById('T20');
+				var m1 = T20.getElementsByTagName('th');
+				var T21 = document.getElementById('T21');
+				var m2 = T21.getElementsByTagName('th');
 
-			case 10: //split
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the second number of the length 2 array, splitting it'; //instructions
-
-					content += "</br><table class= 'table12' id='T12' style = 'width: 2%'><tr>";
-					for (let i = 3; i < 4; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
+				if (m1[0].innerHTML == sortednums[0]) {
+					if (typeof T20 != 'undefined') {
+						m1[0].innerHTML = '&nbsp';
 					}
-					content += '</tr></table>';
-					correctnums = [nums[4]];
-					correctanswer = false;
-					nextcount++;
+				} else {
+					if (typeof T21 != 'undefined') {
+						m2[0].innerHTML = '&nbsp';
+					}
 				}
-				break;
+				var T19 = document.getElementById('T19');
+				var m3 = T19.getElementsByTagName('th');
 
-			case 11:
-				document.getElementById('p').innerHTML = 'compare the 2 values, placing them from left to right, ascending in value'; //instructions
-
-				if (correctanswer == true) {
-					content += "<table class = 'table13' id='T13' style = 'width:2%'><tr>"; //split
-					for (let i = 4; i < 5; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					shortA = [nums[3], nums[4]];
-					sortednums = mergeSort(shortA);
-					correctnums = sortednums;
-					correctanswer = false;
-					nextcount++;
-				}
-				break;
-
-			case 12: //merge
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter 5 numbers comparing the values in the length 2 array with the length 3 array placing them from left to right, ascending in value'; //instructions
-
-					//adjusting style for deletion of reference table
-					document.getElementById('T11').style.marginTop = '-3.5pc';
-
-					var elem5 = document.getElementById('T5');
-
-					if (typeof elem5 != 'undefined') {
-						elem5.parentNode.removeChild(elem5);
-					}
-
-					var elem13 = document.getElementById('T13');
-
-					if (typeof elem13 != 'undefined') {
-						elem13.parentNode.removeChild(elem13);
-					}
-
-					var elem12 = document.getElementById('T12');
-
-					if (typeof elem12 != 'undefined') {
-						elem12.parentNode.removeChild(elem12);
-					}
-
-					shortA = [nums[3], nums[4]];
-					sortednums = mergeSort(shortA);
-					content += "</br><table class='table14' id ='T14' style = 'width:4%'><tr>";
-					for (let i = 0; i < 2; i++) {
-						content += '<th>';
-						content += sortednums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					shortA = [nums[0], nums[1], nums[2], nums[3], nums[4]];
-					sortednums = mergeSort(shortA);
-					correctnums = sortednums;
-					correctanswer = false;
-					nextcount++;
-				}
-				break;
-
-			case 13: //merge
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'now that the left array has been sorted, split the right side, enter the first 3 values of the right side length 5 array'; //instructions
-
-					document.getElementById('T3').style.marginTop = '2pc';
-
-					var elem2 = document.getElementById('T2');
-
-					if (typeof elem2 != 'undefined') {
-						elem2.parentNode.removeChild(elem2);
-					}
-
-					var elem11 = document.getElementById('T11');
-
-					if (typeof elem11 != 'undefined') {
-						elem11.parentNode.removeChild(elem11);
-					}
-
-					var elem14 = document.getElementById('T14');
-
-					if (typeof elem14 != 'undefined') {
-						elem14.parentNode.removeChild(elem14);
-					}
-
-					shortA = [nums[0], nums[1], nums[2], nums[3], nums[4]];
-					sortednums = mergeSort(shortA);
-					content += "</br><table class ='table15' id='T15' style='width:10%'><tr>";
-					for (let i = 0; i < 5; i++) {
-						content += '<th>';
-						content += sortednums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[5], nums[6], nums[7]];
-					correctanswer = false;
-					nextcount++;
-				}
-				break;
-
-			case 14: //split
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'now enter the last 2 numbers of the right side length 5 array to split it'; //instructions
-
-					content += "</br><table class ='table16' id='T16' style='width:6%'><tr>";
-					for (let i = 5; i < 8; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[8], nums[9]];
-					correctanswer = false;
-					nextcount++;
-				}
-				break;
-
-			case 15:
-				if (correctanswer == true) {
-					//instructions here
-					document.getElementById('p').innerHTML = 'enter the first number of the length 3 array splitting it'; //instructions
-
-					content += "<table class ='table17' id='T17' style='width:6%'><tr>";
-					for (let i = 8; i < 10; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[5]];
-					correctanswer = false;
-					nextcount++;
-				}
+				m3[0].innerHTML = sortednums[0];
 
 				break;
+			case 30: //add final value and change table visibility
+				document.getElementById('p').innerHTML = '';
+				var T20 = (document.getElementById('T20').style.visibility = 'hidden');
+				var T21 = (document.getElementById('T21').style.visibility = 'hidden');
+				var T19 = document.getElementById('T19');
 
-			case 16: //split
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the last 2 values to complete the split'; //instructions
+				var m1 = T19.getElementsByTagName('th');
+				if (typeof T20 != 'undefined') {
+					m1[1].innerHTML = sortednums[1];
+				}
+				shortA = [nums[5], nums[6], nums[7]];
+				sortednums = mergeSort(shortA);
+				x = 0;
+				y = 0;
+				break;
+			case 31: //clear initial table
+				document.getElementById('p').innerHTML =
+					'Compare the smallest values between the two arrays and determine which array contains the smallest value. Then add that smallest value into the newly merged array.';
 
-					content += "</br><table class ='table18' id='T18' style = 'width:2%'><tr>";
-					for (let i = 5; i < 6; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[6], nums[7]];
-					correctanswer = false;
-					nextcount++;
+				var T16 = document.getElementById('T16');
+				var m3 = T16.getElementsByTagName('th');
+				for (let i = 0; i < 3; i++) {
+					m3[i].innerHTML = '&nbsp';
 				}
 				break;
+			case 32: //add first value
+				document.getElementById('p').innerHTML =
+					'Now compare the smallest values of the two arrays once more. Determine which value is smaller between these two smallest values. This value will be added to the second cell of the newly merged array';
+				var T18 = document.getElementById('T18');
+				var m1 = T18.getElementsByTagName('th');
+				var T19 = document.getElementById('T19');
+				var m2 = T19.getElementsByTagName('th');
+				var T16 = document.getElementById('T16');
+				var m3 = T16.getElementsByTagName('th');
 
-			case 17:
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the first number of the newly created length 2 array to split it'; //instructions
-					content += "<table class = 'table19' id='T19' style='width:4%'><tr>";
-					for (let i = 6; i < 8; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
+				if (m1[0].innerHTML == sortednums[0]) {
+					if (typeof T18 != 'undefined') {
+						m1[0].innerHTML = '&nbsp';
+						x++;
 					}
-					content += '</tr></table>';
-					correctnums = [nums[6]];
-					correctanswer = false;
-					nextcount++;
+				} else {
+					if (typeof T19 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
+					}
 				}
+				console.log(x, y);
+				m3[0].innerHTML = sortednums[0];
+				break;
+			case 33: //add second value
+				document.getElementById('p').innerHTML =
+					'Confirm that the remaining value in the unmerged array is largest of all three values. Add that value into the third cell to complete this merged array';
+				var T18 = document.getElementById('T18');
+				var m1 = T18.getElementsByTagName('th');
+				var T19 = document.getElementById('T19');
+				var m2 = T19.getElementsByTagName('th');
+				var T16 = document.getElementById('T16');
+				var m3 = T16.getElementsByTagName('th');
+
+				if (m1[0].innerHTML == sortednums[1]) {
+					if (typeof T18 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+						x++;
+					}
+				} else {
+					if (typeof T19 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
+					}
+				}
+				console.log(x, y);
+				m3[1].innerHTML = sortednums[1];
+
+				break;
+			case 34: //add final value and change table visibility
+				document.getElementById('p').innerHTML = 'Split the lenght 2 array down the middle';
+				var T18 = document.getElementById('T18');
+				var m1 = T18.getElementsByTagName('th');
+				var T19 = document.getElementById('T19');
+				var m2 = T19.getElementsByTagName('th');
+				var T16 = document.getElementById('T16');
+				var m3 = T16.getElementsByTagName('th');
+
+				if (m1[0].innerHTML == sortednums[2]) {
+					if (typeof T18 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+					}
+				} else {
+					if (typeof T19 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+					}
+				}
+				document.getElementById('T18').style.visibility = 'hidden';
+				document.getElementById('T19').style.visibility = 'hidden';
+				m3[2].innerHTML = sortednums[2];
+				x = 0;
+				y = 0;
+				break;
+			case 35: //split
+				document.getElementById('p').innerHTML = 'Compare the smallest values from each array. Determine the smallest value between the arrays as it will be added to the newly merged array. ';
+
+				content += "</br><table class='table24' id='T24' style='width:2%;margin-top: -5pc'><tr>";
+				for (let i = 8; i < 9; i++) {
+					content += '<th>';
+					content += nums[i];
+					content += '</th>';
+				}
+				content += '</tr></table>';
+
+				content += "<table class='table25' id='T25' style='width:2%; margin-top: -1.75 pc'><tr>";
+				for (let i = 9; i < 10; i++) {
+					content += '<th>';
+					content += nums[i];
+					content += '</th>';
+				}
+				content += '</tr></table>';
 				break;
 
-			case 18:
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the second number of the length 2 array to complete the split'; //instructions
-
-					content += "</br><table class = 'table20' id='T20' style='width:2%'><tr>";
-					for (let i = 6; i < 7; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[7]];
-					correctanswer = false;
-					nextcount++;
+			case 36: //Clear table
+				document.getElementById('p').innerHTML = '';
+				shortA = [nums[8], nums[9]];
+				sortednums = mergeSort(shortA);
+				var T17 = document.getElementById('T17');
+				var m3 = T17.getElementsByTagName('th');
+				for (let i = 0; i < 2; i++) {
+					m3[i].innerHTML = '&nbsp';
 				}
 				break;
+			case 37: //add first value
+				document.getElementById('p').innerHTML = 'Confirm that the remaining value in the unmerged array is the largest value. Add this value to complete this merged array';
+				var T24 = document.getElementById('T24');
+				var m1 = T24.getElementsByTagName('th');
+				var T25 = document.getElementById('T25');
+				var m2 = T25.getElementsByTagName('th');
 
-			case 19: //split
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'compare the 2 values, placing them from left to right, ascending in value'; //instructions
-					content += "</br><table class = 'table21' id='T21' style='width: 2%'><tr>";
-					for (let i = 7; i < 8; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
+				if (m1[0].innerHTML == sortednums[0]) {
+					if (typeof T25 != 'undefined') {
+						m1[0].innerHTML = '&nbsp';
 					}
-					content += '</tr></table>';
-					shortA = [nums[6], nums[7]];
-					sortednums = mergeSort(shortA);
-					correctnums = sortednums;
-					correctanswer = false;
-					nextcount++;
+				} else {
+					if (typeof T24 != 'undefined') {
+						m2[0].innerHTML = '&nbsp';
+					}
+				}
+				var T17 = document.getElementById('T17');
+				var m3 = T17.getElementsByTagName('th');
+
+				m3[0].innerHTML = sortednums[0];
+				break;
+			case 38: //add final value and change table visibility
+				document.getElementById('p').innerHTML =
+					'Compare the smallest value of the two arrays. Determine which value is smaller between these two smallest values. This value will be added to the first cell of the newly merged array';
+
+				var T24 = (document.getElementById('T24').style.visibility = 'hidden');
+				var T25 = (document.getElementById('T25').style.visibility = 'hidden');
+				var T17 = document.getElementById('T17');
+
+				var m1 = T17.getElementsByTagName('th');
+				if (typeof T24 != 'undefined') {
+					m1[1].innerHTML = sortednums[1];
+				}
+
+				break;
+			case 39: //merge
+				document.getElementById('p').innerHTML = '';
+				var T3 = document.getElementById('T3');
+				var m1 = T3.getElementsByTagName('th');
+				shortA = [nums[5], nums[6], nums[7], nums[8], nums[9]];
+				sortednums = mergeSort(shortA);
+				for (let i = 0; i < 5; i++) {
+					m1[i].innerHTML = '&nbsp';
 				}
 				break;
+			case 40: //add first value
+				document.getElementById('p').innerHTML =
+					'Now compare the smallest values of the two arrays once more. Determine which value is smaller between these two smallest values. This value will be added to the second cell of the newly merged array';
+				var T16 = document.getElementById('T16'); //length 3 one
+				var m1 = T16.getElementsByTagName('th');
+				var T17 = document.getElementById('T17'); //length 2
+				var m2 = T17.getElementsByTagName('th');
+				var T3 = document.getElementById('T3'); //length 5
+				var m3 = T3.getElementsByTagName('th');
 
-			case 20: //merge
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter 3 numbers comparing the values in the length 2 array with the length 1 array, placing them from left to right, ascending in value'; //instructions
-
-					var elem19 = document.getElementById('T19');
-
-					if (typeof elem19 != 'undefined') {
-						elem19.parentNode.removeChild(elem19);
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[0]) {
+					if (typeof T16 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+						x++;
+						if (x == 2) {
+							x == 0;
+						}
 					}
-
-					var elem20 = document.getElementById('T20');
-
-					if (typeof elem20 != 'undefined') {
-						elem20.parentNode.removeChild(elem20);
+				} else {
+					if (typeof T17 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
 					}
-
-					var elem21 = document.getElementById('T21');
-
-					if (typeof elem21 != 'undefined') {
-						elem21.parentNode.removeChild(elem21);
-					}
-
-					shortA = [nums[6], nums[7]];
-					sortednums = mergeSort(shortA);
-					content += "</br><table class='table22' id='T22' style='width:4%'><tr>";
-					for (let i = 0; i < 2; i++) {
-						content += '<th>';
-						content += sortednums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					shortA = [nums[5], nums[6], nums[7]];
-					sortednums = mergeSort(shortA);
-					correctnums = sortednums;
-					correctanswer = false;
-					nextcount++;
 				}
+				m3[0].innerHTML = sortednums[0];
 				break;
-
-			case 21: //merge
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'now to split the other length 2 array, enter the first value of the length 2 array'; //instructions
-
-					document.getElementById('T17').style.marginTop = '2pc';
-
-					var elem16 = document.getElementById('T16');
-
-					if (typeof elem16 != 'undefined') {
-						elem16.parentNode.removeChild(elem16);
+			case 41: //add second value
+				document.getElementById('p').innerHTML =
+					'Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. This value will be added to the third cell of the newly merged array';
+				var T16 = document.getElementById('T16');
+				var m1 = T16.getElementsByTagName('th');
+				var T17 = document.getElementById('T17');
+				var m2 = T17.getElementsByTagName('th');
+				var T3 = document.getElementById('T3');
+				var m3 = T3.getElementsByTagName('th');
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[1]) {
+					if (typeof T16 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+						x++;
 					}
-
-					var elem18 = document.getElementById('T18');
-
-					if (typeof elem18 != 'undefined') {
-						elem18.parentNode.removeChild(elem18);
+				} else {
+					if (typeof T17 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
 					}
-
-					var elem22 = document.getElementById('T22');
-
-					if (typeof elem22 != 'undefined') {
-						elem22.parentNode.removeChild(elem22);
-					}
-
-					shortA = [nums[5], nums[6], nums[7]];
-					sortednums = mergeSort(shortA);
-					content += "</br><table class='table23' id='T23' style='width: 6%'><tr>";
-					for (let i = 0; i < 3; i++) {
-						content += '<th>';
-						content += sortednums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[8]];
-					correctanswer = false;
-					nextcount++;
 				}
-				break;
-
-			case 22: //split
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter the second value of the length 2 array'; //instructions
-
-					content += "</br><table class='table24' id='T24' style='width:2%'><tr>";
-					for (let i = 8; i < 9; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[9]];
-					correctanswer = false;
-					nextcount++;
+				if (y == 2) {
+					y = 0;
 				}
-				break;
-
-			case 23:
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'enter 2 numbers comparing the 2 value, placing them from left to right, ascending in value'; //instructions
-
-					content += "<table class='table25' id='T25' style='width:2%'><tr>";
-					for (let i = 9; i < 10; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					shortA = [nums[8], nums[9]];
-					sortednums = mergeSort(shortA);
-					correctnums = sortednums;
-					correctanswer = false;
-					nextcount++;
+				if (x == 2) {
+					x == 0;
 				}
+				m3[1].innerHTML = sortednums[1];
 				break;
-
-			case 24: //merge
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML =
-						'enter 5 numbers comparing the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array'; //instructions
-
-					document.getElementById('T23').style.marginTop = '-3.75pc';
-
-					var elem17 = document.getElementById('T17');
-
-					if (typeof elem17 != 'undefined') {
-						elem17.parentNode.removeChild(elem17);
+			case 42: //add third value
+				document.getElementById('p').innerHTML =
+					'Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. This value will be added to the fourth cell of the newly merged array';
+				var T16 = document.getElementById('T16');
+				var m1 = T16.getElementsByTagName('th');
+				var T17 = document.getElementById('T17');
+				var m2 = T17.getElementsByTagName('th');
+				var T3 = document.getElementById('T3');
+				var m3 = T3.getElementsByTagName('th');
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[2]) {
+					if (typeof T16 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+						x++;
 					}
-
-					var elem24 = document.getElementById('T24');
-
-					if (typeof elem24 != 'undefined') {
-						elem24.parentNode.removeChild(elem24);
+				} else {
+					if (typeof T17 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
 					}
-
-					var elem25 = document.getElementById('T25');
-
-					if (typeof elem25 != 'undefined') {
-						elem25.parentNode.removeChild(elem25);
-					}
-
-					shortA = [nums[8], nums[9]];
-					sortednums = mergeSort(shortA);
-					content += "</br><table class='table26' id='T26' style='width:4%'><tr>";
-					for (let i = 0; i < 2; i++) {
-						content += '<th>';
-						content += sortednums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					shortA = [nums[5], nums[6], nums[7], nums[8], nums[9]];
-					sortednums = mergeSort(shortA);
-					correctnums = sortednums;
-					correctanswer = false;
-					nextcount++;
 				}
-				break;
-
-			case 25: //merge
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML =
-						'enter 10 numbers comparing the values between the two length 5 sorted arrays, placing them from left to right, ascending in value in the original length 10 array'; //instructions
-
-					document.getElementById('T15').style.marginTop = '-7pc';
-
-					var elem3 = document.getElementById('T3');
-
-					if (typeof elem3 != 'undefined') {
-						elem3.parentNode.removeChild(elem3);
-					}
-
-					var elem23 = document.getElementById('T23');
-
-					if (typeof elem23 != 'undefined') {
-						elem23.parentNode.removeChild(elem23);
-					}
-
-					var elem26 = document.getElementById('T26');
-
-					if (typeof elem26 != 'undefined') {
-						elem26.parentNode.removeChild(elem26);
-					}
-
-					shortA = [nums[5], nums[6], nums[7], nums[8], nums[9]];
-					sortednums = mergeSort(shortA);
-					content += "</br><table class='table27' id='T27' style='width:10%'><tr>";
-					for (let i = 0; i < 5; i++) {
-						content += '<th>';
-						content += sortednums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					shortA = nums;
-					sortednums = mergeSort(shortA);
-					correctnums = sortednums;
-					correctanswer = false;
-					nextcount++;
+				if (x == 2) {
+					x == 0;
 				}
+				if (y == 2) {
+					y = 0;
+				}
+				m3[2].innerHTML = sortednums[2];
 				break;
+			case 43: //add fourth value
+				document.getElementById('p').innerHTML =
+					'Confirm that the remianing value in the unmerged array is the largest of all the five values that have just been sorted. Add this value into the fifth cell to finish the merged array';
+				var T16 = document.getElementById('T16');
+				var m1 = T16.getElementsByTagName('th');
+				var T17 = document.getElementById('T17');
+				var m2 = T17.getElementsByTagName('th');
+				var T3 = document.getElementById('T3');
+				var m3 = T3.getElementsByTagName('th');
+				if (y >= 2) {
+					y = 0;
+				}
+				if (x >= 3) {
+					x = 0;
+				}
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[3]) {
+					if (typeof T16 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+						x++;
+					}
+				} else {
+					if (typeof T17 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+						y++;
+					}
+				}
+				m3[3].innerHTML = sortednums[3];
+				break;
+			case 44: //add final value and change table visibility
+				document.getElementById('p').innerHTML = 'Compare the smallest values from each array. Add them to the final array in from smalles to greatest.';
+				var T16 = document.getElementById('T16');
+				var m1 = T16.getElementsByTagName('th');
+				var T17 = document.getElementById('T17');
+				var m2 = T17.getElementsByTagName('th');
+				var T3 = document.getElementById('T3');
+				var m3 = T3.getElementsByTagName('th');
 
-			case 26: //merge
-				if (correctanswer == true) {
-					document.getElementById('p').innerHTML = 'merge sort complete!';
+				if (y >= 2) {
+					y = 0;
+				}
+				if (x >= 3) {
+					x = 0;
+				}
+				console.log(x);
+				if (m1[x].innerHTML == sortednums[4]) {
+					if (typeof T16 != 'undefined') {
+						m1[x].innerHTML = '&nbsp';
+					}
+				} else {
+					if (typeof T17 != 'undefined') {
+						m2[y].innerHTML = '&nbsp';
+					}
+				}
+				document.getElementById('T16').style.visibility = 'hidden';
+				document.getElementById('T17').style.visibility = 'hidden';
+				m3[4].innerHTML = sortednums[4];
+				x == 0;
+				y == 0;
+				break;
+			case 45: //merge
+				document.getElementById('p').innerHTML = '';
+				var T2 = document.getElementById('T2');
+				var m1 = T2.getElementsByTagName('th');
+				var T3 = document.getElementById('T3');
+				var m2 = T3.getElementsByTagName('th');
+				var T1 = document.getElementById('T1');
+				var m3 = T1.getElementsByTagName('th');
+				shortA = [nums[0], nums[1], nums[2], nums[3], nums[4], nums[5], nums[6], nums[7], nums[8], nums[9]];
+				sortednums = mergeSort(shortA);
+				for (let i = 0; i < 10; i++) {
+					m3[i].innerHTML = '&nbsp';
+				}
+				x = 0;
+				y = 0;
+				break;
+			case 46:
+				document.getElementById('p').innerHTML = 'Compare the smallest values from each array. Add them to the final array in from smalles to greatest.';
 
-					var elem1 = document.getElementById('T1');
+				if (z < 10) {
+					var T2 = document.getElementById('T2'); //length 3 one
+					var m1 = T2.getElementsByTagName('th');
+					var T3 = document.getElementById('T3'); //length 2
+					var m2 = T3.getElementsByTagName('th');
+					var T1 = document.getElementById('T1'); //length 5
+					var m3 = T1.getElementsByTagName('th');
 
-					if (typeof elem1 != 'undefined') {
-						elem1.parentNode.removeChild(elem1);
+					console.log(x, y, z);
+					if (m1[x].innerHTML == sortednums[z]) {
+						if (typeof T2 != 'undefined') {
+							m1[x].innerHTML = '&nbsp';
+							if (x < 4) {
+								x++;
+							} else {
+								x = 0;
+							}
+						}
+					} else {
+						if (typeof T3 != 'undefined') {
+							m2[y].innerHTML = '&nbsp';
+							if (y < 4) {
+								y++;
+							} else {
+								y = 0;
+							}
+						}
 					}
 
-					var elem15 = document.getElementById('T15');
-
-					if (typeof elem15 != 'undefined') {
-						elem15.parentNode.removeChild(elem15);
-					}
-
-					var elem27 = document.getElementById('T27');
-
-					if (typeof elem27 != 'undefined') {
-						elem27.parentNode.removeChild(elem27);
-					}
-
-					sortednums = mergeSort(nums);
-					content += "</br><table class = 'table28' id='T28'><tr>";
-					for (let i = 0; i < 10; i++) {
-						content += '<th>';
-						content += sortednums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
+					m3[z].innerHTML = sortednums[z];
+					z++;
+					nextcount--;
+				} else {
+					document.getElementById('p').innerHTML = 'MERGESORT COMPLETE';
+					document.getElementById('T2').style.visibility = 'hidden';
+					document.getElementById('T3').style.visibility = 'hidden';
 				}
 				break;
 		}
-		//nextcount += 1;
 		document.write(content);
 	}
 	function checkifsplitcorrect() {
-		var correctSound = new Audio('correct.mp3');
-		var wrongSound = new Audio('boing2.mp3');
-		var x = document.getElementById('arr1').value;
+		var correctSound = new Audio("correct.mp3");
+		var wrongSound = new Audio("boing2.mp3");
+		var x = document.getElementById("arr1").value;
 		let answer = 0;
 		let inputednums = x.split(/(\s+)/).filter(function (e) {
 			return e.trim().length > 0;
@@ -910,19 +1220,39 @@
 		for (let i = 0; i < inputednums.length; i++) {
 			if (correctnums[i] == inputednums[i]) {
 				answer++;
+			}else{
+				answer--;
 			}
 		}
 		if (inputednums.length == 0) {
 			correctanswer = false;
-			alert('WRONG');
-		} else if (answer == inputednums.length) {
+			alert("WRONG");
+		} else if (answer == correctnums.length) {
 			correctanswer = true;
 			correctSound.play();
-			alert('CORRECT');
+			alert("CORRECT");
 		} else {
 			correctanswer = false;
 			wrongSound.play();
-			alert('WRONG');
+			alert("WRONG");
+		}
+	}
+	function checkifmergecorrect() {
+		var correctSound = new Audio("correct.mp3");
+		var wrongSound = new Audio("boing2.mp3");
+		var x = document.getElementById("arr1").value;
+		let inputednums = x.split(/(\s+)/).filter(function (e) {
+			return e.trim().length > 0;
+		});
+		if (inputednums[0] == sortednums[sn]) {
+			correctanswer = true;
+			sn++;
+			correctSound.play();
+			alert("CORRECT");
+		} else {
+			correctanswer = false;
+			wrongSound.play();
+			alert("WRONG");
 		}
 	}
 
@@ -944,7 +1274,9 @@
 
 		// We need to concat here because there will be one element remaining
 		// from either left OR the right
-		return resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+		return resultArray
+			.concat(left.slice(leftIndex))
+			.concat(right.slice(rightIndex));
 	}
 
 	// Merge Sort Implentation (Recursion)
