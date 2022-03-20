@@ -948,12 +948,18 @@
 						content += "</th>";
 					}
 					content += "</tr></table>";
+					
 				}
 				break;
 		}
 		//nextcount += 1;
 		document.write(content);
 	}
+	//setTimeout(goToLevel3,5000); //go to window location after 5000ms, add to code after final case is done
+	/*function goToLevel3()
+	{
+		window.location = "level3.html"; //chaning window location
+	}*/
 	function checkifsplitcorrect() {
 		var correctSound = new Audio("correct.mp3");
 		var wrongSound = new Audio("boing2.mp3");
