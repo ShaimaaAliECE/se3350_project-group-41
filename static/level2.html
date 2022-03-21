@@ -1281,6 +1281,7 @@
 		}
 		if (inputednums.length == 0) {
 			correctanswer = false;
+			wrongSound.play();
 			alert("WRONG");
 		} else if (answer == correctnums.length) {
 			correctanswer = true;
