@@ -1002,7 +1002,9 @@
 		}
 		if (inputednums.length == 0) {
 			correctanswer = false;
+			wrongSound.play();
 			alert("WRONG");
+			mistakes++;
 		} else if (answer == inputednums.length) {
 			correctanswer = true;
 			correctSound.play();
@@ -1011,7 +1013,14 @@
 			correctanswer = false;
 			wrongSound.play();
 			alert("WRONG");
+			mistakes++;
 		}
+
+
+		if(mistakes == 3){
+			location.href = 'menu.html';
+		}
+
 	}
 
 	function merge(left, right) {

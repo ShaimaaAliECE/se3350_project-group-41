@@ -173,6 +173,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
+	let mistakes = 0;
+
 	let nextcount = -1,
 		nocopy = 0;
 	let nums = [];
@@ -1283,6 +1285,7 @@
 			correctanswer = false;
 			wrongSound.play();
 			alert("WRONG");
+			mistakes++;
 		} else if (answer == correctnums.length) {
 			correctanswer = true;
 			correctSound.play();
@@ -1291,8 +1294,18 @@
 			correctanswer = false;
 			wrongSound.play();
 			alert("WRONG");
+			mistakes++;
 		}
+
+
+		if(mistakes == 3){
+			location.href = 'menu.html';
+		}
+
+
 	}
+
+
 	function checkifmergecorrect() {
 		var correctSound = new Audio("correct.mp3");
 		var wrongSound = new Audio("boing2.mp3");
