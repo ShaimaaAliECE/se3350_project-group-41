@@ -4,9 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>working</title>
+		<title>Level 1</title>
 
 		<style>
+			h1 {
+				color: red;
+				text-align: center;
+			}
+
 			header {
 				margin-top: 1pc;
 			}
@@ -164,14 +169,12 @@
 		</style>
 	</head>
 
-	<body id="main">
-		<h1>Merge Sort Game</h1>
+	<body id="main" onload="timerStart()">
+		<h1 color:red text-align center>Merge Sort Game</h1>
 		<p id="countdown">0: 00</p>
-		<input type="button" onclick="timerStart()" value="Display Level 1" class="hello" />
 	</body>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 
 	<script>
 		let nextcount = 0;
@@ -187,13 +190,11 @@
 			nums.push(a);
 		}
 
-
 		function timerStart() {
 			setInterval(updateCount, 1000);
 			//setInterval(timerIncrement, 5000);
 			ShowLine();
 		}
-
 
 		const startingMins = 0;
 		let time = startingMins * 60;
@@ -215,7 +216,6 @@
 			let secs = time % 60;
 
 			secs = secs < 10 ? '0' + secs : secs;
-
 
 			countdown.innerHTML = `${mins}: ${secs}`;
 			time++;
