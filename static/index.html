@@ -5,8 +5,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Home</title>
+		<link rel="stylesheet" href="mystyle.css">
 		
 		<style>
+			
+
 			header {
 				margin-top: 1pc;
 			}
@@ -16,8 +19,10 @@
 				margin-left: auto;
 				margin-right: auto;
 				margin-top: 4pc;
-			}
+				
 
+			}
+		
 			.table2,
 			.table2 th,
 			.table2 td {
@@ -164,8 +169,8 @@
 		</style>
 	</head>
 	<body>
-		<h1>Start the tutorial</h1>
-		<input type="button" id="l1" onclick="ShowLine()" value="Start Level 1" />
+		<h1>START THE TUTORIAL</h1>
+		<input type="button" class = "button" id="l1" onclick="ShowLine()" value="START LEVEL 1" />
 		<button type="button" id="l2" onclick="window.location.href='level2.html'">Level 2</button>
 		<button type="button" id="l3"  onclick="window.location.href='level3.html'">Level 3</button>
 	</body>
@@ -174,6 +179,9 @@
 <script>
 	const level2Button = document.getElementById("l2")
 	level2Button.disabled = true;
+
+	
+	
 	let nextcount = 0;
 	let nums = [];
 	let shortA = [];
@@ -205,12 +213,31 @@
 			content += '</th>';
 		}
 		content += '</tr></table><br><br>';
-		content += "<input type = 'button' onclick = 'NextLine()'' value = 'Next'>"; //creates the next button that calls the next step
+		content += "<input type = 'button' id = 'btn' onmouseout='mouseOut()' onmouseover='mouseOver()' onclick = 'NextLine()'' value = 'Next' >"; //creates the next button that calls the next step
+		
 		document.write(content);
 	}
+	
+	function mouseOut() {
+		var b=document.getElementById("btn");
+    	b.style.background="white";
+		b.style.padding = '7px';
+		b.style.borderColor = 'black';
+		b.style.borderRadius='7px';
+		};
 
+
+	function mouseOver() {
+		var b=document.getElementById("btn");
+    	b.style.background="aquamarine";
+		b.style.padding = '7px';
+		b.style.borderColor = 'black';
+		b.style.borderRadius='7px';
+		};
+	
 	function NextLine() {
 		//contains all the steps of the tutorial
+		
 		let content = '';
 		console.log(nextcount);
 		switch (nextcount) {
@@ -253,32 +280,40 @@
 
 			case 1: //split
 				document.getElementById('p').innerHTML = 'split the length 3 array down the middle';
-
+				
 				content += "</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
+					
 				for (let i = 0; i < 3; i++) {
 					content += '<th>';
 					content += nums[i];
 					content += '</th>';
+					
+					
 				}
 				content += '</tr></table>';
+				
 
 				content += "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
 				for (let i = 3; i < 5; i++) {
 					content += '<th>';
 					content += nums[i];
 					content += '</th>';
+					
 				}
 				content += '</tr></table>';
+				
 				break;
 
 			case 2: //split
 				document.getElementById('p').innerHTML = 'Split the final furthest down length 2 array down the middle';
-
+				
 				content += "</br><table class = 'table6' style = 'width: 2%' id='T6'><tr>";
+					
 				for (let i = 0; i < 1; i++) {
 					content += '<th>';
 					content += nums[i];
 					content += '</th>';
+					
 				}
 				content += '</tr></table>';
 
@@ -293,7 +328,7 @@
 
 			case 3: //split
 				document.getElementById('p').innerHTML = 'Compare the smallest values from each array. Determine the smallest value between the arrays as it will be added to the newly merged array. ';
-
+				
 				content += "</br><table class = 'table8' style = 'width: 2%' id ='T8'><tr>";
 				for (let i = 1; i < 2; i++) {
 					content += '<th>';
@@ -313,7 +348,7 @@
 
 			case 4: //instruction for initial merge
 				document.getElementById('p').innerHTML = 'Now that you have determined the smallest value place it in the first cell of the merged array.';
-				//
+				
 
 				var T7 = document.getElementById('T7');
 				var m1 = T7.getElementsByTagName('th');
@@ -326,6 +361,7 @@
 
 			case 5: //add first value to table
 				document.getElementById('p').innerHTML = 'Confirm that the remaining value in the unmerged array is the largest value. Add this value to complete this merged array';
+				
 				var T8 = document.getElementById('T8');
 				var m1 = T8.getElementsByTagName('th');
 				var T9 = document.getElementById('T9');
@@ -347,6 +383,7 @@
 
 			case 6: //add last value to table and change visibility of old tables
 				document.getElementById('p').innerHTML = '';
+				
 				var T8 = (document.getElementById('T8').style.visibility = 'hidden');
 				var T9 = (document.getElementById('T9').style.visibility = 'hidden');
 				var T7 = document.getElementById('T7');

@@ -1,0 +1,23 @@
+
+.button {
+       
+        background-color:#fafafa;
+        color: rgb(12, 11, 11);
+        border-color: black; 
+        min-width: 110px;
+        border-radius:10px; 
+        padding:15px;
+        min-height:30px; 
+      }
+    
+.button:focus {
+        outline-color: transparent;
+        outline-style:solid;
+        box-shadow: 0 0 0 5px #a701a7;
+    }
+.button:hover {
+        background-color:	#7fffd4;
+        transition: 0.5s;
+    }
+
+

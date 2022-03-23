@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>working</title>
+		<link rel="stylesheet" href="mystyle.css">
 
 		<style>
 			header {
@@ -164,8 +165,8 @@
 		</style>
 	</head>
 	<body>
-		<h1>Start level 3</h1>
-		<input type="button" onclick="ShowLine()" value="Display Level 3" />
+		<h1>START LEVEL 3</h1>
+		<input type="button" class="button" onclick="ShowLine()" value="DISPLAY LEVEL 3" />
 	</body>
 </html>
 
@@ -202,10 +203,45 @@
 		}
 		content += "</tr></table><br><br>";
 		content +=
-			"<input type = 'button' onclick = 'NextLine()' value = 'Next'>"; //creates the next button that calls the next step
+			"<input type = 'button' onmouseout='mouseOut()' onmouseover='mouseOver()' onclick = 'NextLine()' value = 'Next' id='btn'>"; //creates the next button that calls the next step
 
 		document.write(content);
 	}
+
+	function mouseOut() {
+		var b=document.getElementById("btn");
+    	b.style.background="white";
+		b.style.padding = '7px';
+		b.style.borderColor = 'black';
+		b.style.borderRadius='7px';
+		};
+
+
+	function mouseOver() {
+		var b=document.getElementById("btn");
+    	b.style.background="aquamarine";
+		b.style.padding = '7px';
+		b.style.borderColor = 'black';
+		b.style.borderRadius='7px';
+		};
+
+	function checkMouseOut() {
+		var cb=document.getElementById("check");
+    	cb.style.background="white";
+		cb.style.padding = '7px';
+		cb.style.borderColor = 'black';
+		cb.style.borderRadius='7px';
+		};
+
+
+	function checkMouseOver() {
+		var cb=document.getElementById("check");
+    	cb.style.background="aquamarine";
+		cb.style.padding = '7px';
+		cb.style.borderColor = 'black';
+		cb.style.borderRadius='7px';
+		};
+
 
 	function NextLine() {
 		//contains all the steps of the tutorial
@@ -217,7 +253,7 @@
 			case -1:
 				document.getElementById("p").innerHTML ="enter the first 5 numbers of the table in the input box, seperating the values by spaces"; //instructions
 				content +=
-					"<input type = 'button' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
+					"<input type = 'button' onmouseout='checkMouseOut()' onmouseover='checkMouseOver()' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
 				content +=
 					"<input type='text' id='arr1' placeholder='enter the value'  style 'width: 200%'/>";
 				nextcount++;
