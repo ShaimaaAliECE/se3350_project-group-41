@@ -1,9 +1,9 @@
-const { request } = require("express");
-const express = require("express");
+const { request } = require('express');
+const express = require('express');
 
 const app = express();
 
-app.use(express.static("./static"));
+app.use(express.static('./static'));
 app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 8080;
