@@ -163,11 +163,16 @@
 			}
 		</style>
 	</head>
-	<body>
-		<h1>Start level 3</h1>
-		<input type="button" onclick="ShowLine()" value="Display Level 3" />
+	<body id="main">
+		<h1> Merge Sort Game </h1>
+		<p id = 'countdown' >0: 00</p>
+		<input type="button" onclick="timerStart()" value="Display Level 3" class = "hello" />
 	</body>
 </html>
+
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
 
 <script>
 	let nextcount = -1,
@@ -176,11 +181,57 @@
 	let correctnums = [];
 	let correctanswer = false;
 	let mergeornot = false;
+	let mistakes = 0;
+
 	for (let i = 0; i < 10; i++) {
 		//randomly generates the table with 10 numbers
 		a = Math.floor(Math.random() * 20 + 1);
 		nums.push(a);
 	}
+
+	function timerStart(){
+		
+		setInterval(updateCount, 1000);
+		//setInterval(timerIncrement, 5000);
+		ShowLine();
+	}
+
+	const startingMins = 0;
+	let time = startingMins * 60;
+	const countdown = document.getElementById('countdown');
+
+
+	var idleTime = 0;
+	$(document).ready(function () {
+
+		// Zero the idle timer on mouse movement.
+		$(this).mousemove(function (e) {
+			idleTime = 0;
+		});
+		$(this).keypress(function (e) {
+			idleTime = 0;
+		});
+	});
+
+	function updateCount(){
+		const mins = Math.floor(time/60);
+		let secs = time % 60;
+
+		secs = secs < 10 ? '0' + secs : secs;
+
+		countdown.innerHTML = `${mins}: ${secs}`;
+		time++;
+
+		idleTime = idleTime + 1;
+		if (idleTime > 302) { // change to 302 seconds
+			alert("You have been idel for too long");
+			location.href = 'index.html';
+		}
+
+	}
+
+	
+
 	correctnums = [nums[0], nums[1], nums[2], nums[3], nums[4]];
 	function ShowLine() {
 		//Creates the first line of the table
@@ -203,7 +254,11 @@
 		content += '</tr></table><br><br>';
 		content += "<input type = 'button' onclick = 'NextLine()' value = 'Next'>"; //creates the next button that calls the next step
 
-		document.write(content);
+		$(document).ready(function(){
+			$( ".hello" ).remove();
+			$('#main').append(content);
+
+		});
 	}
 
 	function NextLine() {
@@ -898,7 +953,11 @@
 				break;
 		}
 		//nextcount += 1;
-		document.write(content);
+		$(document).ready(function(){
+			$( ".hello" ).remove();
+			$('#main').append(content);
+
+		});
 	}
 	function checkifsplitcorrect() {
 		var correctSound = new Audio('correct.mp3');
@@ -916,9 +975,11 @@
 		}
 		if (inputednums.length == 0) {
 			correctanswer = false;
+
 			displayAlert('WRONG');
 			// alert('WRONG');
 		} else if (answer == correctnums.length) {
+
 			correctanswer = true;
 			correctSound.play();
 			displayAlert('CORRECT');
@@ -929,6 +990,12 @@
 			displayAlert('WRONG');
 			// alert('WRONG');
 		}
+
+
+		if(mistakes == 3){
+			location.href = 'menu.html';
+		}
+
 	}
 
 	// Alerts the if they are right or wrong

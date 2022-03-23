@@ -163,13 +163,18 @@
 			}
 		</style>
 	</head>
-	<body>
-		<h1>Start level 2</h1>
-		<input type="button" onclick="ShowLine()" value="Display Level 2" />
+	<body id="main">
+		<h1> Merge Sort Game </h1>
+		<p id = 'countdown' >0: 00</p>
+		<input type="button" onclick="timerStart()" value="Display Level 2" class = "hello"/>
 	</body>
 </html>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script>
+	let mistakes = 0;
+
 	let nextcount = -1,
 		nocopy = 0;
 	let nums = [];
@@ -182,6 +187,49 @@
 		y = 0,
 		z = 0,
 		sn = 0;
+
+		function timerStart(){
+		
+		setInterval(updateCount, 1000);
+		//setInterval(timerIncrement, 5000);
+		ShowLine();
+	}
+
+	const startingMins = 0;
+	let time = startingMins * 60;
+	const countdown = document.getElementById('countdown');
+
+
+	var idleTime = 0;
+    $(document).ready(function () {
+ 
+        // Zero the idle timer on mouse movement.
+        $(this).mousemove(function (e) {
+            idleTime = 0;
+        });
+        $(this).keypress(function (e) {
+            idleTime = 0;
+        });
+    });
+
+	function updateCount(){
+		const mins = Math.floor(time/60);
+		let secs = time % 60;
+
+		secs = secs < 10 ? '0' + secs : secs;
+
+		countdown.innerHTML = `${mins}: ${secs}`;
+		time++;
+
+		idleTime = idleTime + 1;
+        if (idleTime > 302) { // change to 302 seconds
+            alert("You have been idle for too long");
+			location.href = 'index.html';
+        }
+
+	}
+
+	
 	for (let i = 0; i < 10; i++) {
 		//randomly generates the table with 10 numbers
 		a = Math.floor(Math.random() * 20 + 1);
@@ -197,6 +245,7 @@
 			'<style> h1 {color:red; text-align: center} p {color:blue;} table {width:400px; margin-left: auto; margin-right: auto;}  th {text-align:center;} table,th,td {border:1px solid #000;} .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;} .table3, .table3 th, .table3 td{margin-left: auto;margin-right: 20%;margin-top:-1.75pc;} .table4, .table4 th, .table4 td{margin-left: 10%;margin-right: auto;margin-top: 2pc;} .table5, .table5 th, .table5 td{margin-left: 35%;margin-right: auto;margin-top:-1.75pc;} .table6, .table6 th, .table6 td{margin-left: 7%;margin-right: auto;margin-top: 2pc;} .table7, .table7 th, .table7 td{margin-left: 15%;margin-right: auto;margin-top: -1.75pc;}.table8, .table8 th, .table8 td{margin-left: 12%;margin-right: auto;margin-top: 2pc;} .table9, .table9 th, .table9 td{margin-left: 20%;margin-right: auto;margin-top: -3pc;} .table10, .table10 th, .table10 td{margin-left: 15%;margin-right: auto;margin-top: -5.25pc;} .table11, .table11 th, .table11 td{margin-left: 10%;margin-right: auto;margin-top: -7.25pc;}.table12, .table12 th, .table12 td{margin-left: 40%;margin-right: auto;} .table13, .table13 th, .table13 td{margin-left: 32%;margin-right: auto;margin-top: -1.75pc;}  .table14, .table14 th, .table14 td{margin-left: 35%;margin-right: auto;margin-top: -4pc;}  .table2, .table2 th, .table2 td{margin-left: 20%;margin-right: auto;margin-top: 2pc;}  .table15, .table15 th, .table15 td{margin-left: 20%;margin-right: auto;margin-top: -12pc;} .table16, .table16 th, .table16 td{margin-left: auto;margin-right: 30%;margin-top: 2pc;} .table17, .table17 th, .table17 td{margin-left: auto;margin-right: 13%;margin-top: -1.75pc;} .table18, .table18 th, .table18 td{margin-left: auto;margin-right: 38%;margin-top: 1pc;}  .table19, .table19 th, .table19 td{margin-left: auto;margin-right: 25%;margin-top: -1.75pc;} .table20, .table20 th, .table20 td{margin-left: auto;margin-right: 30%;margin-top: 1pc;} .table21, .table21 th, .table21 td{margin-left: auto;margin-right: 22%;margin-top: -2.75pc;} .table22, .table22 th, .table22 td{margin-left: auto;margin-right: 25%;margin-top: -5.5pc;}  .table23, .table23 th, .table23 td{margin-left: auto;margin-right: 30%;margin-top: -7.25pc;} .table24, .table24 th, .table24 td{margin-left: auto;margin-right: 20%;margin-top: 1pc;} .table25, .table25 th, .table25 td{margin-left: auto;margin-right: 9%;margin-top: -1.75pc;}  .table26, .table26 th, .table26 td{margin-left: auto;margin-right: 13%;margin-top: -4pc;} .table27, .table27 th, .table27 td{margin-left: auto;margin-right: 20%;margin-top:-12pc;} .table28, .table28 th, .table28 td{margin-left: auto;margin-right: auto;margin-top: -24pc;}</style>';
 		content += '<style></style>';
 		content += '<h1> Merge Sort Game </h1>';
+
 		content += "<p id='p'>split the array down the middle</p>";
 		content += "<table style=text-align: center; id='T1'><tr>";
 
@@ -209,7 +258,11 @@
 		content += '</tr></table><br><br>';
 		content += "<input type = 'button' onclick = 'NextLine()' value = 'Next'>"; //creates the next button that calls the next step
 
-		document.write(content);
+		$(document).ready(function(){
+			$( ".hello" ).remove();
+			$('#main').append(content);
+
+		});
 	}
 
 	function NextLine() {
@@ -1188,7 +1241,12 @@
 				}
 				break;
 		}
-		document.write(content);
+		
+		$(document).ready(function(){
+			$('#main').append(content);
+
+		});
+
 	}
 	function checkifsplitcorrect() {
 		var correctSound = new Audio('correct.mp3');
@@ -1210,6 +1268,7 @@
 			correctanswer = false;
 			displayAlert('WRONG');
 			// alert('WRONG');
+
 		} else if (answer == correctnums.length) {
 			correctanswer = true;
 			correctSound.play();
@@ -1220,8 +1279,18 @@
 			wrongSound.play();
 			displayAlert('WRONG');
 			// alert('WRONG');
+
 		}
+
+
+		if(mistakes == 3){
+			location.href = 'menu.html';
+		}
+
+
 	}
+
+
 	function checkifmergecorrect() {
 		var correctSound = new Audio('correct.mp3');
 		var wrongSound = new Audio('boing2.mp3');
