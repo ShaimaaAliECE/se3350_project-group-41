@@ -1269,6 +1269,7 @@ function checkMouseOut() {
 					document.getElementById('p').innerHTML = 'MERGESORT COMPLETE';
 					document.getElementById('T2').style.visibility = 'hidden';
 					document.getElementById('T3').style.visibility = 'hidden';
+					setTimeout(goToLevel3,5000);
 				}
 				break;
 		}
@@ -1276,6 +1277,10 @@ function checkMouseOut() {
 		$(document).ready(function () {
 			$('#main').append(content);
 		});
+	}
+	function goToLevel3()
+	{
+		window.location = "level3.html"; //chaning window location
 	}
 	function checkifsplitcorrect() {
 		var correctSound = new Audio('correct.mp3');

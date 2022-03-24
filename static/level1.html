@@ -1172,6 +1172,7 @@
 						document.getElementById('p').innerHTML = 'MERGESORT COMPLETE';
 						document.getElementById('T2').style.visibility = 'hidden';
 						document.getElementById('T3').style.visibility = 'hidden';
+						setTimeout(goToLevel2,5000); //go to window location after 7000ms
 					}
 					break;
 			}
@@ -1181,7 +1182,10 @@
 				$('#main').append(content);
 			});
 		}
-
+	function goToLevel2()
+	{
+		window.location = "level2.html"; //chaning window location
+	}
 		function merge(left, right) {
 			let resultArray = [],
 				leftIndex = 0,
