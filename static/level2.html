@@ -4,7 +4,6 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script type="javascript/text" src="index.js"></script>
 		<title>working</title>
 
 		<style>
@@ -169,9 +168,8 @@
 		<input type="button" onclick="ShowLine()" value="Display Level 2" />
 	</body>
 </html>
-
 <script>
-	
+
 
 	let nextcount = -1,
 		nocopy = 0;
@@ -180,12 +178,13 @@
 
 	//contains the score
 	let score = 0;
+
+
 	let scoreIncrement = 10;
 	let scoreMultiplier = 1;
 	//regarding the amount of answers correct in a row
 	let streak = 0;
-
-
+	
 
 	let correctanswer = false;
 	let mergeornot = false;
@@ -216,12 +215,17 @@
 			content += "<th>";
 			content += nums[i];
 			content += "</th>";
+
+
 		}
 		content += "</tr></table><br><br>";
 		content +=
 			"<input type = 'button' onclick = 'NextLine()' value = 'Next'>"; //creates the next button that calls the next step
 
 		document.write(content);
+
+	
+
 	}
 
 	function NextLine() {
@@ -265,6 +269,21 @@
 					correctanswer = false;
 					nextcount++;
 					
+					// db 
+		fetch('/db', {
+			headers: {
+      			'Accept': 'application/json',
+      			'Content-Type': 'application/json'
+    		},
+			method: "POST",
+			body: JSON.stringify({
+				score: score,
+				streak: streak
+			})
+		})
+		.then(function(res){ console.log(res) })
+		.catch(function(res){ console.log(res) });
+
 					
 				}
 
@@ -1000,7 +1019,10 @@
 		}
 		//nextcount += 1;
 		document.write(content);
+
+		
 	}
+
 	function checkifsplitcorrect() {
 		var correctSound = new Audio("correct.mp3");
 		var wrongSound = new Audio("boing2.mp3");
@@ -1092,7 +1114,6 @@
 
 		scoreMultiplier = scoreMultiplier*2;
 
-		writeScoreboard();
 
 	
 	}
@@ -1102,10 +1123,10 @@
 
 		scoreMultiplier = 1;
 		streak = 0;
-
-	
 		
 	}
+
+	
 
 		
 </script>
