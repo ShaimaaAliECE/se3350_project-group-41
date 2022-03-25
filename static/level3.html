@@ -256,38 +256,6 @@
 		});
 	}
 
-	function mouseOut() {
-		var tag = document.getElementById('btn');
-		tag.style.background = 'white';
-		tag.style.padding = '7px';
-		tag.style.borderColor = 'black';
-		tag.style.borderRadius = '7px';
-	}
-
-	function mouseOver() {
-		var tag = document.getElementById('btn');
-		tag.style.background = 'aquamarine';
-		tag.style.padding = '7px';
-		tag.style.borderColor = 'black';
-		tag.style.borderRadius = '7px';
-	}
-
-	function checkMouseOut() {
-		var cb = document.getElementById('check');
-		cb.style.background = 'white';
-		cb.style.padding = '7px';
-		cb.style.borderColor = 'black';
-		cb.style.borderRadius = '7px';
-	}
-
-	function checkMouseOver() {
-		var cb = document.getElementById('check');
-		cb.style.background = 'aquamarine';
-		cb.style.padding = '7px';
-		cb.style.borderColor = 'black';
-		cb.style.borderRadius = '7px';
-	}
-
 	function NextLine() {
 		//contains all the steps of the tutorial
 		let content = '';
@@ -296,14 +264,17 @@
 		let sortednums = [];
 		switch (nextcount) {
 			case -1:
-				content += "<input type = 'button'onmouseout='checkMouseOut()' onmouseover='checkMouseOver()' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
-				content += "<input type='text' id='arr1' placeholder='enter the value'   style 'width: 200%'/>";
+				document.getElementById('p').innerHTML = 'enter the first 5 numbers of the table in the input box, seperating the values by spaces'; //instructions
+				content += "<input type = 'button' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
+				content += "<input type='text' id='arr1' placeholder='enter the value'  style 'width: 200%'/>";
 				nextcount++;
 				break;
 
 			case 0: //split
-				if (correctanswer) {
-					//2
+				//2
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the last 5 numbers of the table in the input box, seperating the values by spaces, to complete the split of the first table'; //instructions
+
 					content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
 					for (let i = 0; i < 5; i++) {
 						content += '<th>';
@@ -311,14 +282,17 @@
 						content += '</th>';
 					}
 					content += '</tr></table>';
+
 					correctnums = [nums[5], nums[6], nums[7], nums[8], nums[9]];
+					content += '</tr></table>';
 					correctanswer = false;
 					nextcount++;
 				}
 				break;
 
 			case 1:
-				if (correctanswer) {
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the first 3 numbers of the left table to split the array again'; //instructions
 					//3
 					content += "<table class = 'table3' style='width: 10%' id='T3'><tr>";
 					for (let i = 5; i < 10; i++) {
@@ -335,7 +309,8 @@
 				break;
 
 			case 2: //split
-				if (correctanswer) {
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the last 2 numbers of the left table to split the rest of the array'; //instructions
 					content += "</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
 					for (let i = 0; i < 3; i++) {
 						content += '<th>';
@@ -350,7 +325,8 @@
 				break;
 
 			case 3:
-				if (correctanswer) {
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the first number of the length 3 array, splitting it'; //instructions
 					content += "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
 					for (let i = 3; i < 5; i++) {
 						content += '<th>';
@@ -365,7 +341,9 @@
 				break;
 
 			case 4: //split
-				if (correctanswer) {
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the last 2 numbers of the length 3 array, splitting it'; //instructions
+
 					content += "</br><table class = 'table6' style = 'width: 2%' id='T6'><tr>";
 					for (let i = 0; i < 1; i++) {
 						content += '<th>';
@@ -378,8 +356,10 @@
 					nextcount++;
 				}
 				break;
+
 			case 5:
-				if (correctanswer) {
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the first number of the newly created length 2 array, splitting it'; //instructions
 					content += "<table class = 'table7' style = 'width: 4%' id='T7'><tr>";
 					for (let i = 1; i < 3; i++) {
 						content += '<th>';
@@ -390,91 +370,6 @@
 					correctnums = [nums[1]];
 					correctanswer = false;
 					nextcount++;
-				}
-				break;
-			case 6:
-				if (correctanswer) {
-					content += "</br><table class = 'table8' style = 'width: 2%' id ='T8'><tr>";
-					for (let i = 1; i < 2; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctnums = [nums[2]];
-					correctanswer = false;
-					nextcount++;
-				}
-				break;
-			case 7:
-				if (correctanswer) {
-					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-					content += "</br><table class = 'table9' style = 'width: 2%' id ='T9'><tr>";
-					for (let i = 2; i < 3; i++) {
-						content += '<th>';
-						content += nums[i];
-						content += '</th>';
-					}
-					content += '</tr></table>';
-					correctanswer = false;
-					nextcount++;
-				}
-				break;
-			case 8: //instruction for initial merge
-				document.getElementById('check').setAttribute('onClick', 'javascript: checkifmergecorrect();');
-				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
-				var T7 = document.getElementById('T7');
-				var m1 = T7.getElementsByTagName('th');
-				shortA = [nums[1], nums[2]];
-				sortednums = mergeSort(shortA);
-				sn = 0;
-				for (let i = 0; i < 2; i++) {
-					m1[i].innerHTML = '&nbsp';
-				}
-				nextcount++;
-				break;
-
-			case 9: //add first value to table
-				if (correctanswer) {
-					var T8 = document.getElementById('T8');
-					var m1 = T8.getElementsByTagName('th');
-					var T9 = document.getElementById('T9');
-					var m2 = T9.getElementsByTagName('th');
-					var T7 = document.getElementById('T7');
-					var m3 = T7.getElementsByTagName('th');
-
-					if (m1[0].innerHTML == sortednums[0]) {
-						if (typeof T8 != 'undefined') {
-							m1[0].innerHTML = '&nbsp';
-						}
-					} else {
-						if (typeof T9 != 'undefined') {
-							m2[0].innerHTML = '&nbsp';
-						}
-					}
-					content += '</tr></table>';
-					correctnums = [nums[1], nums[2]];
-					correctanswer = false;
-					nextcount++;
-					sn++;
-				}
-				break;
-
-			case 10: //add last value to table and change visibility of old tables
-				if (correctanswer) {
-					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-					var T8 = (document.getElementById('T8').style.visibility = 'hidden');
-					var T9 = (document.getElementById('T9').style.visibility = 'hidden');
-					var T7 = document.getElementById('T7');
-					var m1 = T7.getElementsByTagName('th');
-					if (typeof T7 != 'undefined') {
-						m1[1].innerHTML = sortednums[1];
-					}
-					content += '</tr></table>';
-					correctnums = [nums[1]];
-					correctanswer = false;
-					nextcount++;
-					sn++;
 				}
 
 				break;
@@ -495,25 +390,18 @@
 					nextcount++;
 				}
 				break;
-			case 12: //add first value
-				if (correctanswer) {
-					var T6 = document.getElementById('T6');
-					var m1 = T6.getElementsByTagName('th');
-					var T7 = document.getElementById('T7');
-					var m2 = T7.getElementsByTagName('th');
-					var T4 = document.getElementById('T4');
-					var m3 = T4.getElementsByTagName('th');
 
-					if (m1[0].innerHTML == sortednums[0]) {
-						if (typeof T6 != 'undefined') {
-							m1[0].innerHTML = '&nbsp';
-							x++;
-						}
-					} else {
-						if (typeof T7 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-							y++;
-						}
+			case 7:
+				if (correctanswer == true) {
+					//include instructions here
+					document.getElementById('p').innerHTML = 'enter the 2 numbers in ascending order to merge the two numbers'; //instructions
+
+					content += "</br><table class = 'table9' style = 'width: 2%' id = 'T9'><tr>";
+
+					for (let i = 2; i < 3; i++) {
+						content += '<th>';
+						content += nums[i];
+						content += '</th>';
 					}
 					content += '</tr></table>';
 					shortA = [nums[1], nums[2]];
@@ -523,25 +411,14 @@
 					nextcount++;
 				}
 				break;
-			case 13: //add second value
-				if (correctanswer) {
-					var T6 = document.getElementById('T6');
-					var m1 = T6.getElementsByTagName('th');
-					var T7 = document.getElementById('T7');
-					var m2 = T7.getElementsByTagName('th');
-					var T4 = document.getElementById('T4');
-					var m3 = T4.getElementsByTagName('th');
 
-					if (m1[0].innerHTML == sortednums[1]) {
-						if (typeof T6 != 'undefined') {
-							m1[x].innerHTML = '&nbsp';
-							x++;
-						}
-					} else {
-						if (typeof T7 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-							y++;
-						}
+			case 8: //merge
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'compare the values again, placing them from left to right, ascending in value, to merge the length 2 array with the length 1'; //instructions
+					var elem7 = document.getElementById('T7');
+
+					if (typeof elem7 != 'undefined') {
+						elem7.parentNode.removeChild(elem7);
 					}
 
 					var elem8 = document.getElementById('T8');
@@ -573,23 +450,26 @@
 				}
 
 				break;
-			case 14: //add final value and set visibility of old tables to 0
-				if (correctanswer) {
-					document.getElementById('check').setAttribute('onClick', 'javascript: checkifsplitcorrect();');
-					var T6 = document.getElementById('T6');
-					var m1 = T6.getElementsByTagName('th');
-					var T7 = document.getElementById('T7');
-					var m2 = T7.getElementsByTagName('th');
-					var T4 = document.getElementById('T4');
-					var m3 = T4.getElementsByTagName('th');
-					if (m1[0].innerHTML == sortednums[2]) {
-						if (typeof T6 != 'undefined') {
-							m1[x].innerHTML = '&nbsp';
-						}
-					} else {
-						if (typeof T7 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-						}
+
+			case 9: //merge
+				//delete table
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the first number of the newly created length 2 array, splitting it'; //instructions
+
+					var elem4 = document.getElementById('T4');
+
+					if (typeof elem4 != 'undefined') {
+						elem4.parentNode.removeChild(elem4);
+					}
+
+					//adjusting style for deletion of reference table
+					document.getElementById('T5').style.marginTop = '2pc';
+
+					//delete table
+					var elem6 = document.getElementById('T6');
+
+					if (typeof elem6 != 'undefined') {
+						elem6.parentNode.removeChild(elem6);
 					}
 					//delete table
 					var elem10 = document.getElementById('T10');
@@ -613,9 +493,12 @@
 				}
 
 				break;
-			case 15: //split
-				if (correctanswer) {
-					content += "</br><table class= 'table13' id='T13' style = 'width: 2%; margin-top: -8pc'><tr>";
+
+			case 10: //split
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the second number of the length 2 array, splitting it'; //instructions
+
+					content += "</br><table class= 'table12' id='T12' style = 'width: 2%'><tr>";
 					for (let i = 3; i < 4; i++) {
 						content += '<th>';
 						content += nums[i];
@@ -628,10 +511,11 @@
 				}
 				break;
 
-			case 16:
+			case 11:
+				document.getElementById('p').innerHTML = 'compare the 2 values, placing them from left to right, ascending in value'; //instructions
+
 				if (correctanswer == true) {
-					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-					content += "<table class = 'table12' id='T12' style = 'width:2%; margin-top: -1.5pc'><tr>"; //split
+					content += "<table class = 'table13' id='T13' style = 'width:2%'><tr>"; //split
 					for (let i = 4; i < 5; i++) {
 						content += '<th>';
 						content += nums[i];
@@ -645,129 +529,24 @@
 					nextcount++;
 				}
 				break;
-			case 17: //clear initial table
-				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
-				document.getElementById('check').setAttribute('onClick', 'javascript: checkifmergecorrect();');
-				var T5 = document.getElementById('T5');
-				var m1 = T5.getElementsByTagName('th');
-				shortA = [nums[3], nums[4]];
-				sortednums = mergeSort(shortA);
-				for (let i = 0; i < 2; i++) {
-					m1[i].innerHTML = '&nbsp';
-				}
-				nextcount++;
-				break;
-			case 18: // add first value
-				if (correctanswer) {
-					var T12 = document.getElementById('T12');
-					var m1 = T12.getElementsByTagName('th');
-					var T13 = document.getElementById('T13');
-					var m2 = T13.getElementsByTagName('th');
-					var T5 = document.getElementById('T5');
-					var m3 = T5.getElementsByTagName('th');
-					console.log(x);
-					if (m1[x].innerHTML == sortednums[0]) {
-						if (typeof T12 != 'undefined') {
-							m1[x].innerHTML = '&nbsp';
-						}
-					} else {
-						if (typeof T13 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-						}
-					}
-					m3[0].innerHTML = sortednums[0];
-					nextcount++;
-					correctanswer = false;
-					sn++;
-				}
 
-				break;
-			case 19: // add final value
-				if (correctanswer) {
-					//Add the final value into the table
-					var T12 = document.getElementById('T12');
-					var m1 = T12.getElementsByTagName('th');
-					var T13 = document.getElementById('T13');
-					var m2 = T13.getElementsByTagName('th');
-					var T5 = document.getElementById('T5');
-					var m3 = T5.getElementsByTagName('th');
-					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-					console.log(x);
-					if (m1[x].innerHTML == sortednums[2]) {
-						if (typeof T12 != 'undefined') {
-							m1[x].innerHTML = '&nbsp';
-						}
-					} else {
-						if (typeof T13 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-						}
-					}
-					document.getElementById('T12').style.visibility = 'hidden';
-					document.getElementById('T13').style.visibility = 'hidden';
-					m3[1].innerHTML = sortednums[1];
-					sn = 0;
-					nextcount++;
-					correctanswer = false;
-				}
+			case 12: //merge
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter 5 numbers comparing the values in the length 2 array with the length 3 array placing them from left to right, ascending in value'; //instructions
 
-				break;
-			case 20: //clear inital table
-				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
-				var T2 = document.getElementById('T2');
-				var m1 = T2.getElementsByTagName('th');
-				shortA = [nums[0], nums[1], nums[2], nums[3], nums[4]];
-				sortednums = mergeSort(shortA);
-				for (let i = 0; i < 5; i++) {
-					m1[i].innerHTML = '&nbsp';
-				}
-				nextcount++;
-				break;
-			case 21: //add first value
-				if (correctanswer) {
-					var T4 = document.getElementById('T4');
-					var m1 = T4.getElementsByTagName('th');
-					var T5 = document.getElementById('T5');
-					var m2 = T5.getElementsByTagName('th');
-					var T2 = document.getElementById('T2');
-					var m3 = T2.getElementsByTagName('th');
-					console.log(x, y + ' The sorted number: ' + sortednums[0] + ' the tables contain m1: ' + m1[x].innerHTML + ' and m2: ' + m2[y].innerHTML);
-					if (m1[x].innerHTML == sortednums[0]) {
-						if (typeof T4 != 'undefined') {
-							m1[x].innerHTML = '&nbsp';
-							x++;
-						}
-					} else {
-						if (typeof T5 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-							y++;
-						}
+					//adjusting style for deletion of reference table
+					document.getElementById('T11').style.marginTop = '-3.5pc';
+
+					var elem5 = document.getElementById('T5');
+
+					if (typeof elem5 != 'undefined') {
+						elem5.parentNode.removeChild(elem5);
 					}
-					m3[0].innerHTML = sortednums[0];
-					nextcount++;
-					sn++;
-					correctanswer = false;
-				}
-				break;
-			case 22: //add second value
-				if (correctanswer) {
-					//Examine the smallest value of unmerged array that still has all of its remaining values. Confirm that it is the smallest value between both arrays. Add this value to the second cell on the newly merged array
-					var T4 = document.getElementById('T4');
-					var m1 = T4.getElementsByTagName('th');
-					var T5 = document.getElementById('T5');
-					var m2 = T5.getElementsByTagName('th');
-					var T2 = document.getElementById('T2');
-					var m3 = T2.getElementsByTagName('th');
-					console.log(x, y + ' The sorted number: ' + sortednums[1] + ' the tables contain m1: ' + m1[x].innerHTML + ' and m2: ' + m2[y].innerHTML);
-					if (m1[x].innerHTML == sortednums[1]) {
-						if (typeof T4 != 'undefined') {
-							m1[x].innerHTML = '&nbsp';
-							x++;
-						}
-					} else {
-						if (typeof T5 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-							y++;
-						}
+
+					var elem13 = document.getElementById('T13');
+
+					if (typeof elem13 != 'undefined') {
+						elem13.parentNode.removeChild(elem13);
 					}
 
 					var elem12 = document.getElementById('T12');
@@ -790,106 +569,53 @@
 					correctnums = sortednums;
 					correctanswer = false;
 					nextcount++;
-					sn++;
-					correctanswer = false;
 				}
 				break;
-			case 23: //add third value
-				if (correctanswer) {
-					var T4 = document.getElementById('T4');
-					var m1 = T4.getElementsByTagName('th');
-					var T5 = document.getElementById('T5');
-					var m2 = T5.getElementsByTagName('th');
-					var T2 = document.getElementById('T2');
-					var m3 = T2.getElementsByTagName('th');
-					console.log(x, y + ' The sorted number: ' + sortednums[2] + ' the tables contain m1: ' + m1[x].innerHTML + ' and m2: ' + m2[y].innerHTML);
-					if (m1[x].innerHTML == sortednums[2]) {
-						if (typeof T4 != 'undefined') {
-							m1[x].innerHTML = '&nbsp';
-							x++;
-						}
-					} else {
-						if (typeof T5 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-							y++;
-						}
-					}
-					if (x > 2) {
-						x = 0;
-					}
-					if (y >= 2) {
-						y = 0;
-					}
-					m3[2].innerHTML = sortednums[2];
-					nextcount++;
-					sn++;
-					correctanswer = false;
-				}
-				break;
-			case 24: //add fourth value
-				if (correctanswer) {
-					var T4 = document.getElementById('T4');
-					var m1 = T4.getElementsByTagName('th');
-					var T5 = document.getElementById('T5');
-					var m2 = T5.getElementsByTagName('th');
-					var T2 = document.getElementById('T2');
-					var m3 = T2.getElementsByTagName('th');
-					console.log(x, y + ' The sorted number: ' + sortednums[3] + ' the tables contain m1: ' + m1[x].innerHTML + ' and m2: ' + m2[y].innerHTML);
-					if (m1[x].innerHTML == sortednums[3]) {
-						if (typeof T4 != 'undefined') {
-							m1[x].innerHTML = '&nbsp';
-							x++;
-							if (x >= 3) {
-								x = 0;
-							}
-						}
-					} else {
-						if (typeof T5 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-							y++;
-							if (y >= 2) {
-								y = 0;
-							}
-						}
+
+			case 13: //merge
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'now that the left array has been sorted, split the right side, enter the first 3 values of the right side length 5 array'; //instructions
+
+					document.getElementById('T3').style.marginTop = '2pc';
+
+					var elem2 = document.getElementById('T2');
+
+					if (typeof elem2 != 'undefined') {
+						elem2.parentNode.removeChild(elem2);
 					}
 
-				break;
-			case 25: //add final value change visibility
-				if (correctanswer) {
-					document.getElementById('check').setAttribute('onClick', 'javascript: checkifsplitcorrect();');
+					var elem11 = document.getElementById('T11');
 
-					var T4 = document.getElementById('T4');
-					var m1 = T4.getElementsByTagName('th');
-					var T5 = document.getElementById('T5');
-					var m2 = T5.getElementsByTagName('th');
-					var T2 = document.getElementById('T2');
-					var m3 = T2.getElementsByTagName('th');
-					console.log(x, y + ' The sorted number: ' + sortednums[4] + ' the tables contain m1: ' + m1[x].innerHTML + ' and m2: ' + m2[y].innerHTML);
-					if (m1[x].innerHTML == sortednums[4]) {
-						if (typeof T4 != 'undefined') {
-							m1[x].innerHTML = '&nbsp';
-						}
-					} else {
-						if (typeof T5 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-						}
+					if (typeof elem11 != 'undefined') {
+						elem11.parentNode.removeChild(elem11);
 					}
-					document.getElementById('T4').style.visibility = 'hidden';
-					document.getElementById('T5').style.visibility = 'hidden';
-					m3[4].innerHTML = sortednums[4];
+
+					var elem14 = document.getElementById('T14');
+
+					if (typeof elem14 != 'undefined') {
+						elem14.parentNode.removeChild(elem14);
+					}
+
+					shortA = [nums[0], nums[1], nums[2], nums[3], nums[4]];
+					sortednums = mergeSort(shortA);
+					content += "</br><table class ='table15' id='T15' style='width:10%'><tr>";
+					for (let i = 0; i < 5; i++) {
+						content += '<th>';
+						content += sortednums[i];
+						content += '</th>';
+					}
+					content += '</tr></table>';
 					correctnums = [nums[5], nums[6], nums[7]];
-					x = 0;
-					y = 0;
-					sn = 0;
-					nextcount++;
 					correctanswer = false;
 					nextcount++;
 				}
-
 				break;
-			case 26: //split
-				if (correctanswer) {
-					content += "</br><table class ='table16' id='T16' style='width:6%; margin-top: -8pc'><tr>";
+
+			case 14: //split
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'now enter the last 2 numbers of the right side length 5 array to split it'; //instructions
+
+					content += "</br><table class ='table16' id='T16' style='width:6%'><tr>";
 					for (let i = 5; i < 8; i++) {
 						content += '<th>';
 						content += nums[i];
@@ -901,19 +627,30 @@
 					nextcount++;
 				}
 				break;
-				if (correctanswer) {
+
+			case 15:
+				if (correctanswer == true) {
 					//instructions here
+					document.getElementById('p').innerHTML = 'enter the first number of the length 3 array splitting it'; //instructions
 
 					content += "<table class ='table17' id='T17' style='width:6%'><tr>";
 					for (let i = 8; i < 10; i++) {
+						content += '<th>';
+						content += nums[i];
+						content += '</th>';
+					}
+					content += '</tr></table>';
 					correctnums = [nums[5]];
 					correctanswer = false;
 					nextcount++;
 				}
 
 				break;
-				case 28: //split
-				if (correctanswer) {
+
+			case 16: //split
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the last 2 values to complete the split'; //instructions
+
 					content += "</br><table class ='table18' id='T18' style = 'width:2%'><tr>";
 					for (let i = 5; i < 6; i++) {
 						content += '<th>';
@@ -927,8 +664,10 @@
 				}
 				break;
 
-			case 29:
-				if (correctanswer) {
+			case 17:
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the first number of the newly created length 2 array to split it'; //instructions
+
 					content += "<table class = 'table19' id='T19' style='width:4%'><tr>";
 					for (let i = 6; i < 8; i++) {
 						content += '<th>';
@@ -940,10 +679,12 @@
 					correctanswer = false;
 					nextcount++;
 				}
-
 				break;
-			case 30: //split
-				if (correctanswer) {
+
+			case 18:
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the second number of the length 2 array to complete the split'; //instructions
+
 					content += "</br><table class = 'table20' id='T20' style='width:2%'><tr>";
 					for (let i = 6; i < 7; i++) {
 						content += '<th>';
@@ -957,10 +698,9 @@
 				}
 				break;
 
-			case 31:
-				if (correctanswer) {
-					document.getElementById('check').setAttribute('onClick', 'javascript: checkifmergecorrect();');
-					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
+			case 19: //split
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'compare the 2 values, placing them from left to right, ascending in value'; //instructions
 					content += "</br><table class = 'table21' id='T21' style='width: 2%'><tr>";
 					for (let i = 7; i < 8; i++) {
 						content += '<th>';
@@ -1032,31 +772,11 @@
 					if (typeof elem18 != 'undefined') {
 						elem18.parentNode.removeChild(elem18);
 					}
-					console.log(x, y);
-					m3[1].innerHTML = sortednums[1];
-					correctanswer = false;
-					nextcount++;
-					sn++;
-				}
-				break;
-			case 38: //add final value and change table visibility
-				if (correctanswer) {
-					document.getElementById('check').setAttribute('onClick', 'javascript: checkifsplitcorrect();');
-					var T18 = document.getElementById('T18');
-					var m1 = T18.getElementsByTagName('th');
-					var T19 = document.getElementById('T19');
-					var m2 = T19.getElementsByTagName('th');
-					var T16 = document.getElementById('T16');
-					var m3 = T16.getElementsByTagName('th');
 
-					if (m1[0].innerHTML == sortednums[2]) {
-						if (typeof T18 != 'undefined') {
-							m1[x].innerHTML = '&nbsp';
-						}
-					} else {
-						if (typeof T19 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-						}
+					var elem22 = document.getElementById('T22');
+
+					if (typeof elem22 != 'undefined') {
+						elem22.parentNode.removeChild(elem22);
 					}
 
 					shortA = [nums[5], nums[6], nums[7]];
@@ -1073,8 +793,11 @@
 					nextcount++;
 				}
 				break;
-			case 39: //split
-				if (correctanswer) {
+
+			case 22: //split
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter the second value of the length 2 array'; //instructions
+
 					content += "</br><table class='table24' id='T24' style='width:2%'><tr>";
 					for (let i = 8; i < 9; i++) {
 						content += '<th>';
@@ -1088,10 +811,10 @@
 				}
 				break;
 
-			case 40:
-				if (correctanswer) {
-					document.getElementById('check').setAttribute('onClick', 'javascript: checkifmergecorrect();');
-					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
+			case 23:
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML = 'enter 2 numbers comparing the 2 value, placing them from left to right, ascending in value'; //instructions
+
 					content += "<table class='table25' id='T25' style='width:2%'><tr>";
 					for (let i = 9; i < 10; i++) {
 						content += '<th>';
@@ -1099,96 +822,25 @@
 						content += '</th>';
 					}
 					content += '</tr></table>';
+					shortA = [nums[8], nums[9]];
+					sortednums = mergeSort(shortA);
+					correctnums = sortednums;
 					correctanswer = false;
 					nextcount++;
 				}
 				break;
 
-			case 41: //Clear table
-				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
-				shortA = [nums[8], nums[9]];
-				sortednums = mergeSort(shortA);
-				var T17 = document.getElementById('T17');
-				var m3 = T17.getElementsByTagName('th');
-				for (let i = 0; i < 2; i++) {
-					m3[i].innerHTML = '&nbsp';
-				}
-				nextcount++;
-				break;
-			case 42: //add first value
-				if (correctanswer) {
-					var T24 = document.getElementById('T24');
-					var m1 = T24.getElementsByTagName('th');
-					var T25 = document.getElementById('T25');
-					var m2 = T25.getElementsByTagName('th');
+			case 24: //merge
+				if (correctanswer == true) {
+					document.getElementById('p').innerHTML =
+						'enter 5 numbers comparing the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array'; //instructions
 
-					if (m1[0].innerHTML == sortednums[0]) {
-						if (typeof T25 != 'undefined') {
-							m1[0].innerHTML = '&nbsp';
-						}
-					} else {
-						if (typeof T24 != 'undefined') {
-							m2[0].innerHTML = '&nbsp';
-						}
-					}
-					var T17 = document.getElementById('T17');
-					var m3 = T17.getElementsByTagName('th');
-					m3[0].innerHTML = sortednums[0];
-					correctanswer = false;
-					nextcount++;
-					sn++;
-				}
-				break;
-			case 43: //add final value and change table visibility
-				if (correctanswer) {
-					var T24 = (document.getElementById('T24').style.visibility = 'hidden');
-					var T25 = (document.getElementById('T25').style.visibility = 'hidden');
-					var T17 = document.getElementById('T17');
-					var m1 = T17.getElementsByTagName('th');
-					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-					if (typeof T24 != 'undefined') {
-						m1[1].innerHTML = sortednums[1];
-					}
-					correctanswer = false;
-					nextcount++;
-					sn = 0;
-				}
-				break;
-			case 44: //merge
-				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
-				var T3 = document.getElementById('T3');
-				var m1 = T3.getElementsByTagName('th');
-				shortA = [nums[5], nums[6], nums[7], nums[8], nums[9]];
-				sortednums = mergeSort(shortA);
-				for (let i = 0; i < 5; i++) {
-					m1[i].innerHTML = '&nbsp';
-				}
-				nextcount++;
+					document.getElementById('T23').style.marginTop = '-3.75pc';
 
-				break;
-			case 45: //add first value
-				if (correctanswer) {
-					var T16 = document.getElementById('T16'); //length 3 one
-					var m1 = T16.getElementsByTagName('th');
-					var T17 = document.getElementById('T17'); //length 2
-					var m2 = T17.getElementsByTagName('th');
-					var T3 = document.getElementById('T3'); //length 5
-					var m3 = T3.getElementsByTagName('th');
+					var elem17 = document.getElementById('T17');
 
-					console.log(x);
-					if (m1[x].innerHTML == sortednums[0]) {
-						if (typeof T16 != 'undefined') {
-							m1[x].innerHTML = '&nbsp';
-							x++;
-							if (x == 2) {
-								x == 0;
-							}
-						}
-					} else {
-						if (typeof T17 != 'undefined') {
-							m2[y].innerHTML = '&nbsp';
-							y++;
-						}
+					if (typeof elem17 != 'undefined') {
+						elem17.parentNode.removeChild(elem17);
 					}
 
 					var elem24 = document.getElementById('T24');
@@ -1217,7 +869,6 @@
 					correctnums = sortednums;
 					correctanswer = false;
 					nextcount++;
-					sn++;
 				}
 				break;
 
@@ -1284,87 +935,23 @@
 					if (typeof elem27 != 'undefined') {
 						elem27.parentNode.removeChild(elem27);
 					}
-					document.getElementById('T16').style.visibility = 'hidden';
-					document.getElementById('T17').style.visibility = 'hidden';
-					m3[4].innerHTML = sortednums[4];
-					x == 0;
-					y == 0;
-					correctanswer = false;
-					nextcount++;
-					sn = 0;
-				}
-				break;
-			case 50: //merge
-				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
-				var T2 = document.getElementById('T2');
-				var m1 = T2.getElementsByTagName('th');
-				var T3 = document.getElementById('T3');
-				var m2 = T3.getElementsByTagName('th');
-				var T1 = document.getElementById('T1');
-				var m3 = T1.getElementsByTagName('th');
-				shortA = [nums[0], nums[1], nums[2], nums[3], nums[4], nums[5], nums[6], nums[7], nums[8], nums[9]];
-				sortednums = mergeSort(shortA);
-				for (let i = 0; i < 10; i++) {
-					m3[i].innerHTML = '&nbsp';
-				}
-				nextcount++;
-				x = 0;
-				y = 0;
-				break;
-			case 51:
-				if (correctanswer) {
-					if (z < 10) {
-						var T2 = document.getElementById('T2'); //length 3 one
-						var m1 = T2.getElementsByTagName('th');
-						var T3 = document.getElementById('T3'); //length 2
-						var m2 = T3.getElementsByTagName('th');
-						var T1 = document.getElementById('T1'); //length 5
-						var m3 = T1.getElementsByTagName('th');
 
-						console.log(x, y, z);
-						if (m1[x].innerHTML == sortednums[z]) {
-							if (typeof T2 != 'undefined') {
-								m1[x].innerHTML = '&nbsp';
-								if (x < 4) {
-									x++;
-								} else {
-									x = 0;
-								}
-							}
-						} else {
-							if (typeof T3 != 'undefined') {
-								m2[y].innerHTML = '&nbsp';
-								if (y < 4) {
-									y++;
-								} else {
-									y = 0;
-								}
-							}
-						}
-
-						m3[z].innerHTML = sortednums[z];
-						z++;
-						sn++;
-						if (z > 9) {
-							var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-							var checkbutton = (document.getElementById('arr1').style.visibility = 'hidden');
-							document.getElementById('T2').style.visibility = 'hidden';
-							document.getElementById('T3').style.visibility = 'hidden';
-							setTimeout(goToLevel3, 5000); //go to window location after 7000ms
-						}
+					sortednums = mergeSort(nums);
+					content += "</br><table class = 'table28' id='T28'><tr>";
+					for (let i = 0; i < 10; i++) {
+						content += '<th>';
+						content += sortednums[i];
+						content += '</th>';
 					}
 					content += '</tr></table>';
 				}
 				break;
 		}
-
+		//nextcount += 1;
 		$(document).ready(function () {
+			$('.hello').remove();
 			$('#main').append(content);
 		});
-	}
-
-	function goToLevel3() {
-		window.location = 'index.html'; //chaning window location
 	}
 	function checkifsplitcorrect() {
 		var correctSound = new Audio('correct.mp3');
@@ -1374,34 +961,27 @@
 		let inputednums = x.split(/(\s+)/).filter(function (e) {
 			return e.trim().length > 0;
 		});
-		let inputednums = [];
-		for (let i = 0; i < inums.length; i++) {
-			inputednums[i] = parseInt(inums[i]);
-		}
-		console.log(inputednums, correctnums);
+		console.log(inputednums);
 		for (let i = 0; i < inputednums.length; i++) {
 			if (correctnums[i] == inputednums[i]) {
 				answer++;
-			} else {
-				answer--;
 			}
 		}
 		if (inputednums.length == 0) {
 			correctanswer = false;
-			wrongSound.play();
+
 			displayAlert('WRONG');
-			console.log(correctnums[0] + ' in split 1 user entered: ' + inputednums[0]);
-			mistakes++;
+			// alert('WRONG');
 		} else if (answer == correctnums.length) {
 			correctanswer = true;
 			correctSound.play();
 			displayAlert('CORRECT');
+			// alert('CORRECT');
 		} else {
 			correctanswer = false;
 			wrongSound.play();
-			console.log(correctnums + ' in split 2 user entered: ' + inputednums + 'this is how many they got right: ' + answer);
 			displayAlert('WRONG');
-			mistakes++;
+			// alert('WRONG');
 		}
 
 		if (mistakes == 3) {
@@ -1409,34 +989,7 @@
 		}
 	}
 
-	function checkifmergecorrect() {
-		var correctSound = new Audio('correct.mp3');
-		var wrongSound = new Audio('boing2.mp3');
-		var x = document.getElementById('arr1').value;
-		let inputednums = x.split(/(\s+)/).filter(function (e) {
-			return e.trim().length > 0;
-		});
-		if (inputednums[0] == sortednums[sn] && inputednums.length < 2) {
-			correctanswer = true;
-			correctSound.play();
-			displayAlert('CORRECT');
-		} else {
-			correctanswer = false;
-			console.log(sortednums[sn] + ' in merge user entered: ' + inputednums);
-			wrongSound.play();
-			displayAlert('WRONG');
-			mistakes++;
-		}
-
-		if (mistakes == 3) {
-			location.href = 'menu.html';
-		}
-
-		if (mistakes == 3) {
-			location.href = 'menu.html';
-		}
-	}
-
+	// Alerts the if they are right or wrong
 	function displayAlert(text) {
 		let color = text === 'CORRECT' ? 'green' : 'red';
 		let styler = document.createElement('div');
