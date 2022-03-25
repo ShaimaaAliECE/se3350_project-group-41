@@ -184,7 +184,12 @@
 	let correctanswer = false;
 	let mergeornot = false;
 	let mistakes = 0;
-
+	let shortA = [];
+	let sortednums = [];
+	let x = 0,
+		y = 0,
+		z = 0,
+		sn = 0;
 	for (let i = 0; i < 10; i++) {
 		//randomly generates the table with 10 numbers
 		a = Math.floor(Math.random() * 20 + 1);
@@ -570,7 +575,7 @@
 			case 14: //add final value and set visibility of old tables to 0
 
 				if(correctanswer){
-					
+					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifsplitcorrect();" );
 					var T6 = document.getElementById('T6');
 					var m1 = T6.getElementsByTagName('th');
 					var T7 = document.getElementById('T7');
@@ -637,6 +642,7 @@
 				break;
 			case 17: //clear initial table		
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
+				document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifmergecorrect();" );
 				var T5 = document.getElementById('T5');
 				var m1 = T5.getElementsByTagName('th');
 				shortA = [nums[3], nums[4]];
@@ -1451,19 +1457,15 @@
 						}
 
 						m3[z].innerHTML = sortednums[z];
-						z++;
-						if(z <9){correctanswer = false;}
-						if(z == 9){
-							
+						z++;	
+						sn++;
+						if(z > 9){
 							var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
 							var checkbutton = (document.getElementById('arr1').style.visibility = 'hidden');
-						}		
-						sn++;
-					} else {
-						document.getElementById('p').innerHTML = 'MERGESORT COMPLETE';
-						document.getElementById('T2').style.visibility = 'hidden';
-						document.getElementById('T3').style.visibility = 'hidden';
-						//setTimeout(goToLevel3,5000); //go to window location after 7000ms
+							document.getElementById('T2').style.visibility = 'hidden';
+							document.getElementById('T3').style.visibility = 'hidden';
+							setTimeout(goToLevel3,5000); //go to window location after 7000ms
+						}
 					}
 				}
 				break;
@@ -1476,10 +1478,10 @@
 
 	}
 
-	//function goToLevel3()
-	//{
-	//	window.location = "level3.html"; //chaning window location
-	//}
+	function goToLevel3()
+	{
+		window.location = "index.html"; //chaning window location
+	}
 
 	function checkifsplitcorrect() {
 		var correctSound = new Audio("correct.mp3");

@@ -173,7 +173,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script>
+<Script>
 	let mistakes = 0;
 
 	let nextcount = -1,
@@ -1530,12 +1530,14 @@ function checkMouseOut() {
 						m3[z].innerHTML = sortednums[z];
 						z++;	
 						sn++;
-					if(z > 9){
-						var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-						var checkbutton = (document.getElementById('arr1').style.visibility = 'hidden');
-						document.getElementById('p').innerHTML = 'MERGESORT COMPLETE';
-						document.getElementById('T2').style.visibility = 'hidden';
-						document.getElementById('T3').style.visibility = 'hidden';
+						if(z > 9){
+							var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
+							var checkbutton = (document.getElementById('arr1').style.visibility = 'hidden');
+							document.getElementById('p').innerHTML = 'MERGESORT COMPLETE';
+							document.getElementById('T2').style.visibility = 'hidden';
+							document.getElementById('T3').style.visibility = 'hidden';
+							setTimeout(goToLevel3,5000); //go to window location after 7000ms
+						}
 					}
 				}
 				break;
@@ -1664,4 +1666,5 @@ function checkMouseOut() {
 		// Using recursion to combine the left and right
 		return merge(mergeSort(left), mergeSort(right));
 	}
+
 </script>
