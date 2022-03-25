@@ -262,39 +262,36 @@
 	}
 
 	function mouseOut() {
-		var tag=document.getElementById("btn");
-    	tag.style.background="white";
+		var tag = document.getElementById('btn');
+		tag.style.background = 'white';
 		tag.style.padding = '7px';
 		tag.style.borderColor = 'black';
-		tag.style.borderRadius='7px';
-		};
-
+		tag.style.borderRadius = '7px';
+	}
 
 	function mouseOver() {
-		var tag=document.getElementById("btn");
-    	tag.style.background="aquamarine";
+		var tag = document.getElementById('btn');
+		tag.style.background = 'aquamarine';
 		tag.style.padding = '7px';
 		tag.style.borderColor = 'black';
-		tag.style.borderRadius='7px';
-		};
-
+		tag.style.borderRadius = '7px';
+	}
 
 	function checkMouseOut() {
-		var cb=document.getElementById("check");
-    	cb.style.background="white";
+		var cb = document.getElementById('check');
+		cb.style.background = 'white';
 		cb.style.padding = '7px';
 		cb.style.borderColor = 'black';
-		cb.style.borderRadius='7px';
-		};
-
+		cb.style.borderRadius = '7px';
+	}
 
 	function checkMouseOver() {
-		var cb=document.getElementById("check");
-    	cb.style.background="aquamarine";
+		var cb = document.getElementById('check');
+		cb.style.background = 'aquamarine';
 		cb.style.padding = '7px';
 		cb.style.borderColor = 'black';
-		cb.style.borderRadius='7px';
-		};
+		cb.style.borderRadius = '7px';
+	}
 
 	function NextLine() {
 		//contains all the steps of the tutorial
@@ -302,15 +299,13 @@
 		console.log(nextcount);
 		switch (nextcount) {
 			case -1:
-					content += "<input type = 'button'onmouseout='checkMouseOut()' onmouseover='checkMouseOver()' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
-				content +=
-					"<input type='text' id='arr1' placeholder='enter the value'   style 'width: 200%'/>";
+				content += "<input type = 'button'onmouseout='checkMouseOut()' onmouseover='checkMouseOver()' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
+				content += "<input type='text' id='arr1' placeholder='enter the value'   style 'width: 200%'/>";
 				nextcount++;
 				break;
 
 			case 0: //split
-				if (correctanswer){
-					
+				if (correctanswer) {
 					//2
 					content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
 					for (let i = 0; i < 5; i++) {
@@ -319,131 +314,115 @@
 						content += '</th>';
 					}
 					content += '</tr></table>';
-					correctnums = [nums[5], nums[6], nums[7],nums[8],nums[9]];
+					correctnums = [nums[5], nums[6], nums[7], nums[8], nums[9]];
 					correctanswer = false;
-                    nextcount++;
+					nextcount++;
 				}
 				break;
 			case 1:
-                if (correctanswer) {
-                    
-                    //3
-                    content +=
-                        "<table class = 'table3' style='width: 10%' id='T3'><tr>";
-                    for (let i = 5; i < 10; i++) {
-                        content += "<th>";
-                        content += nums[i];
-                        content += "</th>";
-                    }
-                    correctnums = [nums[0], nums[1], nums[2]];
-                    content += "</tr></table>";
-                    correctanswer = false;
-                    nextcount++;
-                }
+				if (correctanswer) {
+					//3
+					content += "<table class = 'table3' style='width: 10%' id='T3'><tr>";
+					for (let i = 5; i < 10; i++) {
+						content += '<th>';
+						content += nums[i];
+						content += '</th>';
+					}
+					correctnums = [nums[0], nums[1], nums[2]];
+					content += '</tr></table>';
+					correctanswer = false;
+					nextcount++;
+				}
 
-                break;
+				break;
 
 			case 2: //split
 				if (correctanswer) {
-                    
-                    content +=
-                        "</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
-                    for (let i = 0; i < 3; i++) {
-                        content += "<th>";
-                        content += nums[i];
-                        content += "</th>";
-                    }
-                    content += "</tr></table>";
-                    correctnums = [nums[3], nums[4]];
-                    correctanswer = false;
-                    nextcount++;
-                }
+					content += "</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
+					for (let i = 0; i < 3; i++) {
+						content += '<th>';
+						content += nums[i];
+						content += '</th>';
+					}
+					content += '</tr></table>';
+					correctnums = [nums[3], nums[4]];
+					correctanswer = false;
+					nextcount++;
+				}
 				break;
 			case 3:
 				if (correctanswer) {
-                    
-                    content +=
-                        "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
-                    for (let i = 3; i < 5; i++) {
-                        content += "<th>";
-                        content += nums[i];
-                        content += "</th>";
-                    }
-                    correctnums = [nums[0]];
-                    content += "</tr></table>";
-                    correctanswer = false;
-                    nextcount++;
-                }
+					content += "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
+					for (let i = 3; i < 5; i++) {
+						content += '<th>';
+						content += nums[i];
+						content += '</th>';
+					}
+					correctnums = [nums[0]];
+					content += '</tr></table>';
+					correctanswer = false;
+					nextcount++;
+				}
 				break;
 
 			case 4: //split
 				if (correctanswer) {
-                    
-
-                    content +=
-                        "</br><table class = 'table6' style = 'width: 2%' id='T6'><tr>";
-                    for (let i = 0; i < 1; i++) {
-                        content += "<th>";
-                        content += nums[i];
-                        content += "</th>";
-                    }
-                    content += "</tr></table>";
-                    correctnums = [nums[1], nums[2]];
-                    correctanswer = false;
-                    nextcount++;
-                }
+					content += "</br><table class = 'table6' style = 'width: 2%' id='T6'><tr>";
+					for (let i = 0; i < 1; i++) {
+						content += '<th>';
+						content += nums[i];
+						content += '</th>';
+					}
+					content += '</tr></table>';
+					correctnums = [nums[1], nums[2]];
+					correctanswer = false;
+					nextcount++;
+				}
 				break;
 			case 5:
 				if (correctanswer) {
-                    
-                    content +=
-                        "<table class = 'table7' style = 'width: 4%' id='T7'><tr>";
-                    for (let i = 1; i < 3; i++) {
-                        content += "<th>";
-                        content += nums[i];
-                        content += "</th>";
-                    }
-                    content += "</tr></table>";
-                    correctnums = [nums[1]];
-                    correctanswer = false;
-                    nextcount++;
-                }
+					content += "<table class = 'table7' style = 'width: 4%' id='T7'><tr>";
+					for (let i = 1; i < 3; i++) {
+						content += '<th>';
+						content += nums[i];
+						content += '</th>';
+					}
+					content += '</tr></table>';
+					correctnums = [nums[1]];
+					correctanswer = false;
+					nextcount++;
+				}
 				break;
 			case 6:
 				if (correctanswer) {
-                   
-                    content +=
-                        "</br><table class = 'table8' style = 'width: 2%' id ='T8'><tr>";
-                    for (let i = 1; i < 2; i++) {
-                        content += "<th>";
-                        content += nums[i];
-                        content += "</th>";
-                    }
-                    content += "</tr></table>";
-                    correctnums = [nums[2]];
-                    correctanswer = false;
-                    nextcount++;
-                }
+					content += "</br><table class = 'table8' style = 'width: 2%' id ='T8'><tr>";
+					for (let i = 1; i < 2; i++) {
+						content += '<th>';
+						content += nums[i];
+						content += '</th>';
+					}
+					content += '</tr></table>';
+					correctnums = [nums[2]];
+					correctanswer = false;
+					nextcount++;
+				}
 				break;
 			case 7:
 				if (correctanswer) {
-                  
 					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-                    content +=
-                        "</br><table class = 'table9' style = 'width: 2%' id ='T9'><tr>";
-                    for (let i = 2; i < 3; i++) {
-                        content += "<th>";
-                        content += nums[i];
-                        content += "</th>";
-                    }
-                    content += "</tr></table>";
-                    correctanswer = false;
-                    nextcount++;
-                }
+					content += "</br><table class = 'table9' style = 'width: 2%' id ='T9'><tr>";
+					for (let i = 2; i < 3; i++) {
+						content += '<th>';
+						content += nums[i];
+						content += '</th>';
+					}
+					content += '</tr></table>';
+					correctanswer = false;
+					nextcount++;
+				}
 				break;
 			case 8: //instruction for initial merge
-				
-				document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifmergecorrect();" );
+				document.getElementById('check').setAttribute('onClick', 'javascript: checkifmergecorrect();');
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
 				var T7 = document.getElementById('T7');
 				var m1 = T7.getElementsByTagName('th');
@@ -457,9 +436,7 @@
 				break;
 
 			case 9: //add first value to table
-				if (correctanswer){
-					
-					
+				if (correctanswer) {
 					var T8 = document.getElementById('T8');
 					var m1 = T8.getElementsByTagName('th');
 					var T9 = document.getElementById('T9');
@@ -478,14 +455,13 @@
 					}
 					m3[0].innerHTML = sortednums[0];
 					correctanswer = false;
-                    nextcount++;
+					nextcount++;
 					sn++;
 				}
 				break;
 
 			case 10: //add last value to table and change visibility of old tables
-				if(correctanswer){
-					
+				if (correctanswer) {
 					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
 					var T8 = (document.getElementById('T8').style.visibility = 'hidden');
 					var T9 = (document.getElementById('T9').style.visibility = 'hidden');
@@ -495,7 +471,7 @@
 						m1[1].innerHTML = sortednums[1];
 					}
 					correctanswer = false;
-                    nextcount++;
+					nextcount++;
 					sn++;
 				}
 				break;
@@ -514,9 +490,7 @@
 				nextcount++;
 				break;
 			case 12: //add first value
-
-				if(correctanswer){
-
+				if (correctanswer) {
 					var T6 = document.getElementById('T6');
 					var m1 = T6.getElementsByTagName('th');
 					var T7 = document.getElementById('T7');
@@ -543,9 +517,7 @@
 				}
 				break;
 			case 13: //add second value
-
-				if(correctanswer){
-
+				if (correctanswer) {
 					var T6 = document.getElementById('T6');
 					var m1 = T6.getElementsByTagName('th');
 					var T7 = document.getElementById('T7');
@@ -573,9 +545,8 @@
 
 				break;
 			case 14: //add final value and set visibility of old tables to 0
-
-				if(correctanswer){
-					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifsplitcorrect();" );
+				if (correctanswer) {
+					document.getElementById('check').setAttribute('onClick', 'javascript: checkifsplitcorrect();');
 					var T6 = document.getElementById('T6');
 					var m1 = T6.getElementsByTagName('th');
 					var T7 = document.getElementById('T7');
@@ -605,15 +576,13 @@
 				break;
 			case 15: //split
 				if (correctanswer) {
-
-					content +=
-						"</br><table class= 'table13' id='T13' style = 'width: 2%; margin-top: -8pc'><tr>";
+					content += "</br><table class= 'table13' id='T13' style = 'width: 2%; margin-top: -8pc'><tr>";
 					for (let i = 3; i < 4; i++) {
-						content += "<th>";
+						content += '<th>';
 						content += nums[i];
-						content += "</th>";
+						content += '</th>';
 					}
-					content += "</tr></table>";
+					content += '</tr></table>';
 					correctnums = [nums[4]];
 					correctanswer = false;
 					nextcount++;
@@ -621,17 +590,15 @@
 				break;
 
 			case 16:
-
 				if (correctanswer == true) {
 					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-					content +=
-						"<table class = 'table12' id='T12' style = 'width:2%; margin-top: -1.5pc'><tr>"; //split
+					content += "<table class = 'table12' id='T12' style = 'width:2%; margin-top: -1.5pc'><tr>"; //split
 					for (let i = 4; i < 5; i++) {
-						content += "<th>";
+						content += '<th>';
 						content += nums[i];
-						content += "</th>";
+						content += '</th>';
 					}
-					content += "</tr></table>";
+					content += '</tr></table>';
 					shortA = [nums[3], nums[4]];
 					sortednums = mergeSort(shortA);
 					correctnums = sortednums;
@@ -640,9 +607,9 @@
 				}
 
 				break;
-			case 17: //clear initial table		
+			case 17: //clear initial table
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
-				document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifmergecorrect();" );
+				document.getElementById('check').setAttribute('onClick', 'javascript: checkifmergecorrect();');
 				var T5 = document.getElementById('T5');
 				var m1 = T5.getElementsByTagName('th');
 				shortA = [nums[3], nums[4]];
@@ -653,8 +620,7 @@
 				nextcount++;
 				break;
 			case 18: // add first value
-				if(correctanswer){
-					
+				if (correctanswer) {
 					var T12 = document.getElementById('T12');
 					var m1 = T12.getElementsByTagName('th');
 					var T13 = document.getElementById('T13');
@@ -677,12 +643,9 @@
 					sn++;
 				}
 
-					
 				break;
 			case 19: // add final value
-
-
-				if(correctanswer){
+				if (correctanswer) {
 					//Add the final value into the table
 					var T12 = document.getElementById('T12');
 					var m1 = T12.getElementsByTagName('th');
@@ -722,17 +685,14 @@
 				nextcount++;
 				break;
 			case 21: //add first value
-
-
-				if(correctanswer){
-
+				if (correctanswer) {
 					var T4 = document.getElementById('T4');
 					var m1 = T4.getElementsByTagName('th');
 					var T5 = document.getElementById('T5');
 					var m2 = T5.getElementsByTagName('th');
 					var T2 = document.getElementById('T2');
 					var m3 = T2.getElementsByTagName('th');
-					console.log(x,y + " The sorted number: " + sortednums[0] + " the tables contain m1: " + m1[x].innerHTML + " and m2: " + m2[y].innerHTML);
+					console.log(x, y + ' The sorted number: ' + sortednums[0] + ' the tables contain m1: ' + m1[x].innerHTML + ' and m2: ' + m2[y].innerHTML);
 					if (m1[x].innerHTML == sortednums[0]) {
 						if (typeof T4 != 'undefined') {
 							m1[x].innerHTML = '&nbsp';
@@ -751,9 +711,7 @@
 				}
 				break;
 			case 22: //add second value
-
-				if(correctanswer){
-
+				if (correctanswer) {
 					//Examine the smallest value of unmerged array that still has all of its remaining values. Confirm that it is the smallest value between both arrays. Add this value to the second cell on the newly merged array
 					var T4 = document.getElementById('T4');
 					var m1 = T4.getElementsByTagName('th');
@@ -761,7 +719,7 @@
 					var m2 = T5.getElementsByTagName('th');
 					var T2 = document.getElementById('T2');
 					var m3 = T2.getElementsByTagName('th');
-					console.log(x,y + " The sorted number: " + sortednums[1] + " the tables contain m1: " + m1[x].innerHTML + " and m2: " + m2[y].innerHTML);
+					console.log(x, y + ' The sorted number: ' + sortednums[1] + ' the tables contain m1: ' + m1[x].innerHTML + ' and m2: ' + m2[y].innerHTML);
 					if (m1[x].innerHTML == sortednums[1]) {
 						if (typeof T4 != 'undefined') {
 							m1[x].innerHTML = '&nbsp';
@@ -782,20 +740,18 @@
 					m3[1].innerHTML = sortednums[1];
 					nextcount++;
 					sn++;
-					correctanswer = false;	
+					correctanswer = false;
 				}
 				break;
 			case 23: //add third value
-
-				if(correctanswer){
-
+				if (correctanswer) {
 					var T4 = document.getElementById('T4');
 					var m1 = T4.getElementsByTagName('th');
 					var T5 = document.getElementById('T5');
 					var m2 = T5.getElementsByTagName('th');
 					var T2 = document.getElementById('T2');
 					var m3 = T2.getElementsByTagName('th');
-					console.log(x,y + " The sorted number: " + sortednums[2] + " the tables contain m1: " + m1[x].innerHTML + " and m2: " + m2[y].innerHTML);
+					console.log(x, y + ' The sorted number: ' + sortednums[2] + ' the tables contain m1: ' + m1[x].innerHTML + ' and m2: ' + m2[y].innerHTML);
 					if (m1[x].innerHTML == sortednums[2]) {
 						if (typeof T4 != 'undefined') {
 							m1[x].innerHTML = '&nbsp';
@@ -820,17 +776,14 @@
 				}
 				break;
 			case 24: //add fourth value
-
-
-				if(correctanswer){
-
+				if (correctanswer) {
 					var T4 = document.getElementById('T4');
 					var m1 = T4.getElementsByTagName('th');
 					var T5 = document.getElementById('T5');
 					var m2 = T5.getElementsByTagName('th');
 					var T2 = document.getElementById('T2');
 					var m3 = T2.getElementsByTagName('th');
-					console.log(x,y + " The sorted number: " + sortednums[3] + " the tables contain m1: " + m1[x].innerHTML + " and m2: " + m2[y].innerHTML);
+					console.log(x, y + ' The sorted number: ' + sortednums[3] + ' the tables contain m1: ' + m1[x].innerHTML + ' and m2: ' + m2[y].innerHTML);
 					if (m1[x].innerHTML == sortednums[3]) {
 						if (typeof T4 != 'undefined') {
 							m1[x].innerHTML = '&nbsp';
@@ -854,21 +807,18 @@
 					correctanswer = false;
 				}
 
-
 				break;
 			case 25: //add final value change visibility
+				if (correctanswer) {
+					document.getElementById('check').setAttribute('onClick', 'javascript: checkifsplitcorrect();');
 
-
-				if(correctanswer){
-					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifsplitcorrect();" );
-					
 					var T4 = document.getElementById('T4');
 					var m1 = T4.getElementsByTagName('th');
 					var T5 = document.getElementById('T5');
 					var m2 = T5.getElementsByTagName('th');
 					var T2 = document.getElementById('T2');
 					var m3 = T2.getElementsByTagName('th');
-					console.log(x,y + " The sorted number: " + sortednums[4] + " the tables contain m1: " + m1[x].innerHTML + " and m2: " + m2[y].innerHTML);
+					console.log(x, y + ' The sorted number: ' + sortednums[4] + ' the tables contain m1: ' + m1[x].innerHTML + ' and m2: ' + m2[y].innerHTML);
 					if (m1[x].innerHTML == sortednums[4]) {
 						if (typeof T4 != 'undefined') {
 							m1[x].innerHTML = '&nbsp';
@@ -881,28 +831,24 @@
 					document.getElementById('T4').style.visibility = 'hidden';
 					document.getElementById('T5').style.visibility = 'hidden';
 					m3[4].innerHTML = sortednums[4];
-					correctnums = [nums[5], nums[6],nums[7]];
+					correctnums = [nums[5], nums[6], nums[7]];
 					x = 0;
 					y = 0;
-					sn =0;
+					sn = 0;
 					nextcount++;
 					correctanswer = false;
 				}
 
-				
 				break;
 			case 26: //split
-
 				if (correctanswer) {
-
-					content +=
-						"</br><table class ='table16' id='T16' style='width:6%; margin-top: -8pc'><tr>";
+					content += "</br><table class ='table16' id='T16' style='width:6%; margin-top: -8pc'><tr>";
 					for (let i = 5; i < 8; i++) {
-						content += "<th>";
+						content += '<th>';
 						content += nums[i];
-						content += "</th>";
+						content += '</th>';
 					}
-					content += "</tr></table>";
+					content += '</tr></table>';
 					correctnums = [nums[8], nums[9]];
 					correctanswer = false;
 					nextcount++;
@@ -910,33 +856,30 @@
 				break;
 			case 27:
 				if (correctanswer) {
-						//instructions here
+					//instructions here
 
-						content +=
-							"<table class ='table17' id='T17' style='width:6%'><tr>";
-						for (let i = 8; i < 10; i++) {
-							content += "<th>";
-							content += nums[i];
-							content += "</th>";
-						}
-						content += "</tr></table>";
-						correctnums = [nums[5]];
-						correctanswer = false;
-						nextcount++;
+					content += "<table class ='table17' id='T17' style='width:6%'><tr>";
+					for (let i = 8; i < 10; i++) {
+						content += '<th>';
+						content += nums[i];
+						content += '</th>';
+					}
+					content += '</tr></table>';
+					correctnums = [nums[5]];
+					correctanswer = false;
+					nextcount++;
 				}
 
 				break;
 			case 28: //split
 				if (correctanswer) {
-
-					content +=
-						"</br><table class ='table18' id='T18' style = 'width:2%'><tr>";
+					content += "</br><table class ='table18' id='T18' style = 'width:2%'><tr>";
 					for (let i = 5; i < 6; i++) {
-						content += "<th>";
+						content += '<th>';
 						content += nums[i];
-						content += "</th>";
+						content += '</th>';
 					}
-					content += "</tr></table>";
+					content += '</tr></table>';
 					correctnums = [nums[6], nums[7]];
 					correctanswer = false;
 					nextcount++;
@@ -945,32 +888,28 @@
 
 			case 29:
 				if (correctanswer) {
-
-					content +=
-						"<table class = 'table19' id='T19' style='width:4%'><tr>";
+					content += "<table class = 'table19' id='T19' style='width:4%'><tr>";
 					for (let i = 6; i < 8; i++) {
-						content += "<th>";
+						content += '<th>';
 						content += nums[i];
-						content += "</th>";
+						content += '</th>';
 					}
-					content += "</tr></table>";
+					content += '</tr></table>';
 					correctnums = [nums[6]];
 					correctanswer = false;
 					nextcount++;
 				}
-				
 
 				break;
 			case 30: //split
 				if (correctanswer) {
-					content +=
-						"</br><table class = 'table20' id='T20' style='width:2%'><tr>";
+					content += "</br><table class = 'table20' id='T20' style='width:2%'><tr>";
 					for (let i = 6; i < 7; i++) {
-						content += "<th>";
+						content += '<th>';
 						content += nums[i];
-						content += "</th>";
+						content += '</th>';
 					}
-					content += "</tr></table>";
+					content += '</tr></table>';
 					correctnums = [nums[7]];
 					correctanswer = false;
 					nextcount++;
@@ -979,16 +918,15 @@
 
 			case 31:
 				if (correctanswer) {
-					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifmergecorrect();" );
+					document.getElementById('check').setAttribute('onClick', 'javascript: checkifmergecorrect();');
 					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-					content +=
-						"</br><table class = 'table21' id='T21' style='width: 2%'><tr>";
+					content += "</br><table class = 'table21' id='T21' style='width: 2%'><tr>";
 					for (let i = 7; i < 8; i++) {
-						content += "<th>";
+						content += '<th>';
 						content += nums[i];
-						content += "</th>";
+						content += '</th>';
 					}
-					content += "</tr></table>";
+					content += '</tr></table>';
 					shortA = [nums[6], nums[7]];
 					sortednums = mergeSort(shortA);
 					correctnums = sortednums;
@@ -1118,7 +1056,7 @@
 				break;
 			case 38: //add final value and change table visibility
 				if (correctanswer) {
-					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifsplitcorrect();" );
+					document.getElementById('check').setAttribute('onClick', 'javascript: checkifsplitcorrect();');
 					var T18 = document.getElementById('T18');
 					var m1 = T18.getElementsByTagName('th');
 					var T19 = document.getElementById('T19');
@@ -1148,15 +1086,13 @@
 				break;
 			case 39: //split
 				if (correctanswer) {
-
-					content +=
-						"</br><table class='table24' id='T24' style='width:2%'><tr>";
+					content += "</br><table class='table24' id='T24' style='width:2%'><tr>";
 					for (let i = 8; i < 9; i++) {
-						content += "<th>";
+						content += '<th>';
 						content += nums[i];
-						content += "</th>";
+						content += '</th>';
 					}
-					content += "</tr></table>";
+					content += '</tr></table>';
 					correctnums = [nums[9]];
 					correctanswer = false;
 					nextcount++;
@@ -1165,23 +1101,21 @@
 
 			case 40:
 				if (correctanswer) {
-					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifmergecorrect();" );
+					document.getElementById('check').setAttribute('onClick', 'javascript: checkifmergecorrect();');
 					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-					content +=
-						"<table class='table25' id='T25' style='width:2%'><tr>";
+					content += "<table class='table25' id='T25' style='width:2%'><tr>";
 					for (let i = 9; i < 10; i++) {
-						content += "<th>";
+						content += '<th>';
 						content += nums[i];
-						content += "</th>";
+						content += '</th>';
 					}
-					content += "</tr></table>";
+					content += '</tr></table>';
 					correctanswer = false;
 					nextcount++;
 				}
 				break;
 
 			case 41: //Clear table
-			
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
 				shortA = [nums[8], nums[9]];
 				sortednums = mergeSort(shortA);
@@ -1218,7 +1152,6 @@
 				break;
 			case 43: //add final value and change table visibility
 				if (correctanswer) {
-
 					var T24 = (document.getElementById('T24').style.visibility = 'hidden');
 					var T25 = (document.getElementById('T25').style.visibility = 'hidden');
 					var T17 = document.getElementById('T17');
@@ -1242,7 +1175,7 @@
 					m1[i].innerHTML = '&nbsp';
 				}
 				nextcount++;
-					
+
 				break;
 			case 45: //add first value
 				if (correctanswer) {
@@ -1304,7 +1237,6 @@
 					correctanswer = false;
 					nextcount++;
 					sn++;
-					
 				}
 				break;
 			case 47: //add third value
@@ -1426,7 +1358,6 @@
 				break;
 			case 51:
 				if (correctanswer) {
-
 					if (z < 10) {
 						var T2 = document.getElementById('T2'); //length 3 one
 						var m1 = T2.getElementsByTagName('th');
@@ -1457,109 +1388,114 @@
 						}
 
 						m3[z].innerHTML = sortednums[z];
-						z++;	
+						z++;
 						sn++;
-						if(z > 9){
+						if (z > 9) {
 							var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
 							var checkbutton = (document.getElementById('arr1').style.visibility = 'hidden');
 							document.getElementById('T2').style.visibility = 'hidden';
 							document.getElementById('T3').style.visibility = 'hidden';
-							setTimeout(goToLevel3,5000); //go to window location after 7000ms
+							setTimeout(goToLevel3, 5000); //go to window location after 7000ms
 						}
 					}
 				}
 				break;
 		}
-		
-		$(document).ready(function(){
+
+		$(document).ready(function () {
 			$('#main').append(content);
-
 		});
-
 	}
 
-	function goToLevel3()
-	{
-		window.location = "index.html"; //chaning window location
+	function goToLevel3() {
+		window.location = 'index.html'; //chaning window location
 	}
 
 	function checkifsplitcorrect() {
-		var correctSound = new Audio("correct.mp3");
-		var wrongSound = new Audio("boing2.mp3");
-		var x = document.getElementById("arr1").value;
+		var correctSound = new Audio('correct.mp3');
+		var wrongSound = new Audio('boing2.mp3');
+		var x = document.getElementById('arr1').value;
 		let answer = 0;
 		let inums = x.split(/(\s+)/).filter(function (e) {
 			return e.trim().length > 0;
 		});
 		let inputednums = [];
-		for (let i = 0; i < inums.length; i++){
+		for (let i = 0; i < inums.length; i++) {
 			inputednums[i] = parseInt(inums[i]);
 		}
 		console.log(inputednums, correctnums);
 		for (let i = 0; i < inputednums.length; i++) {
 			if (correctnums[i] == inputednums[i]) {
 				answer++;
-			}else{
+			} else {
 				answer--;
 			}
 		}
 		if (inputednums.length == 0) {
 			correctanswer = false;
 			wrongSound.play();
-			alert("WRONG");
-			console.log(correctnums[0] + " in split 1 user entered: " + inputednums[0]);
+			displayAlert('WRONG');
+			console.log(correctnums[0] + ' in split 1 user entered: ' + inputednums[0]);
 			mistakes++;
 		} else if (answer == correctnums.length) {
 			correctanswer = true;
 			correctSound.play();
-			alert("CORRECT");
+			displayAlert('CORRECT');
 		} else {
 			correctanswer = false;
 			wrongSound.play();
-			console.log(correctnums+ " in split 2 user entered: " + inputednums + "this is how many they got right: " + answer);
-			alert("WRONG");
+			console.log(correctnums + ' in split 2 user entered: ' + inputednums + 'this is how many they got right: ' + answer);
+			displayAlert('WRONG');
 			mistakes++;
 		}
 
-
-		if(mistakes == 3){
+		if (mistakes == 3) {
 			location.href = 'menu.html';
 		}
-
-
 	}
 
-
 	function checkifmergecorrect() {
-		var correctSound = new Audio("correct.mp3");
-		var wrongSound = new Audio("boing2.mp3");
-		var x = document.getElementById("arr1").value;
+		var correctSound = new Audio('correct.mp3');
+		var wrongSound = new Audio('boing2.mp3');
+		var x = document.getElementById('arr1').value;
 		let inputednums = x.split(/(\s+)/).filter(function (e) {
 			return e.trim().length > 0;
 		});
 		if (inputednums[0] == sortednums[sn] && inputednums.length < 2) {
 			correctanswer = true;
 			correctSound.play();
-			alert("CORRECT");
+			displayAlert('CORRECT');
 		} else {
 			correctanswer = false;
-			console.log(sortednums[sn] + " in merge user entered: " + inputednums);
+			console.log(sortednums[sn] + ' in merge user entered: ' + inputednums);
 			wrongSound.play();
-			alert("WRONG");
+			displayAlert('WRONG');
 			mistakes++;
 		}
 
-		if(mistakes == 3){
+		if (mistakes == 3) {
 			location.href = 'menu.html';
 		}
 
-
-		if(mistakes == 3){
+		if (mistakes == 3) {
 			location.href = 'menu.html';
 		}
-
 	}
 
+	// Alerts the if they are right or wrong
+	function displayAlert(text) {
+		let color = text === 'CORRECT' ? 'green' : 'red';
+		let styler = document.createElement('div');
+		styler.setAttribute(
+			'style',
+			`position: fixed; font-size: 3.5vh; text-align: center; border: solid 5px ${color}; width:25vw; height:15vh; top:50%; left:50%; margin-left: -12.5vw; margin-top: -7.5vh; background-color:#444; color: ${color}; z-index:100;`
+		);
+		styler.innerHTML = '<h2>' + text + '</h2>';
+		setTimeout(function () {
+			styler.parentNode.removeChild(styler);
+		}, 1000);
+		document.body.appendChild(styler);
+	}
 
 	function merge(left, right) {
 		let resultArray = [],
