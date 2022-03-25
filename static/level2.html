@@ -169,11 +169,11 @@
 		<p id = 'countdown' >0: 00</p>
 		<input type="button" onclick="timerStart()" value="Display Level 2" class = "hello"/>
 	</body>
-</html>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script>
+<Script>
 	let mistakes = 0;
 
 	let nextcount = -1,
@@ -189,8 +189,7 @@
 		z = 0,
 		sn = 0;
 
-		function timerStart(){
-		
+	function timerStart(){	
 		setInterval(updateCount, 1000);
 		//setInterval(timerIncrement, 5000);
 		ShowLine();
@@ -1529,19 +1528,16 @@ function checkMouseOut() {
 						}
 
 						m3[z].innerHTML = sortednums[z];
-						z++;
-						if(z <9){correctanswer = false;}
-						if(z == 9){
-							
+						z++;	
+						sn++;
+						if(z > 9){
 							var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
 							var checkbutton = (document.getElementById('arr1').style.visibility = 'hidden');
-						}		
-						sn++;
-					} else {
-						document.getElementById('p').innerHTML = 'MERGESORT COMPLETE';
-						document.getElementById('T2').style.visibility = 'hidden';
-						document.getElementById('T3').style.visibility = 'hidden';
-						setTimeout(goToLevel3,5000); //go to window location after 7000ms
+							document.getElementById('p').innerHTML = 'MERGESORT COMPLETE';
+							document.getElementById('T2').style.visibility = 'hidden';
+							document.getElementById('T3').style.visibility = 'hidden';
+							setTimeout(goToLevel3,5000); //go to window location after 7000ms
+						}
 					}
 				}
 				break;
@@ -1670,4 +1666,5 @@ function checkMouseOut() {
 		// Using recursion to combine the left and right
 		return merge(mergeSort(left), mergeSort(right));
 	}
+
 </script>
