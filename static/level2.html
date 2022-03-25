@@ -4,7 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>working</title>
+		<title>Level 2</title>
+		<link rel="stylesheet" href="mystyle.css">
 
 		<style>
 			header {
@@ -255,15 +256,48 @@
 			content += "</th>";
 		}
 		content += "</tr></table><br><br>";
-		content +=
-			"<input type = 'button' onclick = 'NextLine()' value = 'Next'>"; //creates the next button that calls the next step
-
+		content += "<input type = 'button' id = 'btn' onmouseout='mouseOut()' onmouseover='mouseOver()' onclick = 'NextLine()' value = 'Next'>";
 		$(document).ready(function(){
 			$( ".hello" ).remove();
 			$('#main').append(content);
 
 		});
 	}
+
+	function mouseOut() {
+		var tag=document.getElementById("btn");
+    	tag.style.background="white";
+		tag.style.padding = '7px';
+		tag.style.borderColor = 'black';
+		tag.style.borderRadius='7px';
+		};
+
+
+	function mouseOver() {
+		var tag=document.getElementById("btn");
+    	tag.style.background="aquamarine";
+		tag.style.padding = '7px';
+		tag.style.borderColor = 'black';
+		tag.style.borderRadius='7px';
+		};
+
+
+function checkMouseOut() {
+		var cb=document.getElementById("check");
+    	cb.style.background="white";
+		cb.style.padding = '7px';
+		cb.style.borderColor = 'black';
+		cb.style.borderRadius='7px';
+		};
+
+
+	function checkMouseOver() {
+		var cb=document.getElementById("check");
+    	cb.style.background="aquamarine";
+		cb.style.padding = '7px';
+		cb.style.borderColor = 'black';
+		cb.style.borderRadius='7px';
+		};
 
 	function NextLine() {
 		//contains all the steps of the tutorial
@@ -274,8 +308,7 @@
 			case -1:
 				document.getElementById("p").innerHTML =
 					"enter the first 5 numbers of the table in the input box, seperating the values by spaces"; //instructions
-				content +=
-					"<input type = 'button' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
+					content += "<input type = 'button'onmouseout='checkMouseOut()' onmouseover='checkMouseOver()' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
 				content +=
 					"<input type='text' id='arr1' placeholder='enter the value'   style 'width: 200%'/>";
 				nextcount++;
@@ -300,7 +333,7 @@
 			case 1:
                 if (correctanswer) {
                     document.getElementById("p").innerHTML =
-                        "enter the first 3 numbers of the left table to split the array again"; //instructions
+                        "Enter the first 3 numbers of the left table to split the array again"; //instructions
                     //3
                     content +=
                         "<table class = 'table3' style='width: 10%' id='T3'><tr>";
@@ -320,7 +353,7 @@
 			case 2: //split
 				if (correctanswer) {
                     document.getElementById("p").innerHTML =
-                        "enter the last 2 numbers of the left table to split the rest of the array"; //instructions
+                        "Enter the last 2 numbers of the left table to split the rest of the array"; //instructions
                     content +=
                         "</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
                     for (let i = 0; i < 3; i++) {
@@ -337,7 +370,7 @@
 			case 3:
 				if (correctanswer) {
                     document.getElementById("p").innerHTML =
-                        "enter the first number of the length 3 array, splitting it"; //instructions
+                        "Enter the first number of the length 3 array, splitting it"; //instructions
                     content +=
                         "<table class = 'table5' style ='width: 4%' id ='T5'><tr>";
                     for (let i = 3; i < 5; i++) {
@@ -355,7 +388,7 @@
 			case 4: //split
 				if (correctanswer) {
                     document.getElementById("p").innerHTML =
-                        "enter the last 2 numbers of the length 3 array, splitting it"; //instructions
+                        "Enter the last 2 numbers of the length 3 array, splitting it"; //instructions
 
                     content +=
                         "</br><table class = 'table6' style = 'width: 2%' id='T6'><tr>";
@@ -373,7 +406,7 @@
 			case 5:
 				if (correctanswer) {
                     document.getElementById("p").innerHTML =
-                        "enter the first number of the newly created length 2 array, splitting it"; //instructions
+                        "Enter the first number of the newly created length 2 array, splitting it"; //instructions
                     content +=
                         "<table class = 'table7' style = 'width: 4%' id='T7'><tr>";
                     for (let i = 1; i < 3; i++) {
@@ -390,7 +423,7 @@
 			case 6:
 				if (correctanswer) {
                     document.getElementById("p").innerHTML =
-                        "enter the second number of the length 2 array, splitting it"; //instructions
+                        "Enter the second number of the length 2 array, splitting it"; //instructions
 
                     content +=
                         "</br><table class = 'table8' style = 'width: 2%' id ='T8'><tr>";
@@ -423,7 +456,7 @@
                 }
 				break;
 			case 8: //instruction for initial merge
-				document.getElementById('p').innerHTML = 'Now that you have determined the smallest value place it in the first cell of the merged array.';
+				document.getElementById('p').innerHTML = 'Compare the two values that have just been split. Determine which value is smaller. Now that you have determined the smallest value enter it in the textbox and it will be placed in the first cell of the merged array.';
 				document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifmergecorrect();" );
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
 				var T7 = document.getElementById('T7');
@@ -564,7 +597,7 @@
 				if(correctanswer){
 					
 					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifsplitcorrect();" );
-					document.getElementById('p').innerHTML = 'hello'; //y.
+					document.getElementById('p').innerHTML = 'Enter the first number from the array of length two to start splitting it in half.'; //y.
 					var T6 = document.getElementById('T6');
 					var m1 = T6.getElementsByTagName('th');
 					var T7 = document.getElementById('T7');
@@ -594,7 +627,7 @@
 				break;
 			case 15: //split
 				if (correctanswer) {
-					document.getElementById("p").innerHTML ="enter the second number of the length 2 array, splitting it"; 	//instructions
+					document.getElementById("p").innerHTML ="Enter the second number of the length 2 array, splitting it"; 	//instructions
 
 					content +=
 						"</br><table class= 'table13' id='T13' style = 'width: 2%; margin-top: -8pc'><tr>";
@@ -615,7 +648,7 @@
 				if (correctanswer == true) {
 					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifmergecorrect();" );
 					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-					document.getElementById("p").innerHTML = "compare the 2 values, placing them from left to right, ascending in value";	//instructions
+					document.getElementById("p").innerHTML = "Click the next button";	//instructions
 					content +=
 						"<table class = 'table12' id='T12' style = 'width:2%; margin-top: -1.5pc'><tr>"; //split
 					for (let i = 4; i < 5; i++) {
@@ -633,7 +666,7 @@
 
 				break;
 			case 17: //clear initial table		
-				document.getElementById('p').innerHTML = 'Click next button';
+				document.getElementById('p').innerHTML = 'Determine the smallest value between the two split values. Enter the smallest value in the textbox. This value will be placed in the first cell of the new merged array.';
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
 				var T5 = document.getElementById('T5');
 				var m1 = T5.getElementsByTagName('th');
@@ -647,7 +680,7 @@
 			case 18: // add first value
 				if(correctanswer){
 					
-					document.getElementById('p').innerHTML = 'Confirm that the remaining value in the unmerged array is the largest value. Add this value to complete this merged array';
+					document.getElementById('p').innerHTML = 'Confirm that the remaining value in the unmerged array is the largest value. Enter this value to complete this merged array';
 					var T12 = document.getElementById('T12');
 					var m1 = T12.getElementsByTagName('th');
 					var T13 = document.getElementById('T13');
@@ -676,7 +709,7 @@
 
 
 				if(correctanswer){
-					document.getElementById('p').innerHTML = '';
+					document.getElementById('p').innerHTML = 'Click the next button';
 					//Add the final value into the table
 					var T12 = document.getElementById('T12');
 					var m1 = T12.getElementsByTagName('th');
@@ -706,7 +739,7 @@
 				break;
 			case 20: //clear inital table
 				document.getElementById('p').innerHTML =
-					'Compare the smallest value of the two arrays. Determine which value is smaller between these two smallest values. This value will be added to the first cell of the newly merged array';
+					'Compare the smallest value of the two arrays. Determine which value is smaller between these two smallest values. Enter this value in the textbox. This value will be added to the first cell of the newly merged array';
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
 				var T2 = document.getElementById('T2');
 				var m1 = T2.getElementsByTagName('th');
@@ -722,7 +755,7 @@
 
 				if(correctanswer){
 					document.getElementById('p').innerHTML =
-						'Now compare the smallest values of the two arrays once more. Determine which value is smaller between these two smallest values. This value will be added to the second cell of the newly merged array';
+						'Now compare the smallest values of the two arrays once more. Determine which value is smaller between these two smallest values. Enter this value in the textbox. This value will be added to the second cell of the newly merged array';
 
 					var T4 = document.getElementById('T4');
 					var m1 = T4.getElementsByTagName('th');
@@ -752,7 +785,7 @@
 
 				if(correctanswer){
 					document.getElementById('p').innerHTML =
-						'Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. This value will be added to the third cell of the newly merged array';
+						'Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. Enter this value in the textbox. This value will be added to the third cell of the newly merged array';
 
 					//Examine the smallest value of unmerged array that still has all of its remaining values. Confirm that it is the smallest value between both arrays. Add this value to the second cell on the newly merged array
 					var T4 = document.getElementById('T4');
@@ -789,7 +822,7 @@
 
 				if(correctanswer){
 					document.getElementById('p').innerHTML =
-						'Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. This value will be added to the fourth cell of the newly merged array';
+						'Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. Enter this value in the textbox. This value will be added to the fourth cell of the newly merged array';
 
 					var T4 = document.getElementById('T4');
 					var m1 = T4.getElementsByTagName('th');
@@ -826,7 +859,7 @@
 
 				if(correctanswer){
 					document.getElementById('p').innerHTML =
-						'Confirm that the remianing value in the unmerged array is the largest of all the five values that have just been sorted. Add this value into the fifth cell to finish the merged array';
+						'Confirm that the remianing value in the unmerged array is the largest of all the five values that have just been sorted. Enter this value in the textbox. This value will be added into the fifth cell to finish the merged array';
 
 					var T4 = document.getElementById('T4');
 					var m1 = T4.getElementsByTagName('th');
@@ -866,7 +899,7 @@
 				if(correctanswer){
 					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifsplitcorrect();" );
 					
-					document.getElementById('p').innerHTML = '';
+					document.getElementById('p').innerHTML = 'Next we will begin the sorting values 6-10 of the array. Enter the first 3 numbers of the table on the right to begin splitting the array.';
 					var T4 = document.getElementById('T4');
 					var m1 = T4.getElementsByTagName('th');
 					var T5 = document.getElementById('T5');
@@ -899,7 +932,7 @@
 			case 26: //split
 
 				if (correctanswer) {
-					document.getElementById("p").innerHTML = "now enter the last 2 numbers of the right side length 5 array to split it";	//instructions
+					document.getElementById("p").innerHTML = "Now enter the last two numbers of the right side array of length five array to further split it.";	//instructions
 
 					content +=
 						"</br><table class ='table16' id='T16' style='width:6%; margin-top: -8pc'><tr>";
@@ -917,7 +950,7 @@
 			case 27:
 				if (correctanswer) {
 						//instructions here
-						document.getElementById("p").innerHTML = "enter the first number of the length 3 array splitting it";	//instructions
+						document.getElementById("p").innerHTML = "Enter the first numbers of the length three array to begin splitting it";	//instructions
 
 						content +=
 							"<table class ='table17' id='T17' style='width:6%'><tr>";
@@ -935,7 +968,7 @@
 				break;
 			case 28: //split
 				if (correctanswer) {
-					document.getElementById("p").innerHTML = "enter the last 2 values to complete the split";	//instructions
+					document.getElementById("p").innerHTML = "Enter the last two values to complete the split";	//instructions
 
 					content +=
 						"</br><table class ='table18' id='T18' style = 'width:2%'><tr>";
@@ -953,7 +986,7 @@
 
 			case 29:
 				if (correctanswer) {
-					document.getElementById("p").innerHTML = "enter the first number of the newly created length 2 array to split it";	//instructions
+					document.getElementById("p").innerHTML = "Enter the first number of the newly created length two array to split it";	//instructions
 
 					content +=
 						"<table class = 'table19' id='T19' style='width:4%'><tr>";
@@ -972,7 +1005,7 @@
 				break;
 			case 30: //split
 				if (correctanswer) {
-					document.getElementById("p").innerHTML = "enter the second number of the length 2 array to complete the split";	//instructions
+					document.getElementById("p").innerHTML = "Enter the second number of the length two array to complete the split";	//instructions
 					content +=
 						"</br><table class = 'table20' id='T20' style='width:2%'><tr>";
 					for (let i = 6; i < 7; i++) {
@@ -991,7 +1024,7 @@
 				if (correctanswer) {
 					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifmergecorrect();" );
 					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
-					document.getElementById("p").innerHTML = "compare the 2 values, placing them from left to right, ascending in value"; //instructions
+					document.getElementById("p").innerHTML = "Click the next button."; //instructions
 					content +=
 						"</br><table class = 'table21' id='T21' style='width: 2%'><tr>";
 					for (let i = 7; i < 8; i++) {
@@ -1009,7 +1042,7 @@
 
 				break;
 			case 32: //clear initial table
-				document.getElementById('p').innerHTML = 'Now that you have determined the smallest value place it in the first cell of the merged array.';
+				document.getElementById('p').innerHTML = 'Compare the two values that have just been split. Determine which value is smaller. Now that you have determined the smallest value enter it in the textbox and it will be placed in the first cell of the merged array.';
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
 				shortA = [nums[6], nums[7]];
 				sortednums = mergeSort(shortA);
@@ -1023,7 +1056,7 @@
 				break;
 			case 33: //add first value
 				if (correctanswer) {
-					document.getElementById('p').innerHTML = 'Confirm that the remaining value is larger than the first value that is in the merged array';
+					document.getElementById('p').innerHTML = 'Confirm that the remaining value is larger than the first value that is in the merged array. Enter the value in the textbox to complete merging the array.';
 					var T20 = document.getElementById('T20');
 					var m1 = T20.getElementsByTagName('th');
 					var T21 = document.getElementById('T21');
@@ -1048,7 +1081,7 @@
 				break;
 			case 34: //add final value and change table visibility
 				if (correctanswer) {
-					document.getElementById('p').innerHTML = '';
+					document.getElementById('p').innerHTML = 'Click the next button';
 					var T20 = (document.getElementById('T20').style.visibility = 'hidden');
 					var T21 = (document.getElementById('T21').style.visibility = 'hidden');
 					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
@@ -1069,7 +1102,7 @@
 				break;
 			case 35: //clear initial table
 				document.getElementById('p').innerHTML =
-					'Compare the smallest values between the two arrays and determine which array contains the smallest value. Then add that smallest value into the newly merged array.';
+					'Compare the smallest values between the two arrays and determine which array contains the smallest value. Enter this smallest value into the textbox. This value will be added into the first cell of the newly merged array of length three.';
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
 				var T16 = document.getElementById('T16');
 				var m3 = T16.getElementsByTagName('th');
@@ -1081,7 +1114,7 @@
 			case 36: //add first value
 				if (correctanswer) {
 					document.getElementById('p').innerHTML =
-						'Now compare the smallest values of the two arrays once more. Determine which value is smaller between these two smallest values. This value will be added to the second cell of the newly merged array';
+					'Compare the smallest values between the two arrays once more and determine which array contains the smallest value. Enter this smallest value into the textbox. This value will be added into the second cell of the newly merged array of length three.';
 					var T18 = document.getElementById('T18');
 					var m1 = T18.getElementsByTagName('th');
 					var T19 = document.getElementById('T19');
@@ -1110,7 +1143,7 @@
 			case 37: //add second value
 				if (correctanswer) {
 					document.getElementById('p').innerHTML =
-						'Confirm that the remaining value in the unmerged array is largest of all three values. Add that value into the third cell to complete this merged array';
+						'Confirm that the remaining value in the unmerged array is largest of all three values. Enter this value into the textbox. This value will be added into the third cell to complete this merged array';
 					var T18 = document.getElementById('T18');
 					var m1 = T18.getElementsByTagName('th');
 					var T19 = document.getElementById('T19');
@@ -1139,7 +1172,7 @@
 			case 38: //add final value and change table visibility
 				if (correctanswer) {
 					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifsplitcorrect();" );
-					document.getElementById('p').innerHTML = 'Split the lenght 2 array down the middle';
+					document.getElementById('p').innerHTML = 'Enter the first value of the length two array to split it down the middle';
 					var T18 = document.getElementById('T18');
 					var m1 = T18.getElementsByTagName('th');
 					var T19 = document.getElementById('T19');
@@ -1169,7 +1202,7 @@
 				break;
 			case 39: //split
 				if (correctanswer) {
-					document.getElementById("p").innerHTML ="enter the second value of the length 2 array"; //instructions
+					document.getElementById("p").innerHTML ="Enter the second value of the length two array to complete splitting it"; //instructions
 
 					content +=
 						"</br><table class='table24' id='T24' style='width:2%'><tr>";
@@ -1187,7 +1220,7 @@
 
 			case 40:
 				if (correctanswer) {
-					document.getElementById("p").innerHTML ="enter 2 numbers comparing the 2 value, placing them from left to right, ascending in value"; //instructions
+					document.getElementById("p").innerHTML ="Click the next button"; //instructions
 					document.getElementById( 'check' ).setAttribute( "onClick", "javascript: checkifmergecorrect();" );
 					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
 					content +=
@@ -1204,7 +1237,8 @@
 				break;
 
 			case 41: //Clear table
-				document.getElementById('p').innerHTML = '';
+			
+				document.getElementById('p').innerHTML = 'Determine the smallest value between the two split values. Enter the smallest value in the textbox. This will be placed in the first cell of the newly merged array.';
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
 				shortA = [nums[8], nums[9]];
 				sortednums = mergeSort(shortA);
@@ -1217,7 +1251,7 @@
 				break;
 			case 42: //add first value
 				if (correctanswer) {
-					document.getElementById('p').innerHTML = 'Confirm that the remaining value in the unmerged array is the largest value. Add this value to complete this merged array';
+					document.getElementById('p').innerHTML = 'Confirm that the remaining single value in the split array is the largest value. Enter this value to complete this merged array';
 					var T24 = document.getElementById('T24');
 					var m1 = T24.getElementsByTagName('th');
 					var T25 = document.getElementById('T25');
@@ -1243,7 +1277,7 @@
 			case 43: //add final value and change table visibility
 				if (correctanswer) {
 					document.getElementById('p').innerHTML =
-						'Compare the smallest value of the two arrays. Determine which value is smaller between these two smallest values. This value will be added to the first cell of the newly merged array';
+						'Click the next button';
 
 					var T24 = (document.getElementById('T24').style.visibility = 'hidden');
 					var T25 = (document.getElementById('T25').style.visibility = 'hidden');
@@ -1259,7 +1293,7 @@
 				}
 				break;
 			case 44: //merge
-				document.getElementById('p').innerHTML = '';
+				document.getElementById('p').innerHTML = 'Compare the smallest value of the two arrays. Determine which value is smaller between these two smallest values. Enter this value in the textbox. This value will be added to the first cell of the newly merged array';
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
 				var T3 = document.getElementById('T3');
 				var m1 = T3.getElementsByTagName('th');
@@ -1274,7 +1308,7 @@
 			case 45: //add first value
 				if (correctanswer) {
 					document.getElementById('p').innerHTML =
-						'Now compare the smallest values of the two arrays once more. Determine which value is smaller between these two smallest values. This value will be added to the second cell of the newly merged array';
+						'Compare the smallest value of the two arrays. Determine which value is smaller between these two smallest values. Enter this value in the textbox. This value will be added to the second cell of the newly merged array';
 					var T16 = document.getElementById('T16'); //length 3 one
 					var m1 = T16.getElementsByTagName('th');
 					var T17 = document.getElementById('T17'); //length 2
@@ -1306,7 +1340,7 @@
 			case 46: //add second value
 				if (correctanswer) {
 					document.getElementById('p').innerHTML =
-						'Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. This value will be added to the third cell of the newly merged array';
+						'Compare the smallest value of the two arrays. Determine which value is smaller between these two smallest values. Enter this value in the textbox. This value will be added to the third cell of the newly merged array';
 					var T16 = document.getElementById('T16');
 					var m1 = T16.getElementsByTagName('th');
 					var T17 = document.getElementById('T17');
@@ -1341,7 +1375,7 @@
 			case 47: //add third value
 				if (correctanswer) {
 					document.getElementById('p').innerHTML =
-						'Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. This value will be added to the fourth cell of the newly merged array';
+						'Compare the smallest value of the two arrays. Determine which value is smaller between these two smallest values. Enter this value in the textbox. This value will be added to the fourth cell of the newly merged array';
 					var T16 = document.getElementById('T16');
 					var m1 = T16.getElementsByTagName('th');
 					var T17 = document.getElementById('T17');
@@ -1375,7 +1409,7 @@
 			case 48: //add fourth value
 				if (correctanswer) {
 					document.getElementById('p').innerHTML =
-						'Confirm that the remianing value in the unmerged array is the largest of all the five values that have just been sorted. Add this value into the fifth cell to finish the merged array';
+						'Confirm that the last value is the largest value of the five values. Enter this value in the textbox. This value will be added to the fifth cell to finish the merged array';
 					var T16 = document.getElementById('T16');
 					var m1 = T16.getElementsByTagName('th');
 					var T17 = document.getElementById('T17');
@@ -1408,7 +1442,7 @@
 				break;
 			case 49: //add final value and change table visibility
 				if (correctanswer) {
-					document.getElementById('p').innerHTML = 'Compare the smallest values from each array. Add them to the final array in from smalles to greatest.';
+					document.getElementById('p').innerHTML = 'Click the next button.';
 					var checkbutton = (document.getElementById('check').style.visibility = 'hidden');
 					var T16 = document.getElementById('T16');
 					var m1 = T16.getElementsByTagName('th');
@@ -1444,7 +1478,7 @@
 				}
 				break;
 			case 50: //merge
-				document.getElementById('p').innerHTML = '';
+				document.getElementById('p').innerHTML = 'Compare the smallest values from each of the arrays. Determine which value between these two smallest values is smaller. Enter this smallest value into the tetxbox. This will be placed in the first cell of the final merged array.';
 				var checkbutton = (document.getElementById('check').style.visibility = 'visible');
 				var T2 = document.getElementById('T2');
 				var m1 = T2.getElementsByTagName('th');
@@ -1463,9 +1497,9 @@
 				break;
 			case 51:
 				if (correctanswer) {
-					document.getElementById('p').innerHTML = 'Compare the smallest values from each array. Add them to the final array in from smalles to greatest.';
+					document.getElementById('p').innerHTML = 'Compare the smallest values from each of the arrays. Determine which value between these two smallest values is smaller. Enter this smallest value into the textbox. This will fill the next empty cell of the array.';
 
-					
+					if (z < 10) {
 						var T2 = document.getElementById('T2'); //length 3 one
 						var m1 = T2.getElementsByTagName('th');
 						var T3 = document.getElementById('T3'); //length 2
@@ -1514,6 +1548,12 @@
 		});
 
 	}
+
+	function goToLevel3()
+	{
+		window.location = "level3.html"; //chaning window location
+	}
+
 	function checkifsplitcorrect() {
 		var correctSound = new Audio("correct.mp3");
 		var wrongSound = new Audio("boing2.mp3");
@@ -1577,6 +1617,11 @@
 			console.log(sortednums[sn] + " in merge user entered: " + inputednums);
 			wrongSound.play();
 			alert("WRONG");
+			mistakes++;
+		}
+
+		if(mistakes == 3){
+			location.href = 'menu.html';
 		}
 	}
 
