@@ -169,7 +169,7 @@
 		<p id = 'countdown' >0: 00</p>
 		<input type="button" onclick="timerStart()" value="Display Level 2" class = "hello"/>
 	</body>
-</html>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -189,8 +189,7 @@
 		z = 0,
 		sn = 0;
 
-		function timerStart(){
-		
+	function timerStart(){	
 		setInterval(updateCount, 1000);
 		//setInterval(timerIncrement, 5000);
 		ShowLine();
