@@ -60,6 +60,10 @@ function mergeSort(unsortedArray, index, flag, node) {
 	node.setLeft(L);
 	node.setRight(R);
 
+	console.log(left, right);
+	console.log(node.getRight().value, node.getLeft().value);
+	console.log('\n');
+
 	// Using recursion to combine the (left = 0) and (right = 1)
 	return merge(mergeSort(left, count, flag + '0', node.getLeft()), mergeSort(right, count, flag + '1', node.getRight()));
 }
@@ -119,5 +123,8 @@ for (let i = 1; i < depth; i++) {
 	sortedList = sortedList.concat(subarray);
 }
 
-console.log([...tree.preOrderTraversal()].map((x) => x.value));
+// console.log([...tree.preOrderTraversal()].map((x) => x.value));
+
 // console.log(sortedList);
+
+[...tree.preOrderTraversal()].map((x) => x.value);
