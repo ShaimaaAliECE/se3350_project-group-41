@@ -269,22 +269,6 @@
 					correctanswer = false;
 					nextcount++;
 					
-					// db 
-		fetch('/db', {
-			headers: {
-      			'Accept': 'application/json',
-      			'Content-Type': 'application/json'
-    		},
-			method: "POST",
-			body: JSON.stringify({
-				score: score,
-				streak: streak
-			})
-		})
-		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) });
-
-					
 				}
 
 
@@ -1014,9 +998,28 @@
 					}
 					content += "</tr></table>";
 
+	
+
 				}
 				break;
+
+												//send the score and streak to the database
+		fetch('/lvltwo', {
+			headers: {
+      			'Accept': 'application/json',
+      			'Content-Type': 'application/json'
+    		},
+			method: "POST",
+			body: JSON.stringify({
+				score: score,
+				streak: streak
+			})
+		})
+		.then(function(res){ console.log(res) })
+		.catch(function(res){ console.log(res) });
+
 		}
+		
 		//nextcount += 1;
 		document.write(content);
 
@@ -1126,7 +1129,5 @@
 		
 	}
 
-	
 
-		
 </script>
