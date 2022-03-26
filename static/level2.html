@@ -167,6 +167,7 @@
 	<body id="main">
 		<h1>Merge Sort Game</h1>
 		<p id="countdown">0: 00</p>
+		<p id="attempts">Number of attempts left: 3</p>
 		<input type="button" onclick="timerStart()" value="Display Level 2" class="hello" />
 	</body>
 
@@ -221,8 +222,9 @@
 			idleTime = idleTime + 1;
 			if (idleTime > 302) {
 				// change to 302 seconds
-				alert('You have been idle for too long');
-				location.href = 'index.html';
+				displayAlert('You have been idle for too long');
+				setTimeout(goToIndex, 2000);
+				// location.href = 'index.html';
 			}
 		}
 
@@ -1503,6 +1505,29 @@
 			window.location = 'level3.html'; //chaning window location
 		}
 
+		function goToMenu() {
+			location.href = 'menu.html';
+			window.location = 'menu.html'; //chaning window location
+		}
+
+		function goToIndex() {
+			location.href = 'index.html';
+		}
+
+		const attempts = document.getElementById('attempts');
+
+		function setNumberOfAttempts() {
+			let count;
+			if (mistakes <= 3) {
+				count = 3 - mistakes;
+			} else {
+				count = 0;
+			}
+
+			// let attempts = mistakes <= 3 ? 3 - mistakes : 0;
+			attempts.innerHTML = `Number of attempts left: ${count}`;
+		}
+
 		function checkifsplitcorrect() {
 			var correctSound = new Audio('correct.mp3');
 			var wrongSound = new Audio('boing2.mp3');
@@ -1526,9 +1551,13 @@
 			if (inputednums.length == 0) {
 				correctanswer = false;
 				wrongSound.play();
-				displayAlert('WRONG');
+
+				let formatedAnswer = correctnums.join(' ');
+				displayAlert('WRONG. The correct answer was: ' + formatedAnswer.toString());
+
 				console.log(correctnums[0] + ' in split 1 user entered: ' + inputednums[0]);
 				mistakes++;
+				setNumberOfAttempts();
 			} else if (answer == correctnums.length) {
 				correctanswer = true;
 				correctSound.play();
@@ -1537,12 +1566,22 @@
 				correctanswer = false;
 				wrongSound.play();
 				console.log(correctnums + ' in split 2 user entered: ' + inputednums + 'this is how many they got right: ' + answer);
-				displayAlert('WRONG');
+
+				// Formates the correctnums array to have spaces between each line
+				let formatedAnswer = correctnums.join(' ');
+				displayAlert('WRONG. The correct answer was: ' + formatedAnswer.toString());
+
 				mistakes++;
+				setNumberOfAttempts();
 			}
 
-			if (mistakes == 3) {
-				location.href = 'menu.html';
+			if (mistakes >= 3) {
+				// Formates the correctnums array to have spaces between each line
+				let formatedAnswer = correctnums.join(' ');
+				displayAlert('No more attempts left. The correct answer was: ' + formatedAnswer.toString());
+				setTimeout(goToMenu, 2000);
+
+				// location.href = 'menu.html';
 			}
 		}
 
@@ -1561,26 +1600,43 @@
 				correctanswer = false;
 				console.log(sortednums[sn] + ' in merge user entered: ' + inputednums);
 				wrongSound.play();
-				displayAlert('WRONG');
+
+				// Formates the correctnums array to have spaces between each line
+				let formatedAnswer = correctnums.join(' ');
+				displayAlert('WRONG. the correct answer was: ' + formatedAnswer.toString());
+
 				mistakes++;
+				setNumberOfAttempts();
 			}
 
-			if (mistakes == 3) {
-				location.href = 'menu.html';
+			if (mistakes >= 3) {
+				let formatedAnswer = correctnums.join(' ');
+				displayAlert('No more attempts left. The correct answer was: ' + formatedAnswer.toString());
+
+				setTimeout(goToMenu, 2000);
+
+				// location.href = 'menu.html';
 			}
 		}
 
 		function displayAlert(text) {
-			let color = text === 'CORRECT' ? 'green' : 'red';
 			let styler = document.createElement('div');
-			styler.setAttribute(
-				'style',
-				`position: fixed; font-size: 3.5vh; text-align: center; border: solid 5px ${color}; width:25vw; height:15vh; top:50%; left:50%; margin-left: -12.5vw; margin-top: -7.5vh; background-color:#444; color: ${color}; z-index:100;`
-			);
+
+			if (text === 'CORRECT') {
+				styler.setAttribute(
+					'style',
+					`position: fixed; font-size: 3.5vh; text-align: center; border: solid 5px green; width:25vw; height:15vh; top:50%; left:50%; margin-left: -12.5vw; margin-top: -7.5vh; background-color:#444; color: green; z-index:100;`
+				);
+			} else {
+				styler.setAttribute(
+					'style',
+					`position: fixed; font-size: 3.5vh; text-align: center; border: solid 5px red; width:65vw; height:15vh; top:50%; left:50%; margin-left: -32.5vw; margin-top: -7.5vh; background-color:#444; color: red; z-index:100;`
+				);
+			}
 			styler.innerHTML = '<h2>' + text + '</h2>';
 			setTimeout(function () {
 				styler.parentNode.removeChild(styler);
-			}, 1000);
+			}, 2000);
 			document.body.appendChild(styler);
 		}
 
