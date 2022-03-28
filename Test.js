@@ -5,17 +5,15 @@ let BinaryTreeNode = require('./BinaryTree');
 
 // Array of random numbers
 let nums = [];
-
 for (let i = 0; i < 10; i++) {
 	//randomly generates the table with 10 numbers
 	let a = Math.floor(Math.random() * 100 + 1);
 	nums.push(a);
 }
 
-console.log(nums);
+// console.log(nums);
 
 let tree = new structure.BinaryTree(nums);
-
 let entries = [];
 
 // Merge sort
@@ -29,14 +27,16 @@ function mergeSort(unsortedArray, index, flag, node) {
 	let count = index != 0 ? index : 0;
 
 	// In order to divide the array in half, we need to figure out the middle
-	const middle = Math.floor(unsortedArray.length / 2);
+	let middle = Math.floor(unsortedArray.length / 2);
 
 	// This is where we will be dividing the array into left and right
-	const left = unsortedArray.slice(0, middle);
-	const right = unsortedArray.slice(middle);
+	let left = unsortedArray.slice(0, middle);
+	let right = unsortedArray.slice(middle);
 	count++;
 
-	/* function enterSplit(split, count, flag) {
+	// console.log(left, right);
+
+	function enterSplit(split, count, flag) {
 		let entry = {
 			count: count,
 			flag: flag,
@@ -44,12 +44,12 @@ function mergeSort(unsortedArray, index, flag, node) {
 		};
 		entries.push(entry);
 		// console.log(entry);
-	} */
+	}
 
 	// console.log('Divide the array in half');
 	// console.log('\nSplit #' + count + flag.substring(count - 1) + '    Left: ' + left + '    Right: ' + right + '    Flag: ' + flag);
-	/* enterSplit(left, count, flag + '0');
-	enterSplit(right, count, flag + '1'); */
+	// enterSplit(left, count, flag + '0');
+	// enterSplit(right, count, flag + '1');
 
 	// let L = new BinaryTreeNode(mergeSort(left, count, flag + '0'));
 	// let R = new BinaryTreeNode(mergeSort(right, count, flag + '1'));
@@ -60,8 +60,7 @@ function mergeSort(unsortedArray, index, flag, node) {
 	node.setLeft(L);
 	node.setRight(R);
 
-	console.log(left, right);
-	console.log(node.getRight().value, node.getLeft().value);
+	// console.log(node.getRight().value, node.getLeft().value);
 	console.log('\n');
 
 	// Using recursion to combine the (left = 0) and (right = 1)
@@ -102,7 +101,7 @@ let depth = Math.round(Math.log(20) / Math.log(2) + 1);
 
 let sortedList = [];
 
-for (let i = 1; i < depth; i++) {
+/* for (let i = 1; i < depth; i++) {
 	// Used to save the sub array
 	let subarray = [];
 	entries.forEach((e) => {
@@ -121,10 +120,10 @@ for (let i = 1; i < depth; i++) {
 	// console.log('\n');
 
 	sortedList = sortedList.concat(subarray);
-}
+} */
 
-// console.log([...tree.preOrderTraversal()].map((x) => x.value));
+console.log([...tree.preOrderTraversal()].map((x) => x.value));
 
 // console.log(sortedList);
 
-[...tree.preOrderTraversal()].map((x) => x.value);
+// [...tree.preOrderTraversal()].map((x) => x.value);

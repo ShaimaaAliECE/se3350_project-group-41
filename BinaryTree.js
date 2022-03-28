@@ -20,16 +20,16 @@ class BinaryTreeNode {
 		// console.log(this.getLeft().value);
 	}
 
-	getRight() {
-		return this.left;
-	}
-
 	setRight(node) {
 		this.right = node;
 		if (node) {
 			node.parent = this;
 		}
 		// console.log(this.getRight().value);
+	}
+
+	getRight() {
+		return this.right;
 	}
 }
 
