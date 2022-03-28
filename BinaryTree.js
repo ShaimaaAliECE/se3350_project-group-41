@@ -6,6 +6,7 @@ class BinaryTreeNode {
 		// Descendents are nodes
 		this.left = null;
 		this.right = null;
+		this.step = '';
 	}
 
 	getLeft() {
@@ -17,6 +18,8 @@ class BinaryTreeNode {
 		if (node) {
 			node.parent = this;
 		}
+		node.step = this.step + 'L';
+		// console.log(this.step);
 		// console.log(this.getLeft().value);
 	}
 
@@ -25,11 +28,17 @@ class BinaryTreeNode {
 		if (node) {
 			node.parent = this;
 		}
+		node.step = this.step + 'R';
+		// console.log(this.step);
 		// console.log(this.getRight().value);
 	}
 
 	getRight() {
 		return this.right;
+	}
+
+	getStep() {
+		return this.step;
 	}
 }
 

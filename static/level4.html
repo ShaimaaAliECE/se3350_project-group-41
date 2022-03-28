@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>Level 4</title>
 	</head>
 	<style>
 		body {
@@ -13,7 +13,6 @@
 			margin: 0;
 			display: flex;
 			flex-direction: column;
-			align-items: flex-start;
 		}
 
 		header {
@@ -22,36 +21,30 @@
 			width: 100vw;
 		}
 
+		container {
+			display: flex;
+			justify-content: center;
+		}
+
 		container.main {
 			flex: 7;
 			height: 100vh;
 			width: 100vw;
-			display: flex;
-		}
-
-		container.row-top {
-			flex: 3;
-			display: flex;
-		}
-
-		container.row-bottom {
-			flex: 7;
-			display: flex;
 		}
 
 		container.column-top {
-			flex: 3;
-			display: flex;
+			text-align: center;
+			flex: 2;
+			align-items: center;
 		}
 
 		container.column-bottom {
-			flex: 7;
-			display: flex;
+			flex: 8;
 		}
 
 		container.column {
+			text-align: center;
 			flex: 1;
-			display: flex;
 			flex-direction: column;
 		}
 	</style>
@@ -62,86 +55,89 @@
 		<container class="main">
 			<container class="column">
 				<container class="column">
-					<container class="column-top"></container>
+					<container class="column-top">L</container>
 					<container class="column-bottom">
 						<container class="column">
-							<container class="column-top"></container>
+							<container class="column-top">LL</container>
 							<container class="column-bottom">
 								<container class="column">
-									<container class="column-top"></container>
+									<container class="column-top">LLL</container>
 									<container class="column-bottom">
-										<container class="column"></container>
-										<container class="column"></container>
+										<container class="column">LLLL</container>
+										<container class="column">LLLR</container>
 									</container>
 								</container>
 								<container class="column">
-									<container class="column-top"></container>
+									<container class="column-top">LLR</container>
 									<container class="column-bottom">
-										<container class="column"></container>
-										<container class="column"></container>
+										<container class="column">LLRL</container>
+										<container class="column">LLRR</container>
 									</container>
 								</container>
 							</container>
 						</container>
 						<container class="column">
-							<container class="column-top"></container>
+							<container class="column-top">LR</container>
 							<container class="column-bottom">
 								<container class="column">
-									<container class="column-top"></container>
+									<container class="column-top">LRL</container>
 									<container class="column-bottom">
-										<container class="column"></container>
-										<container class="column"></container>
+										<container class="column">LRLL</container>
+										<container class="column">LRLR</container>
 									</container>
 								</container>
 								<container class="column">
-									<container class="column-top"></container>
+									<container class="column-top">LRR</container>
 									<container class="column-bottom">
-										<container class="column"></container>
-										<container class="column"></container> </container
-								></container>
+										<container class="column">LRRL</container>
+										<container class="column">LRRR</container>
+									</container></container
+								>
 							</container>
 						</container>
 					</container>
 				</container>
 			</container>
 			<container class="column">
-				<container class="column-top"></container>
-				<container class="column-bottom">
-					<container class="column">
-						<container class="column-top"></container>
-						<container class="column-bottom">
-							<container class="column">
-								<container class="column-top"></container>
-								<container class="column-bottom">
-									<container class="column"></container>
-									<container class="column"></container>
+				<container class="column">
+					<container class="column-top">R</container>
+					<container class="column-bottom">
+						<container class="column">
+							<container class="column-top">RL</container>
+							<container class="column-bottom">
+								<container class="column">
+									<container class="column-top">RLL</container>
+									<container class="column-bottom">
+										<container class="column">RLLL</container>
+										<container class="column">RLLR</container>
+									</container>
 								</container>
-							</container>
-							<container class="column">
-								<container class="column-top"></container>
-								<container class="column-bottom">
-									<container class="column"></container>
-									<container class="column"></container>
+								<container class="column">
+									<container class="column-top">RLR</container>
+									<container class="column-bottom">
+										<container class="column">RLRL</container>
+										<container class="column">RLRR</container>
+									</container>
 								</container>
 							</container>
 						</container>
-					</container>
-					<container class="column">
-						<container class="column-top"></container>
-						<container class="column-bottom">
-							<container class="column">
-								<container class="column-top"></container>
-								<container class="column-bottom">
-									<container class="column"></container>
-									<container class="column"></container>
+						<container class="column">
+							<container class="column-top">RR</container>
+							<container class="column-bottom">
+								<container class="column">
+									<container class="column-top">RRL</container>
+									<container class="column-bottom">
+										<container class="column">RRLL</container>
+										<container class="column">RRLR</container>
+									</container>
 								</container>
-							</container>
-							<container class="column">
-								<container class="column-top"></container>
-								<container class="column-bottom">
-									<container class="column"></container>
-									<container class="column"></container>
-								</container>
+								<container class="column">
+									<container class="column-top">RRR</container>
+									<container class="column-bottom">
+										<container class="column">RRRL</container>
+										<container class="column">RRRR</container>
+									</container></container
+								>
 							</container>
 						</container>
 					</container>

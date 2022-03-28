@@ -32,7 +32,7 @@ function mergeSort(unsortedArray, index, flag, node) {
 	// This is where we will be dividing the array into left and right
 	let left = unsortedArray.slice(0, middle);
 	let right = unsortedArray.slice(middle);
-	count++;
+	++count;
 
 	// console.log(left, right);
 
@@ -60,8 +60,7 @@ function mergeSort(unsortedArray, index, flag, node) {
 	node.setLeft(L);
 	node.setRight(R);
 
-	// console.log(node.getRight().value, node.getLeft().value);
-	console.log('\n');
+	console.log(node.getLeft().value, node.getLeft().step, node.getRight().value, node.getRight().step);
 
 	// Using recursion to combine the (left = 0) and (right = 1)
 	return merge(mergeSort(left, count, flag + '0', node.getLeft()), mergeSort(right, count, flag + '1', node.getRight()));
@@ -122,7 +121,7 @@ let sortedList = [];
 	sortedList = sortedList.concat(subarray);
 } */
 
-console.log([...tree.preOrderTraversal()].map((x) => x.value));
+// console.log([...tree.preOrderTraversal()].map((x) => x.value));
 
 // console.log(sortedList);
 
