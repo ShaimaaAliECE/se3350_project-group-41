@@ -19,6 +19,19 @@
 			flex: 3;
 			height: 100vh;
 			width: 100vw;
+			display: flex;
+			flex-direction: column;
+		}
+
+		
+		container.header-top {
+			flex: 7;
+		}
+
+		container.header-bottom {
+			text-align: center;
+			flex: 1;
+			flex-direction: column;
 		}
 
 		container {
@@ -47,50 +60,58 @@
 			flex: 1;
 			flex-direction: column;
 		}
+
+		number {
+			display: inline-block;
+		}
+
 	</style>
 
 	<body>
-		<header>Hekko</header>
+		<header>
+			<container class="header-top">Hekko</container>
+			<container class="header-bottom" id="S">S</container>
+		</header>
 
 		<container class="main">
 			<container class="column">
 				<container class="column">
-					<container class="column-top">L</container>
+					<container class="column-top" id="L"> <number>Hello</number></container>
 					<container class="column-bottom">
 						<container class="column">
-							<container class="column-top">LL</container>
+							<container class="column-top" id="LL">LL</container>
 							<container class="column-bottom">
 								<container class="column">
-									<container class="column-top">LLL</container>
+									<container class="column-top" id="LLL">LLL</container>
 									<container class="column-bottom">
-										<container class="column">LLLL</container>
-										<container class="column">LLLR</container>
+										<container class="column" id="LLLL">LLLL</container>
+										<container class="column" id="LLLR">LLLR</container>
 									</container>
 								</container>
 								<container class="column">
-									<container class="column-top">LLR</container>
+									<container class="column-top" id="LLR">LLR</container>
 									<container class="column-bottom">
-										<container class="column">LLRL</container>
-										<container class="column">LLRR</container>
+										<container class="column" id="LLRL">LLRL</container>
+										<container class="column" id="LLRR">LLRR</container>
 									</container>
 								</container>
 							</container>
 						</container>
 						<container class="column">
-							<container class="column-top">LR</container>
+							<container class="column-top" id="R">LR</container>
 							<container class="column-bottom">
 								<container class="column">
-									<container class="column-top">LRL</container>
+									<container class="column-top" id="LRL">LRL</container>
 									<container class="column-bottom">
-										<container class="column">LRLL</container>
-										<container class="column">LRLR</container>
+										<container class="column" id="LRLL">LRLL</container>
+										<container class="column" id="LRLR">LRLR</container>
 									</container>
 								</container>
 								<container class="column">
-									<container class="column-top">LRR</container>
+									<container class="column-top" id="LRR">LRR</container>
 									<container class="column-bottom">
-										<container class="column">LRRL</container>
-										<container class="column">LRRR</container>
+										<container class="column" id="LRRL">LRRL</container>
+										<container class="column" id="LRRR">LRRR</container>
 									</container></container
 								>
 							</container>
@@ -100,44 +121,42 @@
 			</container>
 			<container class="column">
 				<container class="column">
-					<container class="column-top">R</container>
+					<container class="column-top" id="R">R</container>
 					<container class="column-bottom">
 						<container class="column">
-							<container class="column-top">RL</container>
+							<container class="column-top" id="RL">RL</container>
 							<container class="column-bottom">
-								<container class="column">
-									<container class="column-top">RLL</container>
+								<container class="column" id="">
+									<container class="column-top" id="RLL">RLL</container>
 									<container class="column-bottom">
-										<container class="column">RLLL</container>
-										<container class="column">RLLR</container>
+										<container class="column" id="RLLL">RLLL</container>
+										<container class="column" id="RLLR">RLLR</container>
 									</container>
 								</container>
 								<container class="column">
-									<container class="column-top">RLR</container>
+									<container class="column-top" id="RLR">RLR</container>
 									<container class="column-bottom">
-										<container class="column">RLRL</container>
-										<container class="column">RLRR</container>
+										<container class="column" id="RLRL">RLRL</container>
+										<container class="column" id="RLRR">RLRR</container>
 									</container>
 								</container>
 							</container>
 						</container>
 						<container class="column">
-							<container class="column-top">RR</container>
+							<container class="column-top" id="RR">RR</container>
 							<container class="column-bottom">
 								<container class="column">
-									<container class="column-top">RRL</container>
+									<container class="column-top" id="RRL">RRL</container>
 									<container class="column-bottom">
-										<container class="column">RRLL</container>
-										<container class="column">RRLR</container>
+										<container class="column" id="RRLL">RRLL</container>
+										<container class="column" id="RRLR">RRLR</container>
 									</container>
 								</container>
 								<container class="column">
-									<container class="column-top">RRR</container>
+									<container class="column-top" id="RRR">RRR</container>
 									<container class="column-bottom">
-										<container class="column">RRRL</container>
-										<container class="column">RRRR</container>
-									</container></container
-								>
+										<container class="column" id="RRRL">RRRL</container>
+										<container class="column" id="RRRR">RRRR</container>
 							</container>
 						</container>
 					</container>
@@ -146,3 +165,23 @@
 		</container>
 	</body>
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="module">
+	import { getNumArray, getEntries } from '../Test.js'
+	
+	let start = getNumArray();
+	let entries = getEntries();
+
+	console.log(start)
+
+	$(`#S`).html(start.toString());
+
+	entries.forEach(e => {
+		$(`#${e.step}`).html(e.value.toString());
+	});
+		
+	
+
+</script>
