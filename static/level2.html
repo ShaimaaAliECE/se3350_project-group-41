@@ -180,7 +180,7 @@
 		let score = 0;
 
 
-		let scoreIncrement = 10;
+	//	let scoreIncrement = 10;
 		let scoreMultiplier = 1;
 		//regarding the amount of answers correct in a row
 		let streak = 0;
@@ -1520,7 +1520,7 @@
 
 
 								
-	/* 	fetch('/lvltwo', {
+		fetch('/lvltwo', {
 			headers: {
       			'Accept': 'application/json',
       			'Content-Type': 'application/json'
@@ -1532,7 +1532,7 @@
 			})
 		})
 		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) }); */
+		.catch(function(res){ console.log(res) });
 		
 
 							}
@@ -1737,7 +1737,7 @@
 		function increaseScore(){
 		//regarding the score
 
-		score = score + scoreIncrement*scoreMultiplier;
+		score = score + scoreMultiplier;
 		streak++;
 
 		document.getElementById("score").innerHTML = 
@@ -1747,7 +1747,7 @@
 				"Streak: " + streak;
 
 
-		scoreMultiplier = scoreMultiplier*2;
+		scoreMultiplier++;
 
 
 	

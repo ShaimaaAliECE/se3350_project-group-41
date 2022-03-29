@@ -187,7 +187,7 @@
 	let finish = 0;
 
 
-	let scoreIncrement = 10;
+//	let scoreIncrement = 10;
 	let scoreMultiplier = 1;
 	//regarding the amount of answers correct in a row
 	let streak = 0;
@@ -406,38 +406,6 @@
 					correctnums = [nums[1]];
 					correctanswer = false;
 					nextcount++;
-					fetch('/lvlthree', {
-			headers: {
-      			'Accept': 'application/json',
-      			'Content-Type': 'application/json'
-    		},
-			method: "POST",
-			body: JSON.stringify({
-				score: score,
-				mistakes: mistakes
-				
-			})
-		})
-		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) }); 
-
-		 final = 1;
-
-		fetch('/finalcall', {
-			headers: {
-      			'Accept': 'application/json',
-      			'Content-Type': 'application/json'
-    		},
-			method: "POST",
-			body: JSON.stringify({
-
-				finalbool: final,
-
-
-			})
-		})
-		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) }); 
 				}
 				break;
 			case 6:
@@ -1447,7 +1415,7 @@
 							document.getElementById('T3').style.visibility = 'hidden';
 							setTimeout(goToLevel3, 5000); //go to window location after 7000ms
 
-			/* fetch('/lvlthree', {
+			fetch('/lvlthree', {
 			headers: {
       			'Accept': 'application/json',
       			'Content-Type': 'application/json'
@@ -1478,7 +1446,7 @@
 			})
 		})
 		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) });  */
+		.catch(function(res){ console.log(res) }); 
 
 						}
 					}
@@ -1682,7 +1650,7 @@
 	function increaseScore(){
 		//regarding the score
 
-		score = score + scoreIncrement*scoreMultiplier;
+		score = score + scoreMultiplier;
 		streak++;
 
 		document.getElementById("score").innerHTML = 
@@ -1692,7 +1660,7 @@
 				"Streak: " + streak;
 
 
-		scoreMultiplier = scoreMultiplier*2;
+		scoreMultiplier++;
 
 
 	

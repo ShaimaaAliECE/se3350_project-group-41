@@ -39,13 +39,14 @@ app.post('/finalcall', (req,res)=>{
 });
 
 
+
 if(final = 1){
 	app.get('/write',(req,res) =>{
 
-		console.log("write");
+		// console.log("write");
 		res.json({
 			playerName: playerName,
-			lvl2sScore: lvl2sScore,
+			lvl2sScore: lvl2sScore,						//dont need to send because it is writing twice after finish..?
 			lvl2Attempts: lvl2Attempts,
 			lvl3sScore: lvl3sScore,
 			lvl3Attempts: lvl3Attempts,
@@ -57,7 +58,8 @@ if(final = 1){
 			database.insert({name: playerName, lvl2: lvl2sScore, lvl2A: lvl2Attempts, 
 				lvl3: lvl3sScore, lvl3A: lvl3Attempts});
 		
-	
+	final = 0;
+
 	
 	});
 }

@@ -18,9 +18,9 @@
 			<tr>
 				<td>NAME       </td>
 				<td>LEVEL 2 SCORE</td>
-				<td>LEVEL 2 ATTEMPTS</td>
+				<td>LEVEL 2 MISTAKES</td>
 				<td>LEVEL 3 SCORE</td>
-				<td>LEVEL 3 ATTEMPTS</td>	
+				<td>LEVEL 3 MISTAKES</td>	
 			</tr>
 
 		</table>
@@ -119,6 +119,7 @@ if(final = 1){
 	.catch(function(res){ console.log(res) });
 }
 
+//recieves all scores from the nedb database
 fetch('/scores', {
 		headers: {
 			'Accept': 'application/json',
