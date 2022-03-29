@@ -46,18 +46,21 @@ if(final = 1){
 		// console.log("write");
 		res.json({
 			playerName: playerName,
-			lvl2sScore: lvl2sScore,						//dont need to send because it is writing twice after finish..?
+			lvl2sScore: lvl2sScore,						
 			lvl2Attempts: lvl2Attempts,
 			lvl3sScore: lvl3sScore,
 			lvl3Attempts: lvl3Attempts,
 	
 			
 		});
-		//inserts all data into the database
-		
-			database.insert({name: playerName, lvl2: lvl2sScore, lvl2A: lvl2Attempts, 
-				lvl3: lvl3sScore, lvl3A: lvl3Attempts});
-		
+		//inserts all data into the database, must have a username
+			if(playerName != ""){
+
+				database.insert({name: playerName, lvl2: lvl2sScore, lvl2A: lvl2Attempts, 
+					lvl3: lvl3sScore, lvl3A: lvl3Attempts});
+			}
+			
+
 	final = 0;
 
 	
@@ -94,6 +97,7 @@ app.post('/name', (req,res)=>{
 
 })
 
+//getting level three mistakes and score
 app.post('/lvlthree', (req,res)=>{
 	const { score, mistakes  } = req.body;
 
@@ -102,14 +106,14 @@ app.post('/lvlthree', (req,res)=>{
 
 });
 
-
+//getting level two mistakes and score
 app.post('/lvltwo', (req,res)=>{
 	const { score, mistakes } = req.body;
 
 	lvl2sScore = score;
 	lvl2Attempts = mistakes;
 
-	console.log(mistakes);
+	//console.log(mistakes);
 	
 	//database.insert({score: score, streak: streak}, function (err, doc) {
 	//	if (err) {
@@ -120,7 +124,7 @@ app.post('/lvltwo', (req,res)=>{
 
 
 app.get('/scores', (req, res) => {
-	console.log("call");
+	//console.log("call");
 	database.find({}, (err, data) => {
 
 		if(err){
@@ -129,7 +133,8 @@ app.get('/scores', (req, res) => {
 			return;
 
 		}
-		console.log(data);
+		
+	//	console.log(data);
 		res.send(data);
 	})
 })
