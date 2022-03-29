@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Level 4</title>
 	</head>
+	
 	<style>
 		body {
 			height: 100vh;
@@ -14,29 +15,32 @@
 			display: flex;
 			flex-direction: column;
 		}
-
+		
 		header {
 			flex: 3;
 			height: 100vh;
 			width: 100vw;
 			display: flex;
 			flex-direction: column;
+			/* text-align: center; */
+			/* align-items: center; */
 		}
-
+		
 		
 		container.header-top {
 			flex: 7;
-		}
-
-		container.header-bottom {
-			text-align: center;
-			flex: 1;
 			flex-direction: column;
 		}
-
-		container {
-			display: flex;
-			justify-content: center;
+		
+				
+		container.title {
+			text-align: left;
+		}
+		
+		container.header-bottom {
+			flex: 1;
+			text-align: center;
+			flex-direction: column;
 		}
 
 		container.main {
@@ -44,15 +48,27 @@
 			height: 100vh;
 			width: 100vw;
 		}
+		
+		counters {
+			text-align: left;
+			/* display: flex; */
+			/* flex-direction: columns; */
+		}
+
+
+		container {
+			display: flex;
+			justify-content: center;
+		}
 
 		container.column-top {
 			text-align: center;
-			flex: 2;
+			flex: 3;
 			align-items: center;
 		}
 
 		container.column-bottom {
-			flex: 8;
+			flex: 7;
 		}
 
 		container.column {
@@ -64,12 +80,20 @@
 		number {
 			display: inline-block;
 		}
-
 	</style>
 
 	<body>
 		<header>
-			<container class="header-top">Hekko</container>
+			<container class="header-top">
+				<container class="title">
+					<h1>Merge Sort Game</h1>
+				</container>
+				<!-- <counters class="counters">
+					<p id="countdown">0: 00</p>
+					<p id="attempts">Number of attempts left: 3</p>
+				</counters> -->
+				<!-- <input type="button" onclick="timerStart()" value="Display Level 2" class="hello" /> -->
+			</container>
 			<container class="header-bottom" id="S">S</container>
 		</header>
 
@@ -84,36 +108,83 @@
 								<container class="column">
 									<container class="column-top" id="LLL">LLL</container>
 									<container class="column-bottom">
-										<container class="column" id="LLLL">LLLL</container>
-										<container class="column" id="LLLR">LLLR</container>
+										<container class="column">
+											<container class="column-top" id="LLLL">LLLL</container>
+											<container class="column-bottom">
+												<container class="column"id="LLLLL">LLLLL</container>
+												<container class="column"id="LLLLR">LLLLR</container>
+											</container>
+										</container>
+										<container class="column">
+											<container class="column-top" id="LLLR">LLLR</container>
+											<container class="column-bottom">
+												<container class="column"id="LLLRL">LLLRL</container>
+												<container class="column"id="LLLRR">LLLRR</container>
+											</container>
+										</container>
 									</container>
 								</container>
 								<container class="column">
 									<container class="column-top" id="LLR">LLR</container>
 									<container class="column-bottom">
-										<container class="column" id="LLRL">LLRL</container>
-										<container class="column" id="LLRR">LLRR</container>
+										<container class="column">
+											<container class="column-top" id="LLRL">LLLL</container>
+											<container class="column-bottom">
+												<container class="column"id="LLRLL">LLLLL</container>
+												<container class="column"id="LLRLR">LLLLR</container>
+											</container>
+										</container>
+										<container class="column">
+											<container class="column-top" id="LLRR">LLLR</container>
+											<container class="column-bottom">
+												<container class="column"id="LLRRL">LLRRL</container>
+												<container class="column"id="LLRRR">LLRRR</container>
+											</container>
+										</container>
 									</container>
 								</container>
 							</container>
 						</container>
 						<container class="column">
-							<container class="column-top" id="R">LR</container>
+							<container class="column-top" id="LR">LR</container>
 							<container class="column-bottom">
 								<container class="column">
 									<container class="column-top" id="LRL">LRL</container>
 									<container class="column-bottom">
-										<container class="column" id="LRLL">LRLL</container>
-										<container class="column" id="LRLR">LRLR</container>
+										<container class="column">
+											<container class="column-top" id="LRLL">LRLL</container>
+											<container class="column-bottom">
+												<container class="column"id="LRLLL">LRLLL</container>
+												<container class="column"id="LRLLR">LRLLR</container>
+											</container>
+										</container>
+										<container class="column">
+											<container class="column-top" id="LRLR">LRLR</container>
+											<container class="column-bottom">
+												<container class="column"id="LRLRL">LRLRL</container>
+												<container class="column"id="LRLRR">LRLRR</container>
+											</container>
+										</container>
 									</container>
 								</container>
 								<container class="column">
 									<container class="column-top" id="LRR">LRR</container>
 									<container class="column-bottom">
-										<container class="column" id="LRRL">LRRL</container>
-										<container class="column" id="LRRR">LRRR</container>
-									</container></container
-								>
+										<container class="column">
+											<container class="column-top" id="LRRL">LRRL</container>
+											<container class="column-bottom">
+												<container class="column"id="LRRLL">LRRLL</container>
+												<container class="column"id="LRRLR">LRRLR</container>
+											</container>
+										</container>
+										<container class="column">
+											<container class="column-top" id="LRRR">LRRR</container>
+											<container class="column-bottom">
+												<container class="column"id="LRRRL">LRRRL</container>
+												<container class="column"id="LRRRR">LRRRR</container>
+											</container>
+										</container>
+									</container>
 							</container>
 						</container>
 					</container>
@@ -129,15 +200,39 @@
 								<container class="column" id="">
 									<container class="column-top" id="RLL">RLL</container>
 									<container class="column-bottom">
-										<container class="column" id="RLLL">RLLL</container>
-										<container class="column" id="RLLR">RLLR</container>
+										<container class="column">
+											<container class="column-top" id="RLLL">RLLL</container>
+											<container class="column-bottom">
+												<container class="column"id="RLLLL">RLLLL</container>
+												<container class="column"id="RLLLR">RLLLR</container>
+											</container>
+										</container>
+										<container class="column">
+											<container class="column-top" id="RLLR">RLLR</container>
+											<container class="column-bottom">
+												<container class="column"id="RLLRL">RLLRL</container>
+												<container class="column"id="RLLRR">RLLRR</container>
+											</container>
+										</container>
 									</container>
 								</container>
 								<container class="column">
 									<container class="column-top" id="RLR">RLR</container>
 									<container class="column-bottom">
-										<container class="column" id="RLRL">RLRL</container>
-										<container class="column" id="RLRR">RLRR</container>
+										<container class="column">
+											<container class="column-top" id="RLRL">RLRL</container>
+											<container class="column-bottom">
+												<container class="column"id="RLRLL">RLRLL</container>
+												<container class="column"id="RLRLR">RLRLR</container>
+											</container>
+										</container>
+										<container class="column">
+											<container class="column-top" id="RLRR">RLRR</container>
+											<container class="column-bottom">
+												<container class="column"id="RLRRL">RLRRL</container>
+												<container class="column"id="RLRRR">RLRRR</container>
+											</container>
+										</container>
 									</container>
 								</container>
 							</container>
@@ -148,16 +243,40 @@
 								<container class="column">
 									<container class="column-top" id="RRL">RRL</container>
 									<container class="column-bottom">
-										<container class="column" id="RRLL">RRLL</container>
-										<container class="column" id="RRLR">RRLR</container>
+										<container class="column">
+											<container class="column-top" id="RRLL">RRLL</container>
+											<container class="column-bottom">
+												<container class="column"id="RRLLL">RRLLL</container>
+												<container class="column"id="RRLLR">RRLLR</container>
+											</container>
+										</container>
+										<container class="column">
+											<container class="column-top" id="RRLR">RRLR</container>
+											<container class="column-bottom">
+												<container class="column"id="RRLRL">RRLRL</container>
+												<container class="column"id="RRLRR">RRLRR</container>
+											</container>
+										</container>
 									</container>
 								</container>
 								<container class="column">
 									<container class="column-top" id="RRR">RRR</container>
 									<container class="column-bottom">
-										<container class="column" id="RRRL">RRRL</container>
-										<container class="column" id="RRRR">RRRR</container>
-							</container>
+										<container class="column">
+											<container class="column-top" id="RRRL">RRRL</container>
+											<container class="column-bottom">
+												<container class="column"id="RRRLL">RRRLL</container>
+												<container class="column"id="RRRLR">RRRLR</container>
+											</container>
+										</container>
+										<container class="column">
+											<container class="column-top" id="RRRR">RRRR</container>
+											<container class="column-bottom">
+												<container class="column"id="RRRRL">RRRRL</container>
+												<container class="column"id="RRRRR">RRRRR</container>
+											</container>
+										</container>
+									</container>
 						</container>
 					</container>
 				</container>
@@ -169,19 +288,50 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script type="module">
-	import { getNumArray, getEntries } from '../Test.js'
+	import { getNumArray, getEntries, getOrder } from '../Functions.js'
 	
 	let start = getNumArray();
 	let entries = getEntries();
 
-	console.log(start)
+	let entryOrder = [];
+	let order = getOrder();
+			
 
-	$(`#S`).html(start.toString());
+	$(`#S`).html('['+ start.join(", ") + ']');
 
-	entries.forEach(e => {
-		$(`#${e.step}`).html(e.value.toString());
-	});
+	/* 
+	for (let i = 0; i < entries.length; i++) {
+		if(entries[i] === )
+		const element = array[i];
 		
-	
+	} */
 
+	order.forEach(e => {
+		$(`#${e}`).html('');
+	});
+
+	for (let i = 0; i < entries.length; i++) {
+		let currentValue = entries[i].value;
+		let currentStep = entries[i].step;
+		
+		entryOrder.push(currentStep)
+		$(`#${currentStep}`).html('['+ currentValue.join(", ") + ']');		
+		
+		if(currentStep.charAt(currentStep.length - 1) == 'R' && currentStep.length == 5) {
+			
+			let previousStep = entries[i - 1].step;
+			console.log(currentStep);
+			
+			if (previousStep.charAt(previousStep.length - 1) != 'R') {
+				console.log(previousStep)
+				// $(`#${currentStep}`).html('['+ currentValue.join(", ") + ']');
+			}
+
+		}
+
+	}
+
+	// console.log(entryOrder);
+	
+	// console.log(getOrder());
 </script>

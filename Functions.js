@@ -68,17 +68,13 @@ class BinaryTree {
 
 /* 
 
-		DIFFERENT FILE BELOW
-
+		MERGE SORT FUNCTIONS BELOW
 
 */
 
-/* Import BinaryTree and BinaryTreeNode classes
-let BinaryTree = require('./BinaryTree'); */
-
 // Array of random numbers
 let nums = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 32; i++) {
 	//randomly generates the table with 10 numbers
 	let a = Math.floor(Math.random() * 100 + 1);
 	nums.push(a);
@@ -215,11 +211,79 @@ let depth = Math.round(Math.log(20) / Math.log(2) + 1);
 } */
 
 // console.log([...tree.preOrderTraversal()].map((x) => x.value));
-
 // console.log(sortedList);
 
 export function getEntries() {
 	return entries;
+}
+
+let order = [
+	'L',
+	'R',
+	'LL',
+	'LR',
+	'LLL',
+	'LLR',
+	'LLLL',
+	'LLLR',
+	'LLLLL',
+	'LLLLR',
+	'LLLRL',
+	'LLLRR',
+	'LLRL',
+	'LLRR',
+	'LLRLL',
+	'LLRLR',
+	'LLRRL',
+	'LLRRR',
+	'LRL',
+	'LRR',
+	'LRLL',
+	'LRLR',
+	'LRLLL',
+	'LRLLR',
+	'LRLRL',
+	'LRLRR',
+	'LRRL',
+	'LRRR',
+	'LRRLL',
+	'LRRLR',
+	'LRRRL',
+	'LRRRR',
+	'RL',
+	'RR',
+	'RLL',
+	'RLR',
+	'RLLL',
+	'RLLR',
+	'RLLLL',
+	'RLLLR',
+	'RLLRL',
+	'RLLRR',
+	'RLRL',
+	'RLRR',
+	'RLRLL',
+	'RLRLR',
+	'RLRRL',
+	'RLRRR',
+	'RRL',
+	'RRR',
+	'RRLL',
+	'RRLR',
+	'RRLLL',
+	'RRLLR',
+	'RRLRL',
+	'RRLRR',
+	'RRRL',
+	'RRRR',
+	'RRRLL',
+	'RRRLR',
+	'RRRRL',
+	'RRRRR',
+];
+
+export function getOrder() {
+	return order;
 }
 
 console.log(entries);
