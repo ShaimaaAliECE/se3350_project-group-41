@@ -411,6 +411,19 @@
 						correctnums = [nums[1]];
 						correctanswer = false;
 						nextcount++;
+						fetch('/lvltwo', {
+			headers: {
+      			'Accept': 'application/json',
+      			'Content-Type': 'application/json'
+    		},
+			method: "POST",
+			body: JSON.stringify({
+				score: score,
+				mistakes: mistakes
+			})
+		})
+		.then(function(res){ console.log(res) })
+		.catch(function(res){ console.log(res) });
 					}
 					break;
 				case 6:
@@ -502,20 +515,6 @@
 						nextcount++;
 						sn++;
 
-						fetch('/lvltwo', {
-			headers: {
-      			'Accept': 'application/json',
-      			'Content-Type': 'application/json'
-    		},
-			method: "POST",
-			body: JSON.stringify({
-				score: score,
-				mistakes: mistakes
-			})
-		})
-		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) });
-		
 					}
 					break;
 				case 11: //clear initial table

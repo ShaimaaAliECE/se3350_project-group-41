@@ -406,6 +406,38 @@
 					correctnums = [nums[1]];
 					correctanswer = false;
 					nextcount++;
+					fetch('/lvlthree', {
+			headers: {
+      			'Accept': 'application/json',
+      			'Content-Type': 'application/json'
+    		},
+			method: "POST",
+			body: JSON.stringify({
+				score: score,
+				mistakes: mistakes
+				
+			})
+		})
+		.then(function(res){ console.log(res) })
+		.catch(function(res){ console.log(res) }); 
+
+		 final = 1;
+
+		fetch('/finalcall', {
+			headers: {
+      			'Accept': 'application/json',
+      			'Content-Type': 'application/json'
+    		},
+			method: "POST",
+			body: JSON.stringify({
+
+				finalbool: final,
+
+
+			})
+		})
+		.then(function(res){ console.log(res) })
+		.catch(function(res){ console.log(res) }); 
 				}
 				break;
 			case 6:
@@ -489,39 +521,8 @@
 					nextcount++;
 					sn++;
 
-					fetch('/lvlthree', {
-			headers: {
-      			'Accept': 'application/json',
-      			'Content-Type': 'application/json'
-    		},
-			method: "POST",
-			body: JSON.stringify({
-				score: score,
-				mistakes: mistakes
-				
-			})
-		})
-		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) }); 
+					
 
-		 final = 1;
-
-		fetch('/finalcall', {
-			headers: {
-      			'Accept': 'application/json',
-      			'Content-Type': 'application/json'
-    		},
-			method: "POST",
-			body: JSON.stringify({
-
-				finalbool: final,
-
-
-			})
-		})
-		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) }); 
-		
 				}
 				break;
 			case 11: //clear initial table
