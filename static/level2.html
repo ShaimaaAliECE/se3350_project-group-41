@@ -176,6 +176,15 @@
 	<script>
 		let mistakes = 0;
 
+				//contains the score
+		let score = 0;
+
+
+		let scoreIncrement = 10;
+		let scoreMultiplier = 1;
+		//regarding the amount of answers correct in a row
+		let streak = 0;
+
 		let nextcount = -1,
 			nocopy = 0;
 		let nums = [];
@@ -244,6 +253,9 @@
 			content += '<style></style>';
 			//content += "<h1> Merge Sort Game </h1>";
 			content += "<p id='p'>split the array down the middle</p>";
+			//score
+			content += "<p id='score'>Score: 0</p>";
+			content += "<p id='streak'>Streak: 0</p>";
 			content += "<table style=text-align: center; id='T1'><tr>";
 
 			for (let i = 0; i < 10; i++) {
@@ -489,6 +501,21 @@
 						correctanswer = false;
 						nextcount++;
 						sn++;
+
+						fetch('/lvltwo', {
+			headers: {
+      			'Accept': 'application/json',
+      			'Content-Type': 'application/json'
+    		},
+			method: "POST",
+			body: JSON.stringify({
+				score: score,
+				mistakes: mistakes
+			})
+		})
+		.then(function(res){ console.log(res) })
+		.catch(function(res){ console.log(res) });
+		
 					}
 					break;
 				case 11: //clear initial table
@@ -1490,6 +1517,25 @@
 								document.getElementById('T2').style.visibility = 'hidden';
 								document.getElementById('T3').style.visibility = 'hidden';
 								setTimeout(goToLevel3, 5000); //go to window location after 7000ms
+
+
+
+								
+	/* 	fetch('/lvltwo', {
+			headers: {
+      			'Accept': 'application/json',
+      			'Content-Type': 'application/json'
+    		},
+			method: "POST",
+			body: JSON.stringify({
+				score: score,
+				mistakes: mistakes
+			})
+		})
+		.then(function(res){ console.log(res) })
+		.catch(function(res){ console.log(res) }); */
+		
+
 							}
 						}
 					}
@@ -1558,10 +1604,14 @@
 				console.log(correctnums[0] + ' in split 1 user entered: ' + inputednums[0]);
 				mistakes++;
 				setNumberOfAttempts();
+				wrongAnswer();
+
 			} else if (answer == correctnums.length) {
 				correctanswer = true;
 				correctSound.play();
 				displayAlert('CORRECT');
+				increaseScore();
+
 			} else {
 				correctanswer = false;
 				wrongSound.play();
@@ -1573,6 +1623,8 @@
 
 				mistakes++;
 				setNumberOfAttempts();
+				wrongAnswer();
+
 			}
 
 			if (mistakes >= 3) {
@@ -1596,6 +1648,8 @@
 				correctanswer = true;
 				correctSound.play();
 				displayAlert('CORRECT');
+				increaseScore();
+
 			} else {
 				correctanswer = false;
 				console.log(sortednums[sn] + ' in merge user entered: ' + inputednums);
@@ -1605,6 +1659,8 @@
 				let formatedAnswer = correctnums.join(' ');
 				displayAlert('WRONG. the correct answer was: ' + formatedAnswer.toString());
 
+				//restarts core incrementor
+				wrongAnswer();
 				mistakes++;
 				setNumberOfAttempts();
 			}
@@ -1678,5 +1734,33 @@
 			// Using recursion to combine the left and right
 			return merge(mergeSort(left), mergeSort(right));
 		}
+
+		function increaseScore(){
+		//regarding the score
+
+		score = score + scoreIncrement*scoreMultiplier;
+		streak++;
+
+		document.getElementById("score").innerHTML = 
+				"Score: " + score;
+
+		document.getElementById("streak").innerHTML = 
+				"Streak: " + streak;
+
+
+		scoreMultiplier = scoreMultiplier*2;
+
+
+	
+	}
+
+	//for when the user gets a wrong answer
+	function wrongAnswer(){
+
+		scoreMultiplier = 1;
+		streak = 0;
+		
+	}
+
 	</script>
 </html>
