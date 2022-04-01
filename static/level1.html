@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Level 1</title>
-		<link rel="stylesheet" href="mystyle.css">
+		<link rel="stylesheet" href="mystyle.css" />
 		<style>
 			h1 {
 				color: red;
@@ -238,7 +238,7 @@
 			content += '<style></style>';
 			//content += "<h1> Merge Sort Game </h1>";
 
-			content += "<p id='p'>split the array down the middle</p>";
+			content += "<p id='p'>Split the array down the middle</p>";
 			content += "<table style=text-align: center; id='T1'><tr>";
 
 			for (let i = 0; i < 10; i++) {
@@ -257,21 +257,20 @@
 		}
 
 		function mouseOut() {
-		var tag=document.getElementById("btn");
-    	tag.style.background="white";
-		tag.style.padding = '7px';
-		tag.style.borderColor = 'black';
-		tag.style.borderRadius='7px';
-		};
+			var tag = document.getElementById('btn');
+			tag.style.background = 'white';
+			tag.style.padding = '7px';
+			tag.style.borderColor = 'black';
+			tag.style.borderRadius = '7px';
+		}
 
-
-	function mouseOver() {
-		var tag=document.getElementById("btn");
-    	tag.style.background="aquamarine";
-		tag.style.padding = '7px';
-		tag.style.borderColor = 'black';
-		tag.style.borderRadius='7px';
-		};
+		function mouseOver() {
+			var tag = document.getElementById('btn');
+			tag.style.background = 'aquamarine';
+			tag.style.padding = '7px';
+			tag.style.borderColor = 'black';
+			tag.style.borderRadius = '7px';
+		}
 
 		function NextLine() {
 			//contains all the steps of the tutorial
@@ -280,7 +279,7 @@
 			console.log(nextcount);
 			switch (nextcount) {
 				case 0: //split
-					document.getElementById('p').innerHTML = 'split the left array down the middle';
+					document.getElementById('p').innerHTML = 'Split the left array down the middle';
 
 					//2
 					content += "<table class = 'table2' style='width: 10%' id='T2'><tr>";
@@ -302,7 +301,7 @@
 					break;
 
 				case 1: //split
-					document.getElementById('p').innerHTML = 'split the length 3 array down the middle';
+					document.getElementById('p').innerHTML = 'Split the length 3 array down the middle';
 
 					content += "</br><table class = 'table4' style='width: 6%' id='T4'><tr>";
 					for (let i = 0; i < 3; i++) {
@@ -661,7 +660,7 @@
 					break;
 				case 19: //add fourth value
 					document.getElementById('p').innerHTML =
-						'Compare the smallest values of the two arrays . Determine which value is smaller between these two smallest values. This value will be added to the fourth cell of the newly merged array';
+						'Compare the smallest values of the two arrays. Determine which value is smaller between these two smallest values. This value will be added to the fourth cell of the newly merged array';
 					var T4 = document.getElementById('T4');
 					var m1 = T4.getElementsByTagName('th');
 					var T5 = document.getElementById('T5');
@@ -714,7 +713,7 @@
 					y == 0;
 					break;
 				case 21: //split
-					document.getElementById('p').innerHTML = 'split the length 3 array down the middle';
+					document.getElementById('p').innerHTML = 'Split the length 3 array down the middle';
 
 					content += "</br><table class ='table16' id='T16' style='width:6%; margin-top: -8pc'><tr>";
 					for (let i = 5; i < 8; i++) {
@@ -733,7 +732,7 @@
 					content += '</tr></table>';
 					break;
 				case 22: //split
-					document.getElementById('p').innerHTML = 'split the final furthest down length 2 array down the middle';
+					document.getElementById('p').innerHTML = 'Split the final furthest down length 2 array down the middle';
 
 					content += "</br><table class ='table18' id='T18' style = 'width:2%'><tr>";
 					for (let i = 5; i < 6; i++) {
@@ -754,7 +753,7 @@
 
 				case 23: //split
 					document.getElementById('p').innerHTML =
-						'Compare the smallest values from each array. Determine the smallest value between the arrays as it will be added to the newly merged array.';
+						'Compare the smallest values from each array. Determine the smallest value between the arrays as it will be added to the newly merged array';
 
 					content += "</br><table class = 'table20' id='T20' style='width:2%'><tr>";
 					for (let i = 6; i < 7; i++) {
@@ -774,7 +773,7 @@
 					break;
 
 				case 24: //clear initial table
-					document.getElementById('p').innerHTML = 'Now that you have determined the smallest value place it in the first cell of the merged array.';
+					document.getElementById('p').innerHTML = 'Now that you have determined the smallest value place it in the first cell of the merged array';
 
 					shortA = [nums[6], nums[7]];
 					sortednums = mergeSort(shortA);
@@ -823,7 +822,7 @@
 					y = 0;
 					break;
 				case 27: //clear initial table
-					document.getElementById('p').innerHTML = 'now split the other array length 2';
+					document.getElementById('p').innerHTML = 'Now split the other array length 2';
 
 					var T16 = document.getElementById('T16');
 					var m3 = T16.getElementsByTagName('th');
@@ -832,7 +831,7 @@
 					}
 					break;
 				case 28: //add first value
-					document.getElementById('p').innerHTML = 'COMPARE THE VALUES AND ADD THE FIRST VALUE INTO THE TABLE IN ASCENDING ORDER, FROM LEFT TO RIGHT';
+					document.getElementById('p').innerHTML = 'Compare the values and add the first value into the table in ascending order, from left to right';
 					var T18 = document.getElementById('T18');
 					var m1 = T18.getElementsByTagName('th');
 					var T19 = document.getElementById('T19');
@@ -903,7 +902,7 @@
 					y = 0;
 					break;
 				case 31: //split
-					document.getElementById('p').innerHTML = 'compare the values, placing them from left to right, ascending in value';
+					document.getElementById('p').innerHTML = 'Compare the values, placing them from left to right, ascending in value';
 
 					content += "</br><table class='table24' id='T24' style='width:2%;margin-top: -5pc'><tr>";
 					for (let i = 8; i < 9; i++) {
@@ -923,7 +922,7 @@
 					break;
 
 				case 32: //Clear table
-					document.getElementById('p').innerHTML = 'compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array';
+					document.getElementById('p').innerHTML = 'Compare the values between the two sorted arrays, placing them from left to right, ascending in value in the original length 5 array';
 
 					shortA = [nums[8], nums[9]];
 					sortednums = mergeSort(shortA);
@@ -1134,7 +1133,7 @@
 					y = 0;
 					break;
 				case 42:
-					document.getElementById('p').innerHTML = 'NOW MERGE THE NUMBERS IN ASCENDING ORDER';
+					document.getElementById('p').innerHTML = 'Now merge the numbers in acending order';
 
 					if (z < 10) {
 						var T2 = document.getElementById('T2'); //length 3 one
@@ -1172,7 +1171,7 @@
 						document.getElementById('p').innerHTML = 'MERGESORT COMPLETE';
 						document.getElementById('T2').style.visibility = 'hidden';
 						document.getElementById('T3').style.visibility = 'hidden';
-						setTimeout(goToLevel2,5000); //go to window location after 7000ms
+						setTimeout(goToLevel2, 5000); //go to window location after 7000ms
 					}
 					break;
 			}
@@ -1182,10 +1181,9 @@
 				$('#main').append(content);
 			});
 		}
-	function goToLevel2()
-	{
-		window.location = "level2.html"; //chaning window location
-	}
+		function goToLevel2() {
+			window.location = 'level2.html'; //chaning window location
+		}
 		function merge(left, right) {
 			let resultArray = [],
 				leftIndex = 0,

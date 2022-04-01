@@ -172,22 +172,20 @@
 		<h1 color:red text-align center>Merge Sort Game</h1>
 		<p id="countdown">0: 00</p>
 		<p id="attempts">Number of attempts left: 3</p>
-		<p id='score'>Score: 0</p>";
-		<p id='streak'>Streak: 0</p>";
+		<p id="score">Score: 0</p>
+		<p id="streak">Streak: 0</p>
 	</body>
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-
 	//contains the score
 	let score = 0;
 
 	let finish = 0;
 
-
-//	let scoreIncrement = 10;
+	//	let scoreIncrement = 10;
 	let scoreMultiplier = 1;
 	//regarding the amount of answers correct in a row
 	let streak = 0;
@@ -314,7 +312,7 @@
 		console.log(nextcount);
 		switch (nextcount) {
 			case -1:
-				content += "<input type = 'button'onmouseout='checkMouseOut()' onmouseover='checkMouseOver()' onclick = 'checkifsplitcorrect()' value = 'check' id='check'>";
+				content += "<input type = 'button'onmouseout='checkMouseOut()' onmouseover='checkMouseOver()' onclick = 'checkifsplitcorrect()' value = 'Check' id='check'>";
 				content += "<input type='text' id='arr1' placeholder='enter the value'   style 'width: 200%'/>";
 				nextcount++;
 				break;
@@ -488,9 +486,6 @@
 					correctanswer = false;
 					nextcount++;
 					sn++;
-
-					
-
 				}
 				break;
 			case 11: //clear initial table
@@ -1415,43 +1410,45 @@
 							document.getElementById('T3').style.visibility = 'hidden';
 							setTimeout(goToLevel3, 5000); //go to window location after 7000ms
 
-			fetch('/lvlthree', {
-			headers: {
-      			'Accept': 'application/json',
-      			'Content-Type': 'application/json'
-    		},
-			method: "POST",
-			body: JSON.stringify({
-				score: score,
-				mistakes: mistakes
-				
-			})
-		})
-		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) }); 
+							fetch('/lvlthree', {
+								headers: {
+									Accept: 'application/json',
+									'Content-Type': 'application/json',
+								},
+								method: 'POST',
+								body: JSON.stringify({
+									score: score,
+									mistakes: mistakes,
+								}),
+							})
+								.then(function (res) {
+									console.log(res);
+								})
+								.catch(function (res) {
+									console.log(res);
+								});
 
-		 final = 1;
+							final = 1;
 
-		fetch('/finalcall', {
-			headers: {
-      			'Accept': 'application/json',
-      			'Content-Type': 'application/json'
-    		},
-			method: "POST",
-			body: JSON.stringify({
-
-				finalbool: final,
-
-
-			})
-		})
-		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) }); 
-
+							fetch('/finalcall', {
+								headers: {
+									Accept: 'application/json',
+									'Content-Type': 'application/json',
+								},
+								method: 'POST',
+								body: JSON.stringify({
+									finalbool: final,
+								}),
+							})
+								.then(function (res) {
+									console.log(res);
+								})
+								.catch(function (res) {
+									console.log(res);
+								});
 						}
 					}
 				}
-		
 
 				break;
 		}
@@ -1522,7 +1519,6 @@
 			correctSound.play();
 			displayAlert('CORRECT');
 			increaseScore();
-
 		} else {
 			correctanswer = false;
 			wrongSound.play();
@@ -1535,7 +1531,6 @@
 			mistakes++;
 			setNumberOfAttempts();
 			wrongAnswer();
-
 		}
 
 		if (mistakes >= 3) {
@@ -1560,7 +1555,6 @@
 			correctSound.play();
 			displayAlert('CORRECT');
 			increaseScore();
-
 		} else {
 			correctanswer = false;
 			console.log(sortednums[sn] + ' in merge user entered: ' + inputednums);
@@ -1573,7 +1567,6 @@
 			mistakes++;
 			setNumberOfAttempts();
 			wrongAnswer();
-
 		}
 
 		if (mistakes >= 3) {
@@ -1647,31 +1640,22 @@
 	}
 
 	//after correct answer
-	function increaseScore(){
+	function increaseScore() {
 		//regarding the score
 
 		score = score + scoreMultiplier;
 		streak++;
 
-		document.getElementById("score").innerHTML = 
-				"Score: " + score;
+		document.getElementById('score').innerHTML = 'Score: ' + score;
 
-		document.getElementById("streak").innerHTML = 
-				"Streak: " + streak;
-
+		document.getElementById('streak').innerHTML = 'Streak: ' + streak;
 
 		scoreMultiplier++;
-
-
-	
 	}
 
-		//for when the user gets a wrong answer
-		function wrongAnswer(){
-
-			scoreMultiplier = 1;
-			streak = 0;
-
-			}
-
+	//for when the user gets a wrong answer
+	function wrongAnswer() {
+		scoreMultiplier = 1;
+		streak = 0;
+	}
 </script>
