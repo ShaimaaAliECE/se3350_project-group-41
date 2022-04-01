@@ -1,41 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
-    <link rel="stylesheet" href="mystyle.css">
-
-</head>
-<body>
-    
-    <h1>Menu</h1>
-    <h3>You have made 3 mistakes. Choose an option to proceed</h3><br>
-    <input type="button" class="button" onclick="restart()" value="Restart the level" class = "hello"/><br><br>
-    <input type="button" class = "button" onclick="latestLevel()" value="Go to latest level" class = "hello"/><br><br>
-    <input type="button" class = "button" onclick="menu()" value="Go to previous levels" class = "hello"/><br><br>
-    <input type="button" class = "button" onclick="quit()" value="Quit the game" class = "hello"/><br><br>
-</body>
-
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Menu</title>
+		<link rel="stylesheet" href="mystyle.css" />
+	</head>
+	<body>
+		<h1>Menu</h1>
+		<h3>You have made 3 mistakes. Choose an option to proceed</h3>
+		<br />
+		<input type="button" class="button" onclick="restart()" value="Restart the level" class="hello" /><br /><br />
+		<input type="button" class="button" onclick="latestLevel()" value="Go to latest level" class="hello" /><br /><br />
+		<input type="button" class="button" onclick="menu()" value="Go to previous levels" class="hello" /><br /><br />
+		<input type="button" class="button" onclick="quit()" value="Quit the game" class="hello" /><br /><br />
+	</body>
 </html>
 
 <script>
+	function restart() {
+		window.history.back();
+	}
 
-    function restart(){
-        window.history.back();
-    }
+	function latestLevel() {
+		location.href = 'level3.html';
+	}
 
-    function latestLevel(){
-        location.href = 'level3.html';
-    }    
+	function menu() {
+		location.href = 'index.html';
+	}
 
-    function menu(){
-        location.href = 'index.html';
-    }
-
-    function quit(){
-        window.location.replace("https://www.google.com/");
-    }
-
+	function quit() {
+		window.location.replace('https://www.google.com/');
+	}
 </script>

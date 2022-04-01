@@ -5,13 +5,166 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Home</title>
-		<link rel="stylesheet" href="mystyle.css">
+		<link rel="stylesheet" href="mystyle.css" />
 	</head>
 	<body>
 		<h1>Start the tutorial</h1>
 		<!--input type="button"  onclick="ShowLine()" value="Display Level 1" /-->
-		<button type="button" class = "button" onclick="window.location.href='level1.html'"> Level 1 </button>
+		<<<<<<< Updated upstream
+		<button type="button" class="button" onclick="window.location.href='level1.html'">Level 1</button>
+		=======
+		<button type="button" class="button" onclick="window.location.href='level1.html'">Level 1</button>
+		<div>Enter your name:</div>
+		<input type="text" id="name" name="name" /><br /><br />
+		<button type="button" onclick="submitName()">Submit Name</button>
+		<table class="tb" id="scoreboard" width="400" height="100">
+			<tr>
+				<td>NAME</td>
+				<td>LEVEL 2 SCORE</td>
+				<td>LEVEL 2 MISTAKES</td>
+				<td>LEVEL 3 SCORE</td>
+				<td>LEVEL 3 MISTAKES</td>
+			</tr>
+		</table>
+		>>>>>>> Stashed changes
 		<!--body>button type="button" onclick="window.location.href='level2.html'"> Level 2 </button>
 		<button type="button" onclick="window.location.href='level3.html'"> Level 3 </button>/-->
 	</body>
 </html>
+
+<script>
+	//bool for finish game, to set scoreboard
+	let final = 0;
+	//to temp hold player name
+	let playerName = '';
+
+	function submitName() {
+		playerName = document.getElementById('name').value;
+		//requests /name, index.js has post to save values
+		fetch('/name', {
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			method: 'POST',
+			body: JSON.stringify({
+				name: playerName,
+			}),
+		})
+			.then(function (res) {
+				console.log(res);
+			})
+			.catch(function (res) {
+				console.log(res);
+			});
+	}
+
+	fetch('/finallvl', {
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		},
+		method: 'GET',
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			const { finalbool } = data;
+			//	console.log(playerName);
+
+			final = finalbool;
+		})
+		.catch(function (res) {
+			console.log(res);
+		});
+
+	if ((final = 1)) {
+		fetch('/write', {
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			method: 'GET',
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				const { playerName, lvl3Attempts, lvl2Attempts, lvl3sScore, lvl2sScore } = data;
+				//	console.log(playerName);
+				var table = document.getElementById('scoreboard');
+
+				if (playerName != '') {
+					var row = table.insertRow(1);
+
+					var cell1 = row.insertCell(0);
+
+					var cell2 = row.insertCell(1);
+
+					var cell3 = row.insertCell(2);
+
+					var cell4 = row.insertCell(3);
+
+					var cell5 = row.insertCell(4);
+
+					// var cell6 = row.insertCell(5);
+
+					cell1.textContent = playerName;
+
+					cell2.innerHTML = lvl2sScore;
+
+					cell3.innerHTML = lvl2Attempts;
+
+					cell4.innerHTML = lvl3sScore;
+
+					cell5.innerHTML = lvl3Attempts;
+				}
+			})
+			.catch(function (res) {
+				console.log(res);
+			});
+	}
+
+	// Recieves all scores from the nedb database
+	fetch('/scores', {
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		},
+		method: 'GET',
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			//console.log(data);
+
+			for (item of data) {
+				if (`${item.name}` != '') {
+					var table = document.getElementById('scoreboard');
+
+					var row = table.insertRow(1);
+
+					var cell1 = row.insertCell(0);
+
+					var cell2 = row.insertCell(1);
+
+					var cell3 = row.insertCell(2);
+
+					var cell4 = row.insertCell(3);
+
+					var cell5 = row.insertCell(4);
+
+					// var cell6 = row.insertCell(5);
+
+					cell1.textContent = `${item.name}`;
+
+					cell2.innerHTML = `${item.lvl2}`;
+
+					cell3.innerHTML = `${item.lvl2A}`;
+
+					cell4.innerHTML = `${item.lvl3}`;
+
+					cell5.innerHTML = `${item.lvl3A}`;
+				}
+			}
+		})
+		.catch(function (res) {
+			console.log(res);
+		});
+</script>
